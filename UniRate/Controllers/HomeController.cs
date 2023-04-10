@@ -17,6 +17,10 @@ namespace UniRate.Controllers
         {
             return View();
         }
+        public IActionResult HomePage()
+        {
+            return View();
+        }
 
         public IActionResult Index()
         {

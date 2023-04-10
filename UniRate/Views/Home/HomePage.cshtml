@@ -1,0 +1,115 @@
+﻿@page
+@model UniRate.Views.Home.HomePageModel
+@{
+}
+
+
+<!-- Stylesheet connection for Login page -->
+@section Styles {
+    <link rel="stylesheet" href="~/css/HomePageStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+}
+
+
+<body>
+
+    <div class="hero">
+        <video autoPlay loop muted id="backHome">
+            <source src="@Url.Content("~/visual-material/backgroundHome.mp4")" type="video/mp4"/>
+        </video>
+        <nav>
+            <h2 class="logo"><img src="@Url.Content("~/visual-material/uniRateLogo.png")" class="icon-logo"> Uni<span>Rate</span></h2>
+            <ul>
+                <li><a href="#">Αρχική</a></li>
+                <li><a href="#">Πανεπιστήμια</a></li>
+                <li><a href="#">Αξιολογήσεις</a></li>
+                <li><a href="#">Σχετικά με εμάς</a></li>
+                <li><a href="#">Επικοινωνία</a></li>
+            </ul>
+            <a href="#" class="btn">Είσοδος</a>
+        </nav>
+
+        <div class="content">
+            <h4>Καλώς ήρθες στο</h4>
+            <h1>Uni<span>Rate</span></h1>
+            <h3>Ψάξε πανεπιστήμια <span>εύκολα</span> και <span>γρήγορα</span></h3>
+            <div class="search">
+                <form>
+                    <input type="text" name="uni-search" id="uni-search" placeholder="Αναζήτησε ένα πανεπιστήμιο">
+                    <img src="@Url.Content("~/visual-material/search.png")" class="search-icon" alt="search-icon">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <section class="more-info">
+        <div class="main">
+            <img src="@Url.Content("~/visual-material/uniRateLogo.png")">
+            <div class="info-text">
+                <h2>Τι είναι το Uni<span>Rate</span>;</h2>
+                <h5>Καλή ερώτηση!</h5>
+                <p>Βαρέθηκες να κάνεις έρευνα για τα πανεπιστήμια που
+                    σε ενδιαφέρουν, χωρίς να έχεις αποτέλεσμα; Οι πληροφορίες που
+                    υπάρχουν στις διάφορες ιστοσελίδες είναι δυσεύρετες και ανακριβείς;
+                    Το UniRate είναι εδώ για εσένα! Μια εφαρμογή που έχει μαζεμένες όλες
+                    τις πληροφορίες που χρειάζεσαι για κάθε ελληνικό πανεπιστήμιο. Δεν σε
+                    πείσαμε ακόμα; Το UniRate παρέχει την δυνατότητα δημοσίευσης κριτικών
+                    και αξιολογήσεων για τα πανεπιστήμια που συνεργάζεται έτσι όλοι μπορούν να
+                    μοιραστούν την γνώμη τους και τις προσωπικές τους εμπειρίες!</p>
+                <button type="button">Μάθε περισσότερα</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="service">
+        <div class="title">
+            <h2>Τι μπορείς να κάνεις στο Uni<span>Rate</span>;</h2>
+        </div>
+        <div class="box">
+
+            <div class="card">
+                <i class="fa fa-search"></i>
+                <h5>Ψάξε</h5>
+                <div class="pra">
+                    <p>Το UniRate είναι εδώ για εσένα! Μια εφαρμογή που έχει μαζεμένες όλες
+                        τις πληροφορίες που χρειάζεσαι για κάθε ελληνικό πανεπιστήμιο. Δεν σε
+                        πείσαμε ακόμα;</p>
+                    <p style="text-align: center;">
+                        <a class="button" href="#">Αναζήτησε</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <i class="fa fa-info-circle"></i>
+                <h5>Ενημερώσου</h5>
+                <div class="pra">
+                    <p>Το UniRate είναι εδώ για εσένα! Μια εφαρμογή που έχει μαζεμένες όλες
+                        τις πληροφορίες που χρειάζεσαι για κάθε ελληνικό πανεπιστήμιο. Δεν σε
+                        πείσαμε ακόμα;</p>
+                    <p style="text-align: center;">
+                        <a class="button" href="#">Αναζήτησε</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <i class="fa fa-star-half-o"></i>
+                <h5>Αξιολόγησε</h5>
+                <div class="pra">
+                    <p>Το UniRate είναι εδώ για εσένα! Μια εφαρμογή που έχει μαζεμένες όλες
+                        τις πληροφορίες που χρειάζεσαι για κάθε ελληνικό πανεπιστήμιο. Δεν σε
+                        πείσαμε ακόμα;</p>
+                    <p style="text-align: center;">
+                        <a class="button" href="#">Αναζήτησε</a>
+                    </p>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+</body>
