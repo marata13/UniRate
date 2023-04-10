@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\UniRate",
+    "\\UniRate\\Views",
+    "\\UniRate\\Views\\Home"
   ],
+  "SelectedNode": "\\UniRate\\Views\\Home\\Login.cshtml",
   "PreviewInSolutionExplorer": false
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "byVE1cVP4911Vdk+3Qy1K1P+Si7TpCoJvin27qxPzXk=",
+  "Hash": "2RWJf2vJN+Y8zIsah0tELvUzxo5iPIxo7zA6JVAt/PU=",
   "Source": "UniRate",
   "BasePath": "_content/UniRate",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\LoginStyle.css"
+    },
+    {
+      "Identity": "C:\\Users\\Anastasia\\Source\\Repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\NavbarStyle.css",
+      "SourceId": "UniRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Anastasia\\Source\\Repos\\marata13\\UniRate\\UniRate\\wwwroot\\",
+      "BasePath": "_content/UniRate",
+      "RelativePath": "css/NavbarStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\NavbarStyle.css"
     },
     {
       "Identity": "C:\\Users\\Anastasia\\Source\\Repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\site.css",
@@ -1105,12 +1122,12 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\Anastasia\\Source\\Repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\backgroungHome.mp4",
+      "Identity": "C:\\Users\\Anastasia\\Source\\Repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\backgroundHome.mp4",
       "SourceId": "UniRate",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Anastasia\\Source\\Repos\\marata13\\UniRate\\UniRate\\wwwroot\\",
       "BasePath": "_content/UniRate",
-      "RelativePath": "visual-material/backgroungHome.mp4",
+      "RelativePath": "visual-material/backgroundHome.mp4",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1119,7 +1136,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\visual-material\\backgroungHome.mp4"
+      "OriginalItemSpec": "wwwroot\\visual-material\\backgroundHome.mp4"
     },
     {
       "Identity": "C:\\Users\\Anastasia\\Source\\Repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\login-back.jpg",

@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\LoginStyle.css"
     },
     {
+      "Id": "C:\\Users\\Anastasia\\Source\\Repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\NavbarStyle.css",
+      "PackagePath": "staticwebassets\\css\\NavbarStyle.css"
+    },
+    {
       "Id": "C:\\Users\\Anastasia\\Source\\Repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -253,8 +257,8 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Users\\Anastasia\\Source\\Repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\backgroungHome.mp4",
-      "PackagePath": "staticwebassets\\visual-material\\backgroungHome.mp4"
+      "Id": "C:\\Users\\Anastasia\\Source\\Repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\backgroundHome.mp4",
+      "PackagePath": "staticwebassets\\visual-material\\backgroundHome.mp4"
     },
     {
       "Id": "C:\\Users\\Anastasia\\Source\\Repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\login-back.jpg",
