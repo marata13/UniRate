@@ -1,0 +1,84 @@
+﻿@page
+@model UniRate.Views.Home.LoginModel
+@{
+}
+
+<!-- Stylesheet connection for Login page -->
+@section Styles {
+    <link rel="stylesheet" href="~/css/LoginStyle.css" />
+}
+
+
+<body>
+    <img class="back-img" src="@Url.Content("~/visual-material/login-back.jpg")" alt="UniRate Logo">
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <img class="login-logo" src="@Url.Content("~/visual-material/uniRateLogo.png")" alt="UniRate Logo">
+                <h1 class="title">Εγγραφή</h1>
+                <div class="infield">
+                    <input type="text" placeholder="Όνομα" />
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input type="text" placeholder="Επώνυμο" />
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input type="email" placeholder="Email" name="email" />
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input type="password" placeholder="Κωδικός πρόσβασης" />
+                    <label></label>
+                </div>
+                <button>Εγγραφη</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <img class="login-logo" src="@Url.Content("~/visual-material/uniRateLogo.png")" alt="UniRate Logo">
+                <h1 class="title">Σύνδεση</h1>
+                <div class="infield">
+                    <input type="email" placeholder="Email" name="Όνομα χρήστη" />
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input type="password" placeholder="Κωδικός πρόσβασης" />
+                    <label></label>
+                </div>
+                <a href="#" class="forgot">Ξέχασες τον κωδικό σου;</a>
+                <button>Συνδεσου</button>
+            </form>
+        </div>
+        <div class="overlay-container" id="overlayCon">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1 class="side">Έχεις ήδη λογαριασμό UniRate;</h1>
+                    <p>Συνέσου στον λογαριασμό σου πατώντας το παρακάτω κουμπί.</p>
+                    <button>Συνδεση</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1 class="side">Καλώς ήρθες στο UniRate!</h1>
+                    <p>Δημιούργησε νεό λογαριασμό πατώντας το παρακάτω κουμπί.</p>
+                    <button>Εγγραφη</button>
+                </div>
+            </div>
+            <button id="overlayBtn"></button>
+        </div>
+    </div>
+
+
+    <!-- js code -->
+    <script>
+        const container = document.getElementById('container');
+        const overlayCon = document.getElementById('overlayCon');
+        const overlayBtn = document.getElementById('overlayBtn');
+
+        overlayBtn.addEventListener('click', () => {
+            container.classList.toggle('right-panel-active');
+        });
+
+    </script>
+
+</body>
