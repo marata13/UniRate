@@ -28,13 +28,25 @@
                 <li><a href="#">Επικοινωνία</a></li>
             </ul>
             <a href="#" class="btn">Είσοδος</a>
+            <div class="toggle-btn">
+                <i class="fa fa-bars"></i>
+            </div>
         </nav>
+        <div class="dropdown-menu">
+            <li><a href="#">Αρχική</a></li>
+            <li><a href="#">Πανεπιστήμια</a></li>
+            <li><a href="#">Αξιολογήσεις</a></li>
+            <li><a href="#">Σχετικά με εμάς</a></li>
+            <li><a href="#">Επικοινωνία</a></li>
+            <li><a href="#" class="btn">Είσοδος</a></li>
+        </div>
         <script>
+            // Change navbar color on scroll
             function changeBg() {
                 let navbar = document.getElementById('navbar');
                 let scrollValue = window.scrollY;
 
-                if(scrollValue < 150) {
+                if (scrollValue < 150) {
                     navbar.classList.remove('bgColor');
                 }
                 else {
@@ -44,6 +56,19 @@
 
             window.addEventListener('scroll', changeBg);
 
+            // Dropdown menu handling (responsive design)
+            const toggleBtn = document.querySelector('.toggle-btn');
+            const toggleBtnIcon = document.querySelector('.toggle-btn i');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+
+            toggleBtn.onclick = function () {
+                dropdownMenu.classList.toggle('open');
+                const isOpen = dropdownMenu.classList.contains('open');
+
+                toggleBtnIcon.classList = isOpen
+                    ? 'fa fa-close'
+                    : 'fa fa-bars';
+            }
         </script>
 
 
@@ -148,7 +173,6 @@
             <a href="#"><i class="fa fa-envelope"></i></a>
             <a href="#"><i class="fa fa-envelope"></i></a>
         </div>
-        <br />
         <p class="end"><i class="fa fa-copyright"></i> 2023 All Right Reserved</p>
     </footer>
 </body>
