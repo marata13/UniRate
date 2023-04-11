@@ -213,10 +213,10 @@ h5 {
 
 
 footer {
-    margin-top: 40px;
+    background-color: #fff;
     position: relative;
     width: 100%;
-    height: 400px;
+    padding-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -238,6 +238,7 @@ footer {
 
 .social {
     display: flex;
+    margin-bottom: 70px;
 }
 
     .social a {
