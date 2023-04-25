@@ -3,11 +3,8 @@
     "",
     "\\UniRate",
     "\\UniRate\\Views",
-    "\\UniRate\\Views\\Home",
-    "\\UniRate\\Views\\Shared",
-    "\\UniRate\\wwwroot",
-    "\\UniRate\\wwwroot\\css"
+    "\\UniRate\\Views\\Home"
   ],
-  "SelectedNode": "\\UniRate\\wwwroot\\css\\HomePageStyle.css",
+  "SelectedNode": "\\UniRate\\Views\\Home\\HomePage.cshtml",
   "PreviewInSolutionExplorer": false
 }

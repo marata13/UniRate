@@ -1,0 +1,185 @@
+﻿@page
+@model UniRate.Views.RegisteredUsers.HomeRegisteredModel
+@{
+}
+
+
+<!-- Stylesheet connection for Home page -->
+@section Styles {
+    <link rel="stylesheet" href="~/css/HomePageStyle.css" />
+    <link rel="stylesheet" href="~/css/NavbarRegisteredStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+}
+
+<body>
+
+    <div class="hero">
+        <video autoPlay loop muted id="backHome">
+            <source src="@Url.Content("~/visual-material/backgroundHome.mp4")" type="video/mp4" />
+        </video>
+
+
+
+        <nav class="navbar" id="navbar">
+            <h2 class="logo"><img src="@Url.Content("~/visual-material/uniRateLogo.png")" class="icon-logo"> Uni<span>Rate</span></h2>
+            <ul class="navbar-links">
+                <li><a href="#">Αρχική</a></li>
+                <li><a href="#">Πανεπιστήμια</a></li>
+                <li><a href="#">Αξιολογήσεις</a></li>
+                <li><a href="#">Αγαπημένα</a></li>
+                <li><a href="#">Σχετικά με εμάς</a></li>
+                <li><a asp-controller="Home" asp-action="Login">Έξοδος</a></li>
+            </ul>
+            <a href="#" class="btn">aboublini<i class="fa fa-user"></i></a>
+            <div class="toggle-btn">
+                <i class="fa fa-bars"></i>
+            </div>
+        </nav>
+        <div class="dropdown-menu">
+            <li><a href="#">Αρχική</a></li>
+            <li><a href="#">Πανεπιστήμια</a></li>
+            <li><a href="#">Αξιολογήσεις</a></li>
+            <li><a href="#">Αγαπημένα</a></li>
+            <li><a href="#">Σχετικά με εμάς</a></li>
+            <li><a asp-controller="Home" asp-action="Login">Έξοδος</a></li>
+            <li><a href="#" class="btn">aboublini<i class="fa fa-user"></i></a></li>
+        </div>
+        <script>
+            // Change navbar color on scroll
+            function changeBg() {
+                let navbar = document.getElementById('navbar');
+                let scrollValue = window.scrollY;
+
+                if (scrollValue < 150) {
+                    navbar.classList.remove('bgColor');
+                }
+                else {
+                    navbar.classList.add('bgColor');
+                }
+            }
+
+            window.addEventListener('scroll', changeBg);
+
+            // Dropdown menu handling (responsive design)
+            const toggleBtn = document.querySelector('.toggle-btn');
+            const toggleBtnIcon = document.querySelector('.toggle-btn i');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+
+            toggleBtn.onclick = function () {
+                dropdownMenu.classList.toggle('open');
+                const isOpen = dropdownMenu.classList.contains('open');
+
+                toggleBtnIcon.classList = isOpen
+                    ? 'fa fa-close'
+                    : 'fa fa-bars';
+            }
+        </script>
+
+
+
+        <div class="content">
+            <h4>Καλώς ήρθες στο</h4>
+            <h1>Uni<span>Rate</span></h1>
+            <h3>Ψάξε πανεπιστήμια <span>εύκολα</span> και <span>γρήγορα</span></h3>
+            <div class="search">
+                <form>
+                    <input type="text" name="uni-search" id="uni-search" placeholder="Αναζήτησε ένα πανεπιστήμιο">
+                    <img src="@Url.Content("~/visual-material/search.png")" class="search-icon" alt="search-icon">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <section class="more-info">
+        <div class="main">
+            <img src="@Url.Content("~/visual-material/uniRateLogo.png")">
+            <div class="info-text">
+                <h2>Τι είναι το Uni<span>Rate</span>;</h2>
+                <h4>Καλή ερώτηση!</h4><br>
+                <p>
+                    Βαρέθηκες να κάνεις έρευνα για τα πανεπιστήμια που
+                    σε ενδιαφέρουν, χωρίς να έχεις αποτέλεσμα; Οι πληροφορίες που
+                    υπάρχουν στις διάφορες ιστοσελίδες είναι δυσεύρετες και ανακριβείς;
+                    Το UniRate είναι εδώ για εσένα! Μια εφαρμογή που έχει μαζεμένες όλες
+                    τις πληροφορίες που χρειάζεσαι για κάθε ελληνικό πανεπιστήμιο. Δεν σε
+                    πείσαμε ακόμα; Το UniRate παρέχει την δυνατότητα δημοσίευσης κριτικών
+                    και αξιολογήσεων για τα πανεπιστήμια που συνεργάζεται έτσι όλοι μπορούν να
+                    μοιραστούν την γνώμη τους και τις προσωπικές τους εμπειρίες!
+                </p>
+                <button type="button">Μάθε περισσότερα</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="service">
+        <div class="title">
+            <h2>Τι μπορείς να κάνεις στο Uni<span>Rate</span>;</h2>
+        </div>
+        <div class="box">
+
+            <div class="card">
+                <i class="fa fa-search"></i>
+                <h5>Ψάξε</h5>
+                <div class="pra">
+                    <p>
+                        Το UniRate είναι εδώ για εσένα! Μια εφαρμογή που έχει μαζεμένες όλες
+                        τις πληροφορίες που χρειάζεσαι για κάθε ελληνικό πανεπιστήμιο. Δεν σε
+                        πείσαμε ακόμα;
+                    </p>
+                    <p style="text-align: center;">
+                        <a class="button" href="#">Αναζήτησε</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <i class="fa fa-info-circle"></i>
+                <h5>Ενημερώσου</h5>
+                <div class="pra">
+                    <p>
+                        Το UniRate είναι εδώ για εσένα! Μια εφαρμογή που έχει μαζεμένες όλες
+                        τις πληροφορίες που χρειάζεσαι για κάθε ελληνικό πανεπιστήμιο. Δεν σε
+                        πείσαμε ακόμα;
+                    </p>
+                    <p style="text-align: center;">
+                        <a class="button" href="#">Αναζήτησε</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <i class="fa fa-star-half-o"></i>
+                <h5>Αξιολόγησε</h5>
+                <div class="pra">
+                    <p>
+                        Το UniRate είναι εδώ για εσένα! Μια εφαρμογή που έχει μαζεμένες όλες
+                        τις πληροφορίες που χρειάζεσαι για κάθε ελληνικό πανεπιστήμιο. Δεν σε
+                        πείσαμε ακόμα;
+                    </p>
+                    <p style="text-align: center;">
+                        <a class="button" href="#">Αναζήτησε</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <footer>
+        <p><i class="fa fa-copyright"></i>   Uni<span>Rate</span></p>
+        <p>
+            Το UniRate αποτελεί την εργασία εξαμήνου μας για το μάθημα "Πληροφοριακά
+            Συστήματα στο Διαδίκτυο". Μπορείς να μας βρείς στο GitHub ή να μας στείλεις mail:
+        </p>
+        <div class="social">
+            <a href="https://github.com/aboublini"><i class="fa fa-github"></i></a>
+            <a href="https://github.com/marata13"><i class="fa fa-github"></i></a>
+            <a href="mailto:aboublini@gmail.com"><i class="fa fa-envelope"></i></a>
+            <a href="mailto:ioakeim13@hotmail.gr"><i class="fa fa-envelope"></i></a>
+        </div>
+        <p class="end"><i class="fa fa-copyright"></i> 2023 All Right Reserved</p>
+    </footer>
+</body>
