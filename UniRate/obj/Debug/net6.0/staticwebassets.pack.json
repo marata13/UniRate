@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\css\\NavbarStyle.css"
     },
     {
+      "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\SearchStyle.css",
+      "PackagePath": "staticwebassets\\css\\SearchStyle.css"
+    },
+    {
       "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -259,6 +263,10 @@
     {
       "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\SearchBackground.jpg",
+      "PackagePath": "staticwebassets\\visual-material\\SearchBackground.jpg"
     },
     {
       "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\backgroundHome.mp4",

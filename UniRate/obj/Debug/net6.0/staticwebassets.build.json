@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "z6qEN/Wuet3Z344iddMoRzsvmME0BUdwuTClY9uwNos=",
+  "Hash": "le4Q3zVPWf8ySOysecKhWzx4JoiYjEJbFV9xB8C/I9I=",
   "Source": "UniRate",
   "BasePath": "_content/UniRate",
   "Mode": "Default",
@@ -117,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\NavbarStyle.css"
+    },
+    {
+      "Identity": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\SearchStyle.css",
+      "SourceId": "UniRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\",
+      "BasePath": "_content/UniRate",
+      "RelativePath": "css/SearchStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\SearchStyle.css"
     },
     {
       "Identity": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\site.css",
@@ -1188,6 +1205,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\visual-material\\search.png"
+    },
+    {
+      "Identity": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\SearchBackground.jpg",
+      "SourceId": "UniRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\",
+      "BasePath": "_content/UniRate",
+      "RelativePath": "visual-material/SearchBackground.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\visual-material\\SearchBackground.jpg"
     },
     {
       "Identity": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\uniRateLogo.png",

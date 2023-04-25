@@ -60,23 +60,26 @@ h4 {
         font-size: 16px;
     }
 
-.search-icon {
+.search-btn {
     position: absolute;
     display: inline-block;
     outline: none;
     border: none;
-    padding: 10px 30px;
-    border-radius: 30px;
-    top: -4px;
-    right: -25px;
-    height: 55px;
+    top: 8px;
+    right: 6px;
     transition: transform .4s;
+    color: white;
+    border-radius: 25px;
 }
 
-    .search-icon:hover {
+    .search-btn:hover {
         cursor: pointer;
         transform: scale(1.2);
     }
+
+.search-icon {
+    width: 30px;
+}
 
 .more-info {
     width: 100%;

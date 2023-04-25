@@ -1,0 +1,104 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<!-- Stylesheet connection for Search page -->
+@section Styles {
+    <link rel="stylesheet" href="~/css/SearchStyle.css" />
+    <link rel="stylesheet" href="~/css/NavbarRegisteredStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+}
+
+<body>
+    <div class="hero">
+        <img src="@Url.Content("~/visual-material/SearchBackground.jpg")" class="back-image">
+
+
+
+        <nav class="navbar" id="navbar">
+            <h2 class="logo"><img src="@Url.Content("~/visual-material/uniRateLogo.png")" class="icon-logo"> Uni<span>Rate</span></h2>
+            <ul class="navbar-links">
+                <li><a asp-controller="RegisteredUsers" asp-action="HomeRegistered">Αρχική</a></li>
+                <li><a asp-controller="RegisteredUsers" asp-action="SearchRegistered">Πανεπιστήμια</a></li>
+                <li><a href="#">Αξιολογήσεις</a></li>
+                <li><a href="#">Αγαπημένα</a></li>
+                <li><a href="#">Σχετικά με εμάς</a></li>
+                <li><a asp-controller="Home" asp-action="Login">Έξοδος</a></li>
+            </ul>
+            <a href="#" class="btn">aboublini<i class="fa fa-user"></i></a>
+            <div class="toggle-btn">
+                <i class="fa fa-bars"></i>
+            </div>
+        </nav>
+        <div class="dropdown-menu">
+            <li><a asp-controller="RegisteredUsers" asp-action="HomeRegistered">Αρχική</a></li>
+            <li><a asp-controller="RegisteredUsers" asp-action="SearchRegistered">Πανεπιστήμια</a></li>
+            <li><a href="#">Αξιολογήσεις</a></li>
+            <li><a href="#">Αγαπημένα</a></li>
+            <li><a href="#">Σχετικά με εμάς</a></li>
+            <li><a asp-controller="Home" asp-action="Login">Έξοδος</a></li>
+            <li><a href="#" class="btn">aboublini<i class="fa fa-user"></i></a></li>
+        </div>
+       
+        <script>
+            // Change navbar color on scroll
+            function changeBg() {
+                let navbar = document.getElementById('navbar');
+                let scrollValue = window.scrollY;
+
+                if (scrollValue < 150) {
+                    navbar.classList.remove('bgColor');
+                }
+                else {
+                    navbar.classList.add('bgColor');
+                }
+            }
+
+            window.addEventListener('scroll', changeBg);
+
+            // Dropdown menu handling (responsive design)
+            const toggleBtn = document.querySelector('.toggle-btn');
+            const toggleBtnIcon = document.querySelector('.toggle-btn i');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+
+            toggleBtn.onclick = function () {
+                dropdownMenu.classList.toggle('open');
+                const isOpen = dropdownMenu.classList.contains('open');
+
+                toggleBtnIcon.classList = isOpen
+                    ? 'fa fa-close'
+                    : 'fa fa-bars';
+            }
+        </script>
+
+
+    <div class="content">
+        <h1>Uni<span>Rate</span></h1>
+        <h3>Αναζήτησε  <span>πανεπιστήμια</span> ή <span>τμήματα</span></h3>
+        <div class="search">
+            <form>
+                <input type="text" name="uni-search" id="uni-search" placeholder="Αναζήτησε ένα πανεπιστήμιο">
+                <button class="search-btn"><img src="@Url.Content("~/visual-material/search.png")" class="search-icon" alt="search-icon"></button>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <footer>
+            <p><i class="fa fa-copyright"></i>   Uni<span>Rate</span></p>
+            <p>
+                Το UniRate αποτελεί την εργασία εξαμήνου μας για το μάθημα "Πληροφοριακά
+                Συστήματα στο Διαδίκτυο". Μπορείς να μας βρείς στο GitHub ή να μας στείλεις mail:
+            </p>
+            <div class="social">
+                <a href="https://github.com/aboublini"><i class="fa fa-github"></i></a>
+                <a href="https://github.com/marata13"><i class="fa fa-github"></i></a>
+                <a href="mailto:aboublini@gmail.com"><i class="fa fa-envelope"></i></a>
+                <a href="mailto:ioakeim13@hotmail.gr"><i class="fa fa-envelope"></i></a>
+            </div>
+            <p class="end"><i class="fa fa-copyright"></i> 2023 All Right Reserved</p>
+    </footer>
+</body>

@@ -24,7 +24,7 @@
             <h2 class="logo"><img src="@Url.Content("~/visual-material/uniRateLogo.png")" class="icon-logo"> Uni<span>Rate</span></h2>
             <ul class="navbar-links">
                 <li><a href="#">Αρχική</a></li>
-                <li><a href="#">Πανεπιστήμια</a></li>
+                <li><a asp-controller="RegisteredUsers" asp-action="SearchRegistered">Πανεπιστήμια</a></li>
                 <li><a href="#">Αξιολογήσεις</a></li>
                 <li><a href="#">Αγαπημένα</a></li>
                 <li><a href="#">Σχετικά με εμάς</a></li>
@@ -37,7 +37,7 @@
         </nav>
         <div class="dropdown-menu">
             <li><a href="#">Αρχική</a></li>
-            <li><a href="#">Πανεπιστήμια</a></li>
+            <li><a asp-controller="RegisteredUsers" asp-action="SearchRegistered">Πανεπιστήμια</a></li>
             <li><a href="#">Αξιολογήσεις</a></li>
             <li><a href="#">Αγαπημένα</a></li>
             <li><a href="#">Σχετικά με εμάς</a></li>
@@ -84,7 +84,7 @@
             <div class="search">
                 <form>
                     <input type="text" name="uni-search" id="uni-search" placeholder="Αναζήτησε ένα πανεπιστήμιο">
-                    <img src="@Url.Content("~/visual-material/search.png")" class="search-icon" alt="search-icon">
+                    <button class="search-btn"><img src="@Url.Content("~/visual-material/search.png")" class="search-icon" alt="search-icon"></button>
                 </form>
             </div>
         </div>
@@ -122,12 +122,11 @@
                 <h5>Ψάξε</h5>
                 <div class="pra">
                     <p>
-                        Το UniRate είναι εδώ για εσένα! Μια εφαρμογή που έχει μαζεμένες όλες
-                        τις πληροφορίες που χρειάζεσαι για κάθε ελληνικό πανεπιστήμιο. Δεν σε
-                        πείσαμε ακόμα;
+                        Το UniRate συνεργάζεται με πολλά πανεπιστημιακά ιδρύματα στη χώρα μας.
+                        Αναζήτησε τα πανεπιστήμια και τα τμήματα που σε ενδιαφέρουν με ένα μόνο κλικ.
                     </p>
                     <p style="text-align: center;">
-                        <a class="button" href="#">Αναζήτησε</a>
+                        <a class="button" asp-controller="RegisteredUsers" asp-action="SearchRegistered">Βρες ιδρύματα</a>
                     </p>
                 </div>
             </div>
@@ -137,12 +136,11 @@
                 <h5>Ενημερώσου</h5>
                 <div class="pra">
                     <p>
-                        Το UniRate είναι εδώ για εσένα! Μια εφαρμογή που έχει μαζεμένες όλες
-                        τις πληροφορίες που χρειάζεσαι για κάθε ελληνικό πανεπιστήμιο. Δεν σε
-                        πείσαμε ακόμα;
+                        Βρες όποια πληροφορία χρειάζεσαι για το πανεπιστήμιο ή τμήμα που σε ενδιαφέρει. 
+                        Το UniRate παρέχει όλες τις πληροφορίες για τα ιδρύματα με τα οποία συνεργάζεται.
                     </p>
                     <p style="text-align: center;">
-                        <a class="button" href="#">Αναζήτησε</a>
+                        <a class="button" asp-controller="RegisteredUsers" asp-action="SearchRegistered">Βρες πληροφορίες</a>
                     </p>
                 </div>
             </div>
@@ -152,12 +150,11 @@
                 <h5>Αξιολόγησε</h5>
                 <div class="pra">
                     <p>
-                        Το UniRate είναι εδώ για εσένα! Μια εφαρμογή που έχει μαζεμένες όλες
-                        τις πληροφορίες που χρειάζεσαι για κάθε ελληνικό πανεπιστήμιο. Δεν σε
-                        πείσαμε ακόμα;
+                        Μην βασίζεσαι μόνο στις πληροφορίες που διαβάζεις. Μπορείς να συμβουλευτείς 
+                        τις εμπειρίες άλλων ατόμων ή να μοιραστείς την δική σου εμπειρία!
                     </p>
                     <p style="text-align: center;">
-                        <a class="button" href="#">Αναζήτησε</a>
+                        <a class="button" href="#">Δες αξιολογήσεις</a>
                     </p>
                 </div>
             </div>
