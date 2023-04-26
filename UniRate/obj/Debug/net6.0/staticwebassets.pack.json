@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\UniRate.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\AddReviewStyle.css",
+      "PackagePath": "staticwebassets\\css\\AddReviewStyle.css"
+    },
+    {
       "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\HomePageStyle.css",
       "PackagePath": "staticwebassets\\css\\HomePageStyle.css"
     },

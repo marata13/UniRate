@@ -22,6 +22,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=RegisteredUsers}/{action=UniResultsRegistered}/{id?}");
+    pattern: "{controller=RegisteredUsers}/{action=AddReview}/{id?}");
 
 app.Run();

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/n0fCCBrGU1fbUQvQpmoW+/bo+qRnauC/Z4FWEVC2gE=",
+  "Hash": "OvqoT7twAnwLTVaaE0I7wyKHa+ARUJ2Fqf2zRX1rb6A=",
   "Source": "UniRate",
   "BasePath": "_content/UniRate",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\UniRate.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\AddReviewStyle.css",
+      "SourceId": "UniRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\",
+      "BasePath": "_content/UniRate",
+      "RelativePath": "css/AddReviewStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\AddReviewStyle.css"
     },
     {
       "Identity": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\HomePageStyle.css",

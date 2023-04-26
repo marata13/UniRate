@@ -23,5 +23,10 @@ namespace UniRate.Controllers
         {
             return View();
         }
+
+        public IActionResult AddReview()
+        {
+            return View();
+        }
     }
 }
