@@ -18,5 +18,10 @@ namespace UniRate.Controllers
         {
             return View();
         }
+
+        public IActionResult UniResultsRegistered()
+        {
+            return View();
+        }
     }
 }

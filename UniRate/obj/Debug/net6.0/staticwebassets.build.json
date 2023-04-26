@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "le4Q3zVPWf8ySOysecKhWzx4JoiYjEJbFV9xB8C/I9I=",
+  "Hash": "/n0fCCBrGU1fbUQvQpmoW+/bo+qRnauC/Z4FWEVC2gE=",
   "Source": "UniRate",
   "BasePath": "_content/UniRate",
   "Mode": "Default",
@@ -151,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\UniResultsStyle.css",
+      "SourceId": "UniRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\",
+      "BasePath": "_content/UniRate",
+      "RelativePath": "css/UniResultsStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\UniResultsStyle.css"
     },
     {
       "Identity": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\favicon.ico",
@@ -1190,6 +1207,23 @@
       "OriginalItemSpec": "wwwroot\\visual-material\\login-back.jpg"
     },
     {
+      "Identity": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\papei.png",
+      "SourceId": "UniRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\",
+      "BasePath": "_content/UniRate",
+      "RelativePath": "visual-material/papei.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\visual-material\\papei.png"
+    },
+    {
       "Identity": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\search.png",
       "SourceId": "UniRate",
       "SourceType": "Discovered",
@@ -1222,6 +1256,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\visual-material\\SearchBackground.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\unipi.png",
+      "SourceId": "UniRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\",
+      "BasePath": "_content/UniRate",
+      "RelativePath": "visual-material/unipi.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\visual-material\\unipi.png"
     },
     {
       "Identity": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\uniRateLogo.png",

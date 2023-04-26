@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\css\\SearchStyle.css"
     },
     {
+      "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\UniResultsStyle.css",
+      "PackagePath": "staticwebassets\\css\\UniResultsStyle.css"
+    },
+    {
       "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -277,12 +281,20 @@
       "PackagePath": "staticwebassets\\visual-material\\login-back.jpg"
     },
     {
+      "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\papei.png",
+      "PackagePath": "staticwebassets\\visual-material\\papei.png"
+    },
+    {
       "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\search.png",
       "PackagePath": "staticwebassets\\visual-material\\search.png"
     },
     {
       "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\uniRateLogo.png",
       "PackagePath": "staticwebassets\\visual-material\\uniRateLogo.png"
+    },
+    {
+      "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\unipi.png",
+      "PackagePath": "staticwebassets\\visual-material\\unipi.png"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.UniRate.Microsoft.AspNetCore.StaticWebAssets.props",

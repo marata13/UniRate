@@ -1,0 +1,334 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<!-- Stylesheet connection for Search page -->
+@section Styles {
+    <link rel="stylesheet" href="~/css/UniResultsStyle.css" />
+    <link rel="stylesheet" href="~/css/NavbarRegisteredStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+}
+
+<body>
+    <div class="hero">
+        <img src="@Url.Content("~/visual-material/papei.png")" class="back-image">
+
+
+
+        <nav class="navbar" id="navbar">
+            <h2 class="logo"><img src="@Url.Content("~/visual-material/uniRateLogo.png")" class="icon-logo"> Uni<span>Rate</span></h2>
+            <ul class="navbar-links">
+                <li><a asp-controller="RegisteredUsers" asp-action="HomeRegistered">Αρχική</a></li>
+                <li><a asp-controller="RegisteredUsers" asp-action="SearchRegistered">Πανεπιστήμια</a></li>
+                <li><a href="#">Αξιολογήσεις</a></li>
+                <li><a href="#">Αγαπημένα</a></li>
+                <li><a href="#">Σχετικά με εμάς</a></li>
+                <li><a asp-controller="Home" asp-action="Login">Έξοδος</a></li>
+            </ul>
+            <a href="#" class="btn">aboublini<i class="fa fa-user"></i></a>
+            <div class="toggle-btn">
+                <i class="fa fa-bars"></i>
+            </div>
+        </nav>
+        <div class="dropdown-menu">
+            <li><a asp-controller="RegisteredUsers" asp-action="HomeRegistered">Αρχική</a></li>
+            <li><a asp-controller="RegisteredUsers" asp-action="SearchRegistered">Πανεπιστήμια</a></li>
+            <li><a href="#">Αξιολογήσεις</a></li>
+            <li><a href="#">Αγαπημένα</a></li>
+            <li><a href="#">Σχετικά με εμάς</a></li>
+            <li><a asp-controller="Home" asp-action="Login">Έξοδος</a></li>
+            <li><a href="#" class="btn">aboublini<i class="fa fa-user"></i></a></li>
+        </div>
+
+        <script>
+            // Change navbar color on scroll
+            function changeBg() {
+                let navbar = document.getElementById('navbar');
+                let scrollValue = window.scrollY;
+
+                if (scrollValue < 150) {
+                    navbar.classList.remove('bgColor');
+                }
+                else {
+                    navbar.classList.add('bgColor');
+                }
+            }
+
+            window.addEventListener('scroll', changeBg);
+
+            // Dropdown menu handling (responsive design)
+            const toggleBtn = document.querySelector('.toggle-btn');
+            const toggleBtnIcon = document.querySelector('.toggle-btn i');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+
+            toggleBtn.onclick = function () {
+                dropdownMenu.classList.toggle('open');
+                const isOpen = dropdownMenu.classList.contains('open');
+
+                toggleBtnIcon.classList = isOpen
+                    ? 'fa fa-close'
+                    : 'fa fa-bars';
+            }
+        </script>
+
+
+
+        <div class="content">
+            <h1>Πανεπιστήμιο Πειραιά</h1>
+        </div>
+    </div>
+
+
+    <div class="uni-basics">
+
+        <div class="uni-info">
+            <div class="title">
+                <h2>Πανεπιστήμιο Πειραιά</h2>
+                <img class="uni-logo" src="@Url.Content("~/visual-material/unipi.png")">
+            </div>
+            <div class="info-section">
+                <h3>Πρύτανης:</h3>
+                <h3>Μιχάλης Σφακιανάκης</h3>
+            </div>
+            <div class="info-section">
+                <h3>Τοποθεσία:</h3>
+                <h3>Πειραιάς, Ελλάδα</h3>
+            </div>
+            <div class="info-section">
+                <h3>Διεύθυνση:</h3>
+                <h3>Κ. & Δημητρίου 80</h3>
+            </div>
+            <div class="info-section">
+                <h3>Φοιτητές:</h3>
+                <h3>12.000</h3>
+            </div>
+            <div class="info-section">
+                <h3>Ιστοσελίδα:</h3>
+                <h3>unipi.gr</h3>
+            </div>
+
+        </div>
+
+        <div class="uni-rankings">
+            <div class="title">
+                <h2>4,88 - 52 αξιολογήσεις</h2>
+                <div class="total-stars">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                </div>
+
+            </div>
+
+            <div class="rank">
+                <h3>Σχολές</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                </div>
+            </div>
+
+            <div class="rank">
+                <h3>Δράσεις</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                </div>
+            </div>
+
+            <div class="rank">
+                <h3>Τοποθεσία</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                </div>
+            </div>
+
+            <div class="rank">
+                <h3>Προσβασιμότητα</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                </div>
+            </div>
+
+            <div class="rank">
+                <h3>Οργάνωση</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="uni-basics-more">
+
+        <div class="uni-deps">
+            <div class="title">
+                <h2>Σχολές και τμήματα</h2>
+            </div>
+            <div class="deps-section">
+                <h3>Σχολή Οικονομικών, Επιχειρηματικών και Διεθνών Σπουδών</h3>
+                <ul class="deps-names">
+                    <li>Τμήμα Οικονομικής Επιστήμης</li>
+                    <li>Τμήμα Οργάνωσης και Διοίκησης Επιχειρήσεων</li>
+                    <li>Τμήμα Διεθνών και Ευρωπαϊκών Σπουδών</li>
+                    <li>Τμήμα Τουριστικών Σπουδών</li>
+                </ul>
+            </div>
+            <hr>
+            <div class="deps-section">
+                <h3>Σχολή Ναυτιλίας και Βιομηχανίας</h3>
+                <ul class="deps-names">
+                    <li>Τμήμα Ναυτιλιακών Σπουδών</li>
+                    <li>Τμήμα Βιομηχανικής Διοίκησης και Τεχνολογίας</li>
+                </ul>
+            </div>
+            <hr>
+            <div class="deps-section">
+                <h3>Σχολή Χρηματοοικονομικής και Στατιστικής</h3>
+                <ul class="deps-names">
+                    <li>Τμήμα Χρηματοοικονομικής και Τραπεζικής Διοικητικής</li>
+                    <li>Τμήμα Στατιστικής και Ασφαλιστικής Επιστήμης</li>
+                </ul>
+            </div>
+            <hr>
+            <div class="deps-section">
+                <h3>Σχολή Τεχνολογιών Πληροφορικής και Επικοινωνιών</h3>
+                <ul class="deps-names">
+                    <li>Τμήμα Πληροφορικής</li>
+                    <li>Τμήμα Ψηφιακών Συστημάτων</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="uni-map">
+            <div class="title">
+                <h2>Χάρτης</h2>
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3146.525340258017!2d23.650293176368773!3d37.94151790253674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bbe5bb8515a1%3A0x3e0dce8e58812705!2zzqDOsc69zrXPgM65z4PPhM6uzrzOuc6_IM6gzrXOuc-BzrHOuc-Oz4I!5e0!3m2!1sel!2sgr!4v1682510205416!5m2!1sel!2sgr"
+                    width="100%"
+                    height="88%"
+                    style="border:0; border-radius: 25px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="reviews">
+
+        <div class="reviews-cont">
+            <div class="title">
+                <h2>Κριτικές</h2>
+            </div>
+
+            <div class="rev">
+
+                <div class="scroll">
+                    <div class="who">
+                        <a><i class="fa fa-user"></i></a>
+                        <div>
+                            <h3>aboublini</h3>
+                            <p>2 months ago</p>
+                        </div>
+                    </div>
+                    <div class="txt">
+                        <p>
+                            Το Πανεπιστήμιο Πειραιώς αριθμεί 80 συνεχή έτη λειτουργίας.
+                            Ο χώρος είναι κάπως παλιός, ωστόσο είναι καλά συντηρημενος.
+                            Υπάρχουνε τόσο αίθουσες όσο και αμφιθέατρα όπου μπορούν και
+                            διεξάγονται μαθήματα και διάφοροι τύποι εκδηλώσεων εντός του
+                            Πανεπιστημίου!
+                        </p>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="scroll">
+                    <div class="who">
+                        <a><i class="fa fa-user"></i></a>
+                        <div>
+                            <h3>aboublini</h3>
+                            <p>2 months ago</p>
+                        </div>
+                    </div>
+                    <div class="txt">
+                        <p>
+                            Το Πανεπιστήμιο Πειραιώς αριθμεί 80 συνεχή έτη λειτουργίας.
+                            Ο χώρος είναι κάπως παλιός, ωστόσο είναι καλά συντηρημενος.
+                            Υπάρχουνε τόσο αίθουσες όσο και αμφιθέατρα όπου μπορούν και
+                            διεξάγονται μαθήματα και διάφοροι τύποι εκδηλώσεων εντός του
+                            Πανεπιστημίου!
+                        </p>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="scroll">
+                    <div class="who">
+                        <a><i class="fa fa-user"></i></a>
+                        <div>
+                            <h3>aboublini</h3>
+                            <p>2 months ago</p>
+                        </div>
+                    </div>
+                    <div class="txt">
+                        <p>
+                            Το Πανεπιστήμιο Πειραιώς αριθμεί 80 συνεχή έτη λειτουργίας.
+                            Ο χώρος είναι κάπως παλιός, ωστόσο είναι καλά συντηρημενος.
+                            Υπάρχουνε τόσο αίθουσες όσο και αμφιθέατρα όπου μπορούν και
+                            διεξάγονται μαθήματα και διάφοροι τύποι εκδηλώσεων εντός του
+                            Πανεπιστημίου!
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="add-rev">
+                <button class="add-rev-btn"><i class="fa fa-plus"></i></button>
+            </div>
+
+        </div>
+
+        <div class="contact">
+            <div class="title">
+                <h2>Επικοινωνία</h2>
+            </div>
+
+            <div class="contact-section">
+                <h3>Τηλέφωνο:</h3>
+                <h4>210 4142000</h4>
+            </div>
+            <div class="contact-section">
+                <h3>Διεύθυνση:</h3>
+                <h4>Καραολή και Δημητρίου 80, Πειραιάς 185 34</h4>
+            </div>
+            <div class="contact-section">
+                <h3>Φόρμα Επικοινωνίας:</h3>
+                <h4>Πατήστε <a href="https://www.unipi.gr/unipi/el/epikoinwnia.html">εδώ</a></h4>
+            </div>
+            <div class="contact-section">
+                <h3>Ωράριο Λειτουργίας:</h3>
+                <h4>Πατήστε <a href="#">εδώ</a></h4>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+    <footer>
+        <p><i class="fa fa-copyright"></i>   Uni<span>Rate</span></p>
+        <p>
+            Το UniRate αποτελεί την εργασία εξαμήνου μας για το μάθημα "Πληροφοριακά
+            Συστήματα στο Διαδίκτυο". Μπορείς να μας βρείς στο GitHub ή να μας στείλεις mail:
+        </p>
+        <div class="social">
+            <a href="https://github.com/aboublini"><i class="fa fa-github"></i></a>
+            <a href="https://github.com/marata13"><i class="fa fa-github"></i></a>
+            <a href="mailto:aboublini@gmail.com"><i class="fa fa-envelope"></i></a>
+            <a href="mailto:ioakeim13@hotmail.gr"><i class="fa fa-envelope"></i></a>
+        </div>
+        <p class="end"><i class="fa fa-copyright"></i> 2023 All Right Reserved</p>
+    </footer>
+</body>
