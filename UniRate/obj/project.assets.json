@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Anastasia\\.nuget\\packages\\": {}
+    "C:\\Users\\aboub\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\UniRate.csproj",
+      "projectUniqueName": "C:\\Users\\aboub\\source\\repos\\marata13\\UniRate\\UniRate\\UniRate.csproj",
       "projectName": "UniRate",
-      "projectPath": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\UniRate.csproj",
-      "packagesPath": "C:\\Users\\Anastasia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\obj\\",
+      "projectPath": "C:\\Users\\aboub\\source\\repos\\marata13\\UniRate\\UniRate\\UniRate.csproj",
+      "packagesPath": "C:\\Users\\aboub\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\aboub\\source\\repos\\marata13\\UniRate\\UniRate\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Anastasia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\aboub\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

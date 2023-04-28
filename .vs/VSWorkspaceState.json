@@ -3,8 +3,8 @@
     "",
     "\\UniRate",
     "\\UniRate\\Views",
-    "\\UniRate\\Views\\Home"
+    "\\UniRate\\Views\\RegisteredUsers"
   ],
-  "SelectedNode": "\\UniRate\\Views\\Home\\HomePage.cshtml",
+  "SelectedNode": "\\UniRate\\Views\\RegisteredUsers\\AddReview.cshtml",
   "PreviewInSolutionExplorer": false
 }
