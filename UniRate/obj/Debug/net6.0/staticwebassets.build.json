@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GBag69WO0jhYNPwcKMwfSnO9EH8xpj/Y3m+68TskAXY=",
+  "Hash": "W5/3PZwf5SITtesvXg3jlKuLMLfrESmTfaYF7k3Ec3U=",
   "Source": "UniRate",
   "BasePath": "_content/UniRate",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\DepResultsStyle.css"
+    },
+    {
+      "Identity": "C:\\Users\\aboub\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\FavoritesStyle.css",
+      "SourceId": "UniRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aboub\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\",
+      "BasePath": "_content/UniRate",
+      "RelativePath": "css/FavoritesStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\FavoritesStyle.css"
     },
     {
       "Identity": "C:\\Users\\aboub\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\HomePageStyle.css",
@@ -1222,6 +1239,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\visual-material\\backgroundHome.mp4"
+    },
+    {
+      "Identity": "C:\\Users\\aboub\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\FavoritesBackground.jpg",
+      "SourceId": "UniRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aboub\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\",
+      "BasePath": "_content/UniRate",
+      "RelativePath": "visual-material/FavoritesBackground.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\visual-material\\FavoritesBackground.jpg"
     },
     {
       "Identity": "C:\\Users\\aboub\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\login-back.jpg",

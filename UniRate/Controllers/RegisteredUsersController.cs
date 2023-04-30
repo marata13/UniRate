@@ -33,5 +33,10 @@ namespace UniRate.Controllers
         {
             return View();
         }
+
+        public IActionResult FavoritesRegistered()
+        {
+            return View();
+        }
     }
 }
