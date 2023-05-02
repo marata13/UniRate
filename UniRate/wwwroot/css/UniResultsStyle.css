@@ -31,6 +31,18 @@
     transform: translate(-50%, -50%);
 }
 
+    .content i {
+        font-size: 2.5rem;
+        color: #11668D;
+    }
+
+        .content i:hover {
+            cursor: pointer;
+            transition: .2s;
+            transform: scale(1.2);
+        }
+
+
 h1 {
     margin: 20px 0px 20px;
     font-size: 55px;
@@ -74,7 +86,7 @@ h1 {
     justify-content: space-between;
     margin-left: 4rem;
     margin-right: 4rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.7rem;
 }
 
 .uni-rankings {
@@ -197,7 +209,7 @@ hr {
     text-align: center;
 }
 
-    .who i {
+    .who .fa-user {
         width: 45px;
         height: 45px;
         display: flex;
@@ -250,7 +262,7 @@ hr {
     justify-content: space-between;
     margin-left: 3rem;
     margin-right: 3rem;
-    margin-bottom: 1.7rem;
+    margin-bottom: 3rem;
 }
 
     .contact-section h3 {

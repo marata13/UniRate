@@ -1,10 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\UniRate",
-    "\\UniRate\\Views",
-    "\\UniRate\\Views\\RegisteredUsers"
+    ""
   ],
-  "SelectedNode": "\\UniRate\\Views\\RegisteredUsers\\AddReview.cshtml",
   "PreviewInSolutionExplorer": false
 }
