@@ -22,6 +22,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=RegisteredUsers}/{action=DepResultsRegistered}/{id?}");
+    pattern: "{controller=RegisteredUsers}/{action=FavoritesRegistered}/{id?}");
 
 app.Run();
