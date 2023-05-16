@@ -1,4 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using UniRate.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<UniRateContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("UniRateContext") ?? throw new InvalidOperationException("Connection string 'UniRateContext' not found.")));
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
