@@ -23,5 +23,8 @@ namespace UniRate.Data
 
         public DbSet<UniRate.Models.University> University { get; set; } = default!;
 
+        public DbSet<UniRate.Models.FavoriteUniversity> FavoriteUniversity { get; set; } = default!;
+
+        public DbSet<UniRate.Models.FavoriteDepartment> FavoriteDepartment { get; set; } = default!;
     }
 }

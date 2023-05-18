@@ -1,0 +1,69 @@
+﻿@model UniRate.Models.DepRating
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>DepRating</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="DifficultyRating" class="control-label"></label>
+                <input asp-for="DifficultyRating" class="form-control" />
+                <span asp-validation-for="DifficultyRating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProfessorsRating" class="control-label"></label>
+                <input asp-for="ProfessorsRating" class="form-control" />
+                <span asp-validation-for="ProfessorsRating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubjectsRating" class="control-label"></label>
+                <input asp-for="SubjectsRating" class="form-control" />
+                <span asp-validation-for="SubjectsRating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FreshnessRating" class="control-label"></label>
+                <input asp-for="FreshnessRating" class="form-control" />
+                <span asp-validation-for="FreshnessRating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrganisationRating" class="control-label"></label>
+                <input asp-for="OrganisationRating" class="form-control" />
+                <span asp-validation-for="OrganisationRating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OverallRating" class="control-label"></label>
+                <input asp-for="OverallRating" class="form-control" />
+                <span asp-validation-for="OverallRating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Review" class="control-label"></label>
+                <input asp-for="Review" class="form-control" />
+                <span asp-validation-for="Review" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateTime" class="control-label"></label>
+                <input asp-for="DateTime" class="form-control" />
+                <span asp-validation-for="DateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -17,9 +17,9 @@ namespace UniRate.Models
 
         public Byte[]? Salt { get; set; }
 
-        //public List<University>? FavoriteUniversities { get; set; }
+        public List<FavoriteUniversity>? FavoriteUniversities { get; set; }
 
-        //public List<Department>? FavoriteDepartments { get; set; }
+        public List<FavoriteDepartment>? FavoriteDepartments { get; set; }
 
         public List<UniRating>? UniRatings { get; set; }
 

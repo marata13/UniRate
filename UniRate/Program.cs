@@ -8,6 +8,7 @@ builder.Services.AddDbContext<UniRateContext>(options =>
 
 
 // Add services to the container.
+//builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("Database"));
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

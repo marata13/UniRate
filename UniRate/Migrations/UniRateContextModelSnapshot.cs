@@ -64,7 +64,7 @@ namespace UniRate.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("DepRating");
+                    b.ToTable("DepRating", (string)null);
                 });
 
             modelBuilder.Entity("UniRate.Models.Department", b =>
@@ -113,7 +113,49 @@ namespace UniRate.Migrations
 
                     b.HasIndex("UniversityId");
 
-                    b.ToTable("Department");
+                    b.ToTable("Department", (string)null);
+                });
+
+            modelBuilder.Entity("UniRate.Models.FavoriteDepartment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("DepartmentId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DepartmentId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("FavoriteDepartment", (string)null);
+                });
+
+            modelBuilder.Entity("UniRate.Models.FavoriteUniversity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("UniversityId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UniversityId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("FavoriteUniversity", (string)null);
                 });
 
             modelBuilder.Entity("UniRate.Models.Professor", b =>
@@ -144,7 +186,7 @@ namespace UniRate.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Professor");
+                    b.ToTable("Professor", (string)null);
                 });
 
             modelBuilder.Entity("UniRate.Models.Subject", b =>
@@ -180,7 +222,7 @@ namespace UniRate.Migrations
 
                     b.HasIndex("ProfessorId");
 
-                    b.ToTable("Subject");
+                    b.ToTable("Subject", (string)null);
                 });
 
             modelBuilder.Entity("UniRate.Models.UniRating", b =>
@@ -225,7 +267,7 @@ namespace UniRate.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UniRating");
+                    b.ToTable("UniRating", (string)null);
                 });
 
             modelBuilder.Entity("UniRate.Models.University", b =>
@@ -266,7 +308,7 @@ namespace UniRate.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("University");
+                    b.ToTable("University", (string)null);
                 });
 
             modelBuilder.Entity("UniRate.Models.User", b =>
@@ -289,7 +331,7 @@ namespace UniRate.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("User", (string)null);
                 });
 
             modelBuilder.Entity("UniRate.Models.DepRating", b =>
@@ -308,6 +350,36 @@ namespace UniRate.Migrations
                     b.HasOne("UniRate.Models.University", null)
                         .WithMany("Departments")
                         .HasForeignKey("UniversityId");
+                });
+
+            modelBuilder.Entity("UniRate.Models.FavoriteDepartment", b =>
+                {
+                    b.HasOne("UniRate.Models.Department", "Department")
+                        .WithMany()
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("UniRate.Models.User", null)
+                        .WithMany("FavoriteDepartments")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Department");
+                });
+
+            modelBuilder.Entity("UniRate.Models.FavoriteUniversity", b =>
+                {
+                    b.HasOne("UniRate.Models.University", "University")
+                        .WithMany()
+                        .HasForeignKey("UniversityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("UniRate.Models.User", null)
+                        .WithMany("FavoriteUniversities")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("University");
                 });
 
             modelBuilder.Entity("UniRate.Models.Professor", b =>
@@ -363,6 +435,10 @@ namespace UniRate.Migrations
             modelBuilder.Entity("UniRate.Models.User", b =>
                 {
                     b.Navigation("DepRatings");
+
+                    b.Navigation("FavoriteDepartments");
+
+                    b.Navigation("FavoriteUniversities");
 
                     b.Navigation("UniRatings");
                 });
