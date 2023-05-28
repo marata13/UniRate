@@ -96,6 +96,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmF2b3JpdGVVbml2ZXJzaXRpZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Anastasia/source/repos/marata13/UniRate/UniRate/Views/Home/DepResults.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZXBSZXN1bHRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Anastasia/source/repos/marata13/UniRate/UniRate/Views/Home/HomePage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -110,6 +114,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Anastasia/source/repos/marata13/UniRate/UniRate/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anastasia/source/repos/marata13/UniRate/UniRate/Views/Home/UniResults.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVbmlSZXN1bHRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Anastasia/source/repos/marata13/UniRate/UniRate/Views/Professors/Create.cshtml]
@@ -136,20 +144,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJlZFVzZXJzXEFkZFJldmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Anastasia/source/repos/marata13/UniRate/UniRate/Views/RegisteredUsers/DepResultsRegistered.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJlZFVzZXJzXERlcFJlc3VsdHNSZWdpc3RlcmVkLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Anastasia/source/repos/marata13/UniRate/UniRate/Views/RegisteredUsers/FavoritesRegistered.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJlZFVzZXJzXEZhdm9yaXRlc1JlZ2lzdGVyZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Anastasia/source/repos/marata13/UniRate/UniRate/Views/RegisteredUsers/SearchRegistered.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJlZFVzZXJzXFNlYXJjaFJlZ2lzdGVyZWQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Anastasia/source/repos/marata13/UniRate/UniRate/Views/RegisteredUsers/UniResultsRegistered.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJlZFVzZXJzXFVuaVJlc3VsdHNSZWdpc3RlcmVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Anastasia/source/repos/marata13/UniRate/UniRate/Views/Shared/Error.cshtml]

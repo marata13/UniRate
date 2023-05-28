@@ -21,6 +21,14 @@ namespace UniRate.Controllers
         {
             return View();
         }
+        public IActionResult UniResults()
+        {
+            return View();
+        }
+        public IActionResult DepResults()
+        {
+            return View();
+        }
 
         public IActionResult Index()
         {

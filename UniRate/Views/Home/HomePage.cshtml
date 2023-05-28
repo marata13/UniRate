@@ -35,7 +35,7 @@
 
             @if (logged_in)
             {
-                <a asp-controller="Home" asp-action="Logout" class="btn">Έξοδος</a>
+                <a asp-controller="Home" asp-action="Login" class="btn">Έξοδος</a>
             }
             else
             {
@@ -53,7 +53,7 @@
             <li><a href="#">Επικοινωνία</a></li>
             @if (logged_in)
             {
-                <li><a asp-controller="Home" asp-action="Logout" class="btn">Έξοδος</a></li>
+                <li><a asp-controller="Home" asp-action="Login" class="btn">Έξοδος</a></li>
             }
             else
             {
