@@ -9,11 +9,6 @@ namespace UniRate.Controllers
             return View();
         }
 
-        public IActionResult HomeRegistered()
-        {
-            return View();
-        }
-
         public IActionResult SearchRegistered()
         {
             return View();

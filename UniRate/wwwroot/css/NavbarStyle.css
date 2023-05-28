@@ -36,6 +36,7 @@ nav ul li {
         font-weight: bold;
         color: black;
         font-size: 18px;
+        transition: .4s;
     }
 
         nav ul li a:hover {
