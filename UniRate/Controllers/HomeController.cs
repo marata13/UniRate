@@ -29,7 +29,22 @@ namespace UniRate.Controllers
         {
             return View();
         }
-
+        public IActionResult TopRated()
+        {
+            return View();
+        }
+        public IActionResult Unies()
+        {
+            return View();
+        }
+        public IActionResult About()
+        {
+            return View();
+        }
+        public IActionResult Contact()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View();
