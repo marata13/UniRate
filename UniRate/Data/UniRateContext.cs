@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using UniRate.Models;
 
 namespace UniRate.Data
 {
@@ -26,5 +27,12 @@ namespace UniRate.Data
         public DbSet<UniRate.Models.FavoriteUniversity> FavoriteUniversity { get; set; } = default!;
 
         public DbSet<UniRate.Models.FavoriteDepartment> FavoriteDepartment { get; set; } = default!;
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<User>(entity => {
+                entity.HasIndex(e => e.UserName).IsUnique();
+            });
+        }
     }
 }

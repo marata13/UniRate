@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using UniRate.Data;
 
@@ -11,7 +12,22 @@ builder.Services.AddDbContext<UniRateContext>(options =>
 //builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("Database"));
 builder.Services.AddControllersWithViews();
 
+//Add authentication cookie
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.Cookie.Name = "LoginCookie"; //Name of the cookie
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(20); //After 20 minutes the cookie will expire and the user will be logged out
+        options.SlidingExpiration = true; // The logout window reset after every request
+        options.AccessDeniedPath = "/Forbidden/";
+    });
+
+
+builder.Services.AddAuthorization();
+
 var app = builder.Build();
+
+app.UseAuthentication();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -30,6 +46,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=RegisteredUsers}/{action=FavoritesRegistered}/{id?}");
+    pattern: "{controller=Home}/{action=HomePage}/{id?}");
 
 app.Run();

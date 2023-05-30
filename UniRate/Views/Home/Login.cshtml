@@ -1,5 +1,4 @@
-﻿@page
-@model UniRate.Views.Home.LoginModel
+﻿@model User
 @{
 }
 
@@ -12,38 +11,40 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="#">
+            <form asp-controller="Home" asp-action="SignUp" method="post">
                 <img class="login-logo" src="@Url.Content("~/visual-material/uniRateLogo.png")" alt="UniRate Logo">
                 <h1 class="title">Εγγραφή</h1>
                 <div class="infield">
-                    <input type="text" placeholder="Username" />
+                    <input type="text" placeholder="Username" asp-for="UserName"/>
                     <label></label>
                 </div>
                 <div class="infield">
-                    <input type="email" placeholder="Email" name="email" />
+                    <input type="email" placeholder="Email" asp-for="Email" />
                     <label></label>
                 </div>
                 <div class="infield">
-                    <input type="password" placeholder="Κωδικός πρόσβασης" />
+                    <input type="password" placeholder="Κωδικός πρόσβασης" asp-for="Password"/>
                     <label></label>
                 </div>
-                <button>Εγγραφη</button>
+                <!-- Submit button -->
+                <input type="submit" value="Εγγραφη" />
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form asp-controller="Home" asp-action="Login" method="post">
                 <img class="login-logo" src="@Url.Content("~/visual-material/uniRateLogo.png")" alt="UniRate Logo">
                 <h1 class="title">Σύνδεση</h1>
                 <div class="infield">
-                    <input type="email" placeholder="Email" name="Όνομα χρήστη" />
+                    <input type="text" placeholder="Email" asp-for="UserName" />
                     <label></label>
                 </div>
                 <div class="infield">
-                    <input type="password" placeholder="Κωδικός πρόσβασης" />
+                    <input type="password" placeholder="Κωδικός πρόσβασης" asp-for="Password" />
                     <label></label>
                 </div>
                 <a href="#" class="forgot">Ξέχασες τον κωδικό σου;</a>
-                <button>Συνδεσου</button>
+                <!-- Submit button -->
+                <input type="submit" value="Login" />
             </form>
         </div>
         <div class="overlay-container" id="overlayCon">
@@ -75,5 +76,14 @@
         });
 
     </script>
+
+
+    <!-- Alert in case the user has entered wrong credentials -->
+    @if (ViewBag.errorMessage != null)
+    {
+        <script type="text/javascript">
+            alert("@ViewBag.errorMessage");
+        </script>
+    }
 
 </body>
