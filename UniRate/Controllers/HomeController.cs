@@ -104,11 +104,7 @@ namespace UniRate.Controllers
             return View();
         }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
+
 
         [HttpGet]
         public async Task<IActionResult> UniResults(string? UniName, Guid? Id)
@@ -175,7 +171,8 @@ namespace UniRate.Controllers
             ViewBag.LoggedIn = HttpContext.Request.Cookies.ContainsKey("LoginCookie");
             return View();
         }
->>>>>>> Stashed changes
+
+
         public IActionResult Index()
         {
             ViewBag.LoggedIn = HttpContext.Request.Cookies.ContainsKey("LoginCookie");
