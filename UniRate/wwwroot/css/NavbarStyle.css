@@ -77,7 +77,7 @@ nav ul li {
     color: #0E75A5;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1370px) {
     .navbar .navbar-links,
     .navbar .btn {
         display: none;
@@ -92,7 +92,7 @@ nav ul li {
     }
 }
 
-@media (min-width: 1201px) {
+@media (min-width: 1371px) {
 
     .dropdown-menu {
         display: none;
@@ -123,6 +123,7 @@ nav ul li {
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: .4s;
     }
 
     .dropdown-menu .btn {

@@ -36,13 +36,13 @@
                     <li><a asp-controller="Home" asp-action="Login">Αγαπημένα</a></li>
                 }
                 <li><a asp-controller="Home" asp-action="About">Σχετικά με εμάς</a></li>
-                <li><a asp-controller="Home" asp-action="Contact">Επικοινωνία</a></li>
+                <li><a asp-controller="RegisteredUsers" asp-action="AccountInfo">Ο Λογαριασμός μου</a></li>
             </ul>
             
 
             @if (logged_in)
             {
-                <a asp-controller="Home" asp-action="Login" class="btn">Έξοδος</a>
+                <a asp-controller="Home" asp-action="Logout" class="btn">Έξοδος</a>
             }
             else
             {
@@ -65,10 +65,10 @@
                 <li><a asp-controller="Home" asp-action="Login">Αγαπημένα</a></li>
             }
             <li><a asp-controller="Home" asp-action="About">Σχετικά με εμάς</a></li>
-            <li><a asp-controller="Home" asp-action="Contact">Επικοινωνία</a></li>
+            <li><a asp-controller="RegisteredUsers" asp-action="AccountInfo">Ο Λογαριασμός μου</a></li>
             @if (logged_in)
             {
-                <li><a asp-controller="Home" asp-action="Login" class="btn">Έξοδος</a></li>
+                <li><a asp-controller="Home" asp-action="Logout" class="btn">Έξοδος</a></li>
             }
             else
             {

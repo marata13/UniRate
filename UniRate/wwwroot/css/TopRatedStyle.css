@@ -7,7 +7,10 @@
     font-family: 'Commissioner', sans-serif;
 }
 
-
+.deps-top-rated, .unies-top-rated {
+    display: flex;
+    flex-direction: row;
+}
 
 
 .hero {
@@ -27,7 +30,14 @@
     justify-content: center;
     display: flex;
     align-items: center;
-    margin-left: 2rem;
+}
+
+.titles-deps {
+    width: 50%;
+    height: 864.89px;
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
 }
 
 .titles-inside {
@@ -35,7 +45,14 @@
     flex-direction: column;
     justify-content: center;
     width: 95%;
+    margin-left: 2rem;
 }
+
+.titles-inside-deps {
+    margin-right: 2rem;
+}
+
+
 
 .first {
     width: 500px;
@@ -61,11 +78,48 @@
         transition: .4s;
     }
 
-.titles h1 {
+.titles h1{
     font-size: 5rem;
     width: 550px;
     transition: .4s;
 }
+
+.titles-deps h1 {
+    font-size: 5rem;
+    width: 550px;
+    transition: .4s;
+    text-align:right;
+}
+
+.first-deps {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: .4s;
+    width: 550px;
+}
+
+    .first-deps h3 {
+        font-size: 1.5rem;
+        transition: .4s;
+        text-align: right;
+        margin-left: 1rem;
+        
+    }
+
+
+
+.number-deps {
+    width: 90%;
+    transition: .4s;
+}
+
+    .number-deps h2 {
+        font-size: 5rem;
+        transition: .4s;
+        text-align: right;
+        
+    }
 
 .content {
     position: absolute;
@@ -80,6 +134,15 @@
     justify-content: center;
 }
 
+.content-deps {
+    width: 50%;
+    height: 864.89px;
+    background-color: #11668D;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .frame {
     width: 80%;
     height: 95px;
@@ -87,6 +150,19 @@
     margin-left: 20%;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    margin-bottom: 1.3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.frame-deps {
+    width: 80%;
+    height: 95px;
+    background-color: #fff;
+    transition: .4s;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
     margin-bottom: 1.3rem;
     display: flex;
     flex-direction: row;
@@ -173,10 +249,11 @@ footer {
 
 
 @media screen and (max-width: 1400px) {
-    .frame h3 {
+    .frame h3, .frame-deps h3 {
         font-size: 1rem;
         transition: .4s;
     }
+
 
     .frame-number h2 {
         font-size: 3rem;
@@ -194,7 +271,13 @@ footer {
         transition: .4s;
     }
 
-    .number h2 {
+    .titles-deps h1 {
+        font-size: 3.5rem;
+        width: 300px;
+        margin-left: 250px;
+    }
+
+    .number h2, .number-deps h2 {
         font-size: 3.5rem;
         transition: .4s;
     }
@@ -204,13 +287,68 @@ footer {
         transition: .4s;
     }
 
+    .number-deps {
+        width: 100%;
+        transition: .4s;
+ 
+    }
+
     .first {
         width: 450px;
         transition: .4s;
     }
 
-        .first h3 {
+        .first h3, .first-deps h3 {
             font-size: 1.3rem;
             transition: .4s;
         }
+}
+
+@media screen and (max-width: 980px) {
+    .frame h3, .frame-deps h3 {
+        font-size: 0.9rem;
+        transition: .4s;
+    }
+
+    .frame p, .frame-deps p {
+        font-size: 0.8rem;
+        transition: .4s;
+    }
+
+    .frame-number {
+        margin-right: 1rem;
+        transition: .4s;
+    }
+
+    .frame-deps {
+        height: 110px;
+        transition: .4s;
+    }
+
+    .titles h1 {
+        font-size: 2.7rem;
+        transition: .4s;
+    }
+
+    .titles-deps h1 {
+        font-size: 2.7rem;
+        transition: .4s;
+    }
+
+    .number h2, .number-deps h2 {
+        font-size: 2.5rem;
+        transition: .4s;
+    }
+
+    .first h3, .first-deps h3 {
+        font-size: 1.1rem;
+        transition: .4s;
+    }
+
+    .first {
+        width: 410px;
+        transition: .4s;
+    }
+
+ 
 }
