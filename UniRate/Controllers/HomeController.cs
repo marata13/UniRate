@@ -105,7 +105,10 @@ namespace UniRate.Controllers
         }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 
         [HttpGet]
         public async Task<IActionResult> UniResults(string? UniName, Guid? Id)

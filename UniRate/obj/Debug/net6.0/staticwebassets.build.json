@@ -1,7 +1,11 @@
 {
   "Version": 1,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   "Hash": "eNBnHidpdd/MpP0BmWwBBS8v64VjTVbLxhekIgoaBEs=",
+=======
+  "Hash": "+YZoyt9MNkrMLaCcw8XPYuA5VprElTEG50Npj2u3ZoM=",
+>>>>>>> Stashed changes
 =======
   "Hash": "+YZoyt9MNkrMLaCcw8XPYuA5VprElTEG50Npj2u3ZoM=",
 >>>>>>> Stashed changes
@@ -209,6 +213,7 @@
     },
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "Identity": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\UniResultsStyle.css",
       "SourceId": "UniRate",
       "SourceType": "Discovered",
@@ -218,6 +223,12 @@
       "SourceId": "UniRate",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\TopRatedStyle.css",
+      "SourceId": "UniRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\",
+>>>>>>> Stashed changes
       "BasePath": "_content/UniRate",
       "RelativePath": "css/TopRatedStyle.css",
       "AssetKind": "All",
@@ -235,6 +246,9 @@
       "SourceId": "UniRate",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\",
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       "BasePath": "_content/UniRate",
       "RelativePath": "css/UniResultsStyle.css",
