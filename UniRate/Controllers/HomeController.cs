@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
+using System;
 using System.Diagnostics;
+using System.Runtime.Intrinsics.Arm;
 using System.Security.Claims;
 using UniRate.Data;
 using UniRate.Models;
@@ -25,6 +27,8 @@ namespace UniRate.Controllers
         //GET
         public IActionResult Login()
         {
+
+            ViewBag.LoggedIn = HttpContext.Request.Cookies.ContainsKey("LoginCookie");
             return View();
         }
 
@@ -37,6 +41,8 @@ namespace UniRate.Controllers
             if (!ModelState.IsValid)
             {
                 ViewBag.errorMessage = "You entered invalid details";
+
+                ViewBag.LoggedIn = HttpContext.Request.Cookies.ContainsKey("LoginCookie");
                 return View("Login", user);
             }
 
@@ -47,6 +53,8 @@ namespace UniRate.Controllers
             {
                 //wrong username
                 ViewBag.errorMessage = "The username-password combination you entered is wrong";
+
+                ViewBag.LoggedIn = HttpContext.Request.Cookies.ContainsKey("LoginCookie");
                 return View("Login", user);
             }
 
@@ -67,11 +75,15 @@ namespace UniRate.Controllers
                     CookieAuthenticationDefaults.AuthenticationScheme,
                     new ClaimsPrincipal(claimsIdentity));
 
+
+                ViewBag.LoggedIn = true;
                 return View("HomePage", user);
 
             }
             //wrong password
             ViewBag.errorMessage = "The username-password combination you entered is wrong";
+
+            ViewBag.LoggedIn = HttpContext.Request.Cookies.ContainsKey("LoginCookie");
             return View("Login", user);
         }
 
@@ -81,22 +93,95 @@ namespace UniRate.Controllers
             HttpContext.SignOutAsync(
                 CookieAuthenticationDefaults.AuthenticationScheme);
 
-            return RedirectToAction("Login");
+            ViewBag.LoggedIn = false;
+            return View("HomePage");
         }
 
 
         public IActionResult HomePage()
         {
+            ViewBag.LoggedIn = HttpContext.Request.Cookies.ContainsKey("LoginCookie");
             return View();
         }
 
+<<<<<<< Updated upstream
+=======
+
+        [HttpGet]
+        public async Task<IActionResult> UniResults(string? UniName, Guid? Id)
+        {
+            var university = await _context.University.FirstOrDefaultAsync(m => m.Name == UniName);
+
+            if (university == null)
+            {
+                university = await _context.University.FirstOrDefaultAsync(m => m.Id == Id);
+            }
+
+            ViewBag.LoggedIn = HttpContext.Request.Cookies.ContainsKey("LoginCookie");
+
+            if (ViewBag.LoggedIn)
+            {
+                var User = await _context.User.FirstOrDefaultAsync(m => m.UserName == HttpContext.User.Identity.Name);
+
+                try
+                {
+                    ViewBag.IsFavoriteUni = User.FavoriteUniversities.Exists(m => m.University == university);
+                }
+                catch (NullReferenceException)
+                {
+                    ViewBag.IsFavoriteUni = false;
+                }
+            }
+            else
+            {
+                ViewBag.IsFavoriteUni = false;
+            }
+
+            return View(university);
+        }
+
+
+        public IActionResult DepResults()
+        {
+            ViewBag.LoggedIn = HttpContext.Request.Cookies.ContainsKey("LoginCookie");
+            return View();
+        }
+
+
+        public IActionResult TopRated()
+        {
+            ViewBag.LoggedIn = HttpContext.Request.Cookies.ContainsKey("LoginCookie");
+            return View();
+        }
+
+
+        public async Task<IActionResult> Unies()
+        {
+            ViewBag.LoggedIn = HttpContext.Request.Cookies.ContainsKey("LoginCookie");
+            return _context.University != null ?
+                          View(await _context.University.ToListAsync()) :
+                          Problem("Entity set 'UniRateContext.User'  is null.");
+        }
+        public IActionResult About()
+        {
+            ViewBag.LoggedIn = HttpContext.Request.Cookies.ContainsKey("LoginCookie");
+            return View();
+        }
+        public IActionResult Contact()
+        {
+            ViewBag.LoggedIn = HttpContext.Request.Cookies.ContainsKey("LoginCookie");
+            return View();
+        }
+>>>>>>> Stashed changes
         public IActionResult Index()
         {
+            ViewBag.LoggedIn = HttpContext.Request.Cookies.ContainsKey("LoginCookie");
             return View();
         }
 
         public IActionResult Privacy()
         {
+            ViewBag.LoggedIn = HttpContext.Request.Cookies.ContainsKey("LoginCookie");
             return View();
         }
 
@@ -141,13 +226,8 @@ namespace UniRate.Controllers
             await _context.SaveChangesAsync();
 
             ViewBag.errorMessage = "SignUp succesful please log in with your credentials";
+            ViewBag.LoggedIn = HttpContext.Request.Cookies.ContainsKey("LoginCookie");
             return View("Login", user);
         }
-
-
-        //public IActionResult Search()
-        //{
-        //    return View();
-        //}
     }
 }

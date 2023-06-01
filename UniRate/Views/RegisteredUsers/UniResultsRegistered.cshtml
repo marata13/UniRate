@@ -1,9 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
+﻿@model UniRate.Models.University
 
 <!-- Stylesheet connection for Search page -->
 @section Styles {
@@ -14,10 +9,18 @@
 
 <body>
     <div class="hero">
+<<<<<<< Updated upstream:UniRate/Views/RegisteredUsers/UniResultsRegistered.cshtml
         <img src="@Url.Content("~/visual-material/papei.png")" class="back-image">
 
 
 
+=======
+        <img src="@Model.BackroundPhotoUrl" class="back-image">
+        @{
+            bool logged_in = ViewBag.LoggedIn; // Set this variable to true if user is logged in, if else set it to false
+            bool is_favorite_uni = ViewBag.IsFavoriteUni; // Set this variable to true if user has this university favorited
+        }
+>>>>>>> Stashed changes:UniRate/Views/Home/UniResults.cshtml
         <nav class="navbar" id="navbar">
             <h2 class="logo"><img src="@Url.Content("~/visual-material/uniRateLogo.png")" class="icon-logo"> Uni<span>Rate</span></h2>
             <ul class="navbar-links">
@@ -28,7 +31,20 @@
                 <li><a href="#">Σχετικά με εμάς</a></li>
                 <li><a asp-controller="Home" asp-action="Login">Έξοδος</a></li>
             </ul>
+<<<<<<< Updated upstream:UniRate/Views/RegisteredUsers/UniResultsRegistered.cshtml
             <a href="#" class="btn">aboublini<i class="fa fa-user"></i></a>
+=======
+            
+
+            @if (logged_in)
+            {
+                <a asp-controller="Home" asp-action="Logout" class="btn">Έξοδος</a>
+            }
+            else
+            {
+                <a asp-controller="Home" asp-action="Login" class="btn">Είσοδος</a>
+            }
+>>>>>>> Stashed changes:UniRate/Views/Home/UniResults.cshtml
             <div class="toggle-btn">
                 <i class="fa fa-bars"></i>
             </div>
@@ -77,8 +93,16 @@
 
 
         <div class="content">
+<<<<<<< Updated upstream:UniRate/Views/RegisteredUsers/UniResultsRegistered.cshtml
             <h1>Πανεπιστήμιο Πειραιά</h1>
             <i class="fa fa-heart"></i>
+=======
+            <h1>@Model.Name</h1>
+            @if (logged_in)
+            {
+                <i class="fa fa-heart"></i>
+            } 
+>>>>>>> Stashed changes:UniRate/Views/Home/UniResults.cshtml
         </div>
     </div>
 
@@ -87,24 +111,24 @@
 
         <div class="uni-info">
             <div class="title">
-                <h2>Πανεπιστήμιο Πειραιά</h2>
-                <img class="uni-logo" src="@Url.Content("~/visual-material/unipi.png")">
+                <h2>@Model.Name</h2>
+                <img class="uni-logo" src="@Model.LogoUrl">
             </div>
             <div class="info-section">
                 <h3>Πρύτανης:</h3>
-                <h3>Μιχάλης Σφακιανάκης</h3>
+                <h3>@Model.Dean</h3>
             </div>
             <div class="info-section">
                 <h3>Τοποθεσία:</h3>
-                <h3>Πειραιάς, Ελλάδα</h3>
+                <h3>@Model.Location</h3>
             </div>
             <div class="info-section">
                 <h3>Διεύθυνση:</h3>
-                <h3>Κ. & Δημητρίου 80</h3>
+                <h3>@Model.Address</h3>
             </div>
             <div class="info-section">
                 <h3>Ιστοσελίδα:</h3>
-                <h3>unipi.gr</h3>
+                <h3>@Model.SiteUrl</h3>
             </div>
 
         </div>
@@ -201,7 +225,7 @@
             <div class="title">
                 <h2>Χάρτης</h2>
             </div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3146.525340258017!2d23.650293176368773!3d37.94151790253674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bbe5bb8515a1%3A0x3e0dce8e58812705!2zzqDOsc69zrXPgM65z4PPhM6uzrzOuc6_IM6gzrXOuc-BzrHOuc-Oz4I!5e0!3m2!1sel!2sgr!4v1682510205416!5m2!1sel!2sgr"
+            <iframe src="@Model.LocationUrl"
                     width="100%"
                     height="88%"
                     style="border:0; border-radius: 25px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
@@ -295,15 +319,15 @@
 
             <div class="contact-section">
                 <h3>Τηλέφωνο:</h3>
-                <h4>210 4142000</h4>
+                <h4>@Model.Phone</h4>
             </div>
             <div class="contact-section">
                 <h3>Διεύθυνση:</h3>
-                <h4>Καραολή και Δημητρίου 80, Πειραιάς 185 34</h4>
+                <h4>@Model.Address, @Model.Location</h4>
             </div>
             <div class="contact-section">
                 <h3>Φόρμα Επικοινωνίας:</h3>
-                <h4>Πατήστε <a href="https://www.unipi.gr/unipi/el/epikoinwnia.html">εδώ</a></h4>
+                <h4>Πατήστε <a href="@Model.ContactUrl">εδώ</a></h4>
             </div>
 
         </div>
@@ -326,4 +350,14 @@
         </div>
         <p class="end"><i class="fa fa-copyright"></i> 2023 All Right Reserved</p>
     </footer>
+
+
+    <!-- Alert in case something went wrong -->
+    @if (ViewBag.errorMessage != null)
+    {
+        <script type="text/javascript">
+            alert("@ViewBag.errorMessage");
+        </script>
+    }
+
 </body>

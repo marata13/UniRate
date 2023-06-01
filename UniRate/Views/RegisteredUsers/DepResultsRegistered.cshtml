@@ -15,6 +15,29 @@
     <body>
         <div class="hero">
             <img src="@Url.Content("~/visual-material/papei.png")" class="back-image">
+<<<<<<< Updated upstream:UniRate/Views/RegisteredUsers/DepResultsRegistered.cshtml
+=======
+        @{
+            bool logged_in = ViewBag.LoggedIn; // Set this variable to true if user is logged in, if else set it to false
+        }
+        <nav class="navbar" id="navbar">
+            <h2 class="logo"><img src="@Url.Content("~/visual-material/uniRateLogo.png")" class="icon-logo"> Uni<span>Rate</span></h2>
+            <ul class="navbar-links">
+                <li><a asp-controller="Home" asp-action="HomePage">Αρχική</a></li>
+                <li><a asp-controller="Home" asp-action="Unies">Πανεπιστήμια</a></li>
+                <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
+                @if (logged_in)
+                {
+                    <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
+                }
+                else
+                {
+                    <li><a asp-controller="Home" asp-action="Login">Αγαπημένα</a></li>
+                }
+                <li><a asp-controller="Home" asp-action="About">Σχετικά με εμάς</a></li>
+                <li><a asp-controller="Home" asp-action="Contact">Επικοινωνία</a></li>
+            
+>>>>>>> Stashed changes:UniRate/Views/Home/DepResults.cshtml
 
 
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 using UniRate.Models;
 
 namespace UniRate.Data
@@ -30,9 +31,12 @@ namespace UniRate.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<User>(entity => {
+            builder.Entity<User>(entity =>
+            {
                 entity.HasIndex(e => e.UserName).IsUnique();
             });
+
+            builder.Entity<User>().HasMany(i => i.FavoriteUniversities).WithMany();
         }
     }
 }
