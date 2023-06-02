@@ -105,7 +105,7 @@ namespace UniRate.Controllers
         {
             return View();
         }
-        public IActionResult About()
+        public IActionResult Help()
         {
             return View();
         }

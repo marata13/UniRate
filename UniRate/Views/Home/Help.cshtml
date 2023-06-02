@@ -1,0 +1,309 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<!-- Stylesheet connection for Search page -->
+@section Styles {
+    <link rel="stylesheet" href="~/css/HelpStyle.css" />
+    <link rel="stylesheet" href="~/css/NavbarStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+}
+
+        <div class="hero">
+            <img src="@Url.Content("~/visual-material/FAQsBackground.jpg")" class="back-image">
+
+    @{
+        bool logged_in = true; // Set this variable to true if user is logged in, if else set it to false
+    }
+    <nav class="navbar" id="navbar">
+        <h2 class="logo"><img src="@Url.Content("~/visual-material/uniRateLogo.png")" class="icon-logo"> Uni<span>Rate</span></h2>
+        <ul class="navbar-links">
+            <li><a asp-controller="Home" asp-action="Homepage">Αρχική</a></li>
+            <li><a asp-controller="Home" asp-action="Unies">Πανεπιστήμια</a></li>
+            <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
+            @if (logged_in)
+            {
+                <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
+            }
+            else
+            {
+                <li><a asp-controller="Home" asp-action="Login">Αγαπημένα</a></li>
+            }
+            <li><a asp-controller="Home" asp-action="Help">Βοήθεια</a></li>
+            <li><a asp-controller="RegisteredUsers" asp-action="AccountInfo">Ο Λογαριασμός μου</a></li>
+        </ul>
+
+
+        @if (logged_in)
+        {
+            <a asp-controller="Home" asp-action="Logout" class="btn">Έξοδος</a>
+        }
+        else
+        {
+            <a asp-controller="Home" asp-action="Login" class="btn">Είσοδος</a>
+        }
+        <div class="toggle-btn">
+            <i class="fa fa-bars"></i>
+        </div>
+    </nav>
+    <div class="dropdown-menu">
+        <li><a href="#">Αρχική</a></li>
+        <li><a asp-controller="Home" asp-action="Unies">Πανεπιστήμια</a></li>
+        <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
+        @if (logged_in)
+        {
+            <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
+        }
+        else
+        {
+            <li><a asp-controller="Home" asp-action="Login">Αγαπημένα</a></li>
+        }
+        <li><a asp-controller="Home" asp-action="Help">Βοήθεια</a></li>
+        <li><a asp-controller="RegisteredUsers" asp-action="AccountInfo">Ο Λογαριασμός μου</a></li>
+        @if (logged_in)
+        {
+            <li><a asp-controller="Home" asp-action="Logout" class="btn">Έξοδος</a></li>
+        }
+        else
+        {
+            <li><a asp-controller="Home" asp-action="Login" class="btn">Είσοδος</a></li>
+        }
+    </div>
+
+    <script>
+        // Change navbar color on scroll
+        function changeBg() {
+            let navbar = document.getElementById('navbar');
+            let scrollValue = window.scrollY;
+
+            if (scrollValue < 150) {
+                navbar.classList.remove('bgColor');
+            }
+            else {
+                navbar.classList.add('bgColor');
+            }
+        }
+
+        window.addEventListener('scroll', changeBg);
+
+        // Dropdown menu handling (responsive design)
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const toggleBtnIcon = document.querySelector('.toggle-btn i');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+
+        toggleBtn.onclick = function () {
+            dropdownMenu.classList.toggle('open');
+            const isOpen = dropdownMenu.classList.contains('open');
+
+            toggleBtnIcon.classList = isOpen
+                ? 'fa fa-close'
+                : 'fa fa-bars';
+        }
+    </script>
+
+        <div class="content">
+
+            <div class="manual-frame">
+                <div class="title-frame">
+                    <h4>Χρειάζεσαι βοήθεια με το </h4>
+                    <h1>Uni<span>Rate</span>;</h1>
+                    <h3>Κατέβασε το <span>user manual</span> ή δες τις <span>συχνές ερωτήσεις</span></h3>
+                    <button class="manual-button">User Manual</button>
+                </div>
+
+            </div>
+            <div class="faqs-frame">
+                <div class="faqs">
+                    <section class="faq-section">
+                        <h1>Συχνές Ερωτήσεις</h1>
+                        <h3><span>FAQs</span></h3>
+                        <ul class="faq">
+                            <li>
+                                <div class="question">
+                                    <span class="arrow"></span>
+                                    <span>Τι ακριβώς είναι το UniRate;</span>
+                                </div>
+                                <div class="answer">
+                                    <p>
+                                        Με τον όρο Lorem ipsum αναφέρονται τα κείμενα εκείνα τα οποία είναι ακατάληπτα,
+                                        δεν μπορεί δηλαδή κάποιος να βγάλει κάποιο λογικό νόημα από αυτά, και έχουν
+                                        δημιουργηθεί με σκοπό να παρουσιάσουν στον αναγνώστη μόνο τα γραφιστικά
+                                        χαρακτηριστικά, αυτά καθ' εαυτά, ενός κειμένου ή μιας οπτικής παρουσίασης και όχι να
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="question">
+                                    <span class="arrow"></span>
+                                    <span>Πώς μπορώ να εγγραφώ στο UniRate;</span>
+                                </div>
+                                <div class="answer">
+                                    <p>
+                                        Με τον όρο Lorem ipsum αναφέρονται τα κείμενα εκείνα τα οποία είναι ακατάληπτα,
+                                        δεν μπορεί δηλαδή κάποιος να βγάλει κάποιο λογικό νόημα από αυτά, και έχουν
+                                        δημιουργηθεί με σκοπό να παρουσιάσουν στον αναγνώστη μόνο τα γραφιστικά
+                                        χαρακτηριστικά, αυτά καθ' εαυτά, ενός κειμένου ή μιας οπτικής παρουσίασης και όχι να
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="question">
+                                    <span class="arrow"></span>
+                                    <span>Υπάρχει κόστος συνδρομής κατα την εγγραφή;</span>
+                                </div>
+                                <div class="answer">
+                                    <p>
+                                        Με τον όρο Lorem ipsum αναφέρονται τα κείμενα εκείνα τα οποία είναι ακατάληπτα,
+                                        δεν μπορεί δηλαδή κάποιος να βγάλει κάποιο λογικό νόημα από αυτά, και έχουν
+                                        δημιουργηθεί με σκοπό να παρουσιάσουν στον αναγνώστη μόνο τα γραφιστικά
+                                        χαρακτηριστικά, αυτά καθ' εαυτά, ενός κειμένου ή μιας οπτικής παρουσίασης και όχι να
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="question">
+                                    <span class="arrow"></span>
+                                    <span>Τι δυνατότητες έχω ως εγγεγραμμένος χρήστης;</span>
+                                </div>
+                                <div class="answer">
+                                    <p>
+                                        Με τον όρο Lorem ipsum αναφέρονται τα κείμενα εκείνα τα οποία είναι ακατάληπτα,
+                                        δεν μπορεί δηλαδή κάποιος να βγάλει κάποιο λογικό νόημα από αυτά, και έχουν
+                                        δημιουργηθεί με σκοπό να παρουσιάσουν στον αναγνώστη μόνο τα γραφιστικά
+                                        χαρακτηριστικά, αυτά καθ' εαυτά, ενός κειμένου ή μιας οπτικής παρουσίασης και όχι να
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="question">
+                                    <span class="arrow"></span>
+                                    <span>Τι δυνατότητες έχω ως μη εγγεγραμμένος χρήστης;</span>
+                                </div>
+                                <div class="answer">
+                                    <p>
+                                        Με τον όρο Lorem ipsum αναφέρονται τα κείμενα εκείνα τα οποία είναι ακατάληπτα,
+                                        δεν μπορεί δηλαδή κάποιος να βγάλει κάποιο λογικό νόημα από αυτά, και έχουν
+                                        δημιουργηθεί με σκοπό να παρουσιάσουν στον αναγνώστη μόνο τα γραφιστικά
+                                        χαρακτηριστικά, αυτά καθ' εαυτά, ενός κειμένου ή μιας οπτικής παρουσίασης και όχι να
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="question">
+                                    <span class="arrow"></span>
+                                    <span>Πώς μπορώ να αναζητήσω ένα πανεπιστήμιο/τμήμα;</span>
+                                </div>
+                                <div class="answer">
+                                    <p>
+                                        Με τον όρο Lorem ipsum αναφέρονται τα κείμενα εκείνα τα οποία είναι ακατάληπτα,
+                                        δεν μπορεί δηλαδή κάποιος να βγάλει κάποιο λογικό νόημα από αυτά, και έχουν
+                                        δημιουργηθεί με σκοπό να παρουσιάσουν στον αναγνώστη μόνο τα γραφιστικά
+                                        χαρακτηριστικά, αυτά καθ' εαυτά, ενός κειμένου ή μιας οπτικής παρουσίασης και όχι να
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="question">
+                                    <span class="arrow"></span>
+                                    <span>Πώς μπορώ να αξιολογήσω ένα πανεπιστήμιο/τμήμα;</span>
+                                </div>
+                                <div class="answer">
+                                    <p>
+                                        Με τον όρο Lorem ipsum αναφέρονται τα κείμενα εκείνα τα οποία είναι ακατάληπτα,
+                                        δεν μπορεί δηλαδή κάποιος να βγάλει κάποιο λογικό νόημα από αυτά, και έχουν
+                                        δημιουργηθεί με σκοπό να παρουσιάσουν στον αναγνώστη μόνο τα γραφιστικά
+                                        χαρακτηριστικά, αυτά καθ' εαυτά, ενός κειμένου ή μιας οπτικής παρουσίασης και όχι να
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="question">
+                                    <span class="arrow"></span>
+                                    <span>Πώς μπορώ να γράψω κριτική πανεπιστήμιο/τμήμα;</span>
+                                </div>
+                                <div class="answer">
+                                    <p>
+                                        Με τον όρο Lorem ipsum αναφέρονται τα κείμενα εκείνα τα οποία είναι ακατάληπτα,
+                                        δεν μπορεί δηλαδή κάποιος να βγάλει κάποιο λογικό νόημα από αυτά, και έχουν
+                                        δημιουργηθεί με σκοπό να παρουσιάσουν στον αναγνώστη μόνο τα γραφιστικά
+                                        χαρακτηριστικά, αυτά καθ' εαυτά, ενός κειμένου ή μιας οπτικής παρουσίασης και όχι να
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="question">
+                                    <span class="arrow"></span>
+                                    <span>Πώς μπορώ να δω τα top rated πανεπιστήμια/τμήματα;</span>
+                                </div>
+                                <div class="answer">
+                                    <p>
+                                        Με τον όρο Lorem ipsum αναφέρονται τα κείμενα εκείνα τα οποία είναι ακατάληπτα,
+                                        δεν μπορεί δηλαδή κάποιος να βγάλει κάποιο λογικό νόημα από αυτά, και έχουν
+                                        δημιουργηθεί με σκοπό να παρουσιάσουν στον αναγνώστη μόνο τα γραφιστικά
+                                        χαρακτηριστικά, αυτά καθ' εαυτά, ενός κειμένου ή μιας οπτικής παρουσίασης και όχι να
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="question">
+                                    <span class="arrow"></span>
+                                    <span>Πώς διαχειρίζομαι τον λογαριασμό μου;</span>
+                                </div>
+                                <div class="answer">
+                                    <p>
+                                        Με τον όρο Lorem ipsum αναφέρονται τα κείμενα εκείνα τα οποία είναι ακατάληπτα,
+                                        δεν μπορεί δηλαδή κάποιος να βγάλει κάποιο λογικό νόημα από αυτά, και έχουν
+                                        δημιουργηθεί με σκοπό να παρουσιάσουν στον αναγνώστη μόνο τα γραφιστικά
+                                        χαρακτηριστικά, αυτά καθ' εαυτά, ενός κειμένου ή μιας οπτικής παρουσίασης και όχι να
+                                    </p>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+<script>
+    const questions = document.querySelectorAll('.question');
+    const answers = document.querySelectorAll('.answer');
+    const arr = document.querySelectorAll('.arrow');
+
+    for (let i = 0; i < questions.length; i++) {
+        questions[i].addEventListener('click', () => {
+            answers[i].classList.toggle('answer-opened');
+            arr[i].classList.toggle('arrow-rotated');
+        });
+    }
+</script>
+
+
+<footer>
+    <p><i class="fa fa-copyright"></i>   Uni<span>Rate</span></p>
+    <p>
+        Το UniRate αποτελεί την εργασία εξαμήνου μας για το μάθημα "Πληροφοριακά
+        Συστήματα στο Διαδίκτυο". Μπορείς να μας βρείς στο GitHub ή να μας στείλεις mail:
+    </p>
+    <div class="social">
+        <a href="https://github.com/aboublini"><i class="fa fa-github"></i></a>
+        <a href="https://github.com/marata13"><i class="fa fa-github"></i></a>
+        <a href="mailto:aboublini@gmail.com"><i class="fa fa-envelope"></i></a>
+        <a href="mailto:ioakeim13@hotmail.gr"><i class="fa fa-envelope"></i></a>
+    </div>
+    <p class="end"><i class="fa fa-copyright"></i> 2023 All Right Reserved</p>
+</footer>

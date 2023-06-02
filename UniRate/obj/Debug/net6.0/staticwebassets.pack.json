@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\FavoritesStyle.css"
     },
     {
+      "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\HelpStyle.css",
+      "PackagePath": "staticwebassets\\css\\HelpStyle.css"
+    },
+    {
       "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\HomePageStyle.css",
       "PackagePath": "staticwebassets\\css\\HomePageStyle.css"
     },
@@ -35,6 +39,10 @@
     {
       "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\SearchStyle.css",
       "PackagePath": "staticwebassets\\css\\SearchStyle.css"
+    },
+    {
+      "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\TopRatedStyle.css",
+      "PackagePath": "staticwebassets\\css\\TopRatedStyle.css"
     },
     {
       "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\UniResultsStyle.css",
@@ -279,6 +287,10 @@
     {
       "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\FAQsBackground.jpg",
+      "PackagePath": "staticwebassets\\visual-material\\FAQsBackground.jpg"
     },
     {
       "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\FavoritesBackground.jpg",
