@@ -4,4 +4,151 @@
 @{
 }
 
-<h1>Page for unies in UniRate</h1>
+
+<!-- Stylesheet connection for Search page -->
+@section Styles {
+    <link rel="stylesheet" href="~/css/UniesStyle.css" />
+    <link rel="stylesheet" href="~/css/NavbarStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+}
+
+<div class="hero">
+    <img src="@Url.Content("~/visual-material/uniesBackground.jpg")" class="back-image">
+
+    @{
+        bool logged_in = true; // Set this variable to true if user is logged in, if else set it to false
+    }
+    <nav class="navbar" id="navbar">
+        <h2 class="logo"><img src="@Url.Content("~/visual-material/uniRateLogo.png")" class="icon-logo"> Uni<span>Rate</span></h2>
+        <ul class="navbar-links">
+            <li><a asp-controller="Home" asp-action="Homepage">Αρχική</a></li>
+            <li><a asp-controller="Home" asp-action="Unies">Πανεπιστήμια</a></li>
+            <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
+            @if (logged_in)
+            {
+                <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
+            }
+            else
+            {
+                <li><a asp-controller="Home" asp-action="Login">Αγαπημένα</a></li>
+            }
+            <li><a asp-controller="Home" asp-action="Help">Βοήθεια</a></li>
+            <li><a asp-controller="RegisteredUsers" asp-action="AccountInfo">Ο Λογαριασμός μου</a></li>
+        </ul>
+
+
+        @if (logged_in)
+        {
+            <a asp-controller="Home" asp-action="Logout" class="btn">Έξοδος</a>
+        }
+        else
+        {
+            <a asp-controller="Home" asp-action="Login" class="btn">Είσοδος</a>
+        }
+        <div class="toggle-btn">
+            <i class="fa fa-bars"></i>
+        </div>
+    </nav>
+    <div class="dropdown-menu">
+        <li><a href="#">Αρχική</a></li>
+        <li><a asp-controller="Home" asp-action="Unies">Πανεπιστήμια</a></li>
+        <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
+        @if (logged_in)
+        {
+            <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
+        }
+        else
+        {
+            <li><a asp-controller="Home" asp-action="Login">Αγαπημένα</a></li>
+        }
+        <li><a asp-controller="Home" asp-action="Help">Βοήθεια</a></li>
+        <li><a asp-controller="RegisteredUsers" asp-action="AccountInfo">Ο Λογαριασμός μου</a></li>
+        @if (logged_in)
+        {
+            <li><a asp-controller="Home" asp-action="Logout" class="btn">Έξοδος</a></li>
+        }
+        else
+        {
+            <li><a asp-controller="Home" asp-action="Login" class="btn">Είσοδος</a></li>
+        }
+    </div>
+
+    <script>
+        // Change navbar color on scroll
+        function changeBg() {
+            let navbar = document.getElementById('navbar');
+            let scrollValue = window.scrollY;
+
+            if (scrollValue < 150) {
+                navbar.classList.remove('bgColor');
+            }
+            else {
+                navbar.classList.add('bgColor');
+            }
+        }
+
+        window.addEventListener('scroll', changeBg);
+
+        // Dropdown menu handling (responsive design)
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const toggleBtnIcon = document.querySelector('.toggle-btn i');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+
+        toggleBtn.onclick = function () {
+            dropdownMenu.classList.toggle('open');
+            const isOpen = dropdownMenu.classList.contains('open');
+
+            toggleBtnIcon.classList = isOpen
+                ? 'fa fa-close'
+                : 'fa fa-bars';
+        }
+    </script>
+
+    <div class="content">
+
+        <div class="manual-frame">
+            <div class="title-frame">
+                <h1>Συνεργαζόμενα <span>Πανεπιστήμια</span></h1>
+                <h3>Η ομάδα του Uni<span>Rate</span> προσπαθεί να συμπεριλάβει όσο το δυνατόν περισσότερα εκπαιδευτικά ιδρύματα. Stay tuned for <span>more</span>!</h3>
+            </div>
+        </div>
+
+
+        <div class="unies-frame">
+            <div class="faqs">
+                <section class="uni-section">
+                    <h1>Συνεργαζόμενα <span>Πανεπιστήμια</span></h1>
+                    <ul class="university">
+                        @for (int i = 0; i <= 8; i++)
+                        { //bale edw na ta pairnei apo th bash
+                            <li>
+                            <div class="uni-item">
+                                <span>Πανεπιστήμιο Πειραιώς</span>
+                                <img src="@Url.Content("~/visual-material/unipi.png")" class="uni-logo">
+                            </div>
+                        </li>
+                        }
+                        
+
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <footer>
+        <p><i class="fa fa-copyright"></i>   Uni<span>Rate</span></p>
+        <p>
+            Το UniRate αποτελεί την εργασία εξαμήνου μας για το μάθημα "Πληροφοριακά
+            Συστήματα στο Διαδίκτυο". Μπορείς να μας βρείς στο GitHub ή να μας στείλεις mail:
+        </p>
+        <div class="social">
+            <a href="https://github.com/aboublini"><i class="fa fa-github"></i></a>
+            <a href="https://github.com/marata13"><i class="fa fa-github"></i></a>
+            <a href="mailto:aboublini@gmail.com"><i class="fa fa-envelope"></i></a>
+            <a href="mailto:ioakeim13@hotmail.gr"><i class="fa fa-envelope"></i></a>
+        </div>
+        <p class="end"><i class="fa fa-copyright"></i> 2023 All Right Reserved</p>
+    </footer>

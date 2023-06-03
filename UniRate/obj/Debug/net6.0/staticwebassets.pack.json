@@ -49,6 +49,10 @@
       "PackagePath": "staticwebassets\\css\\UniResultsStyle.css"
     },
     {
+      "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\UniesStyle.css",
+      "PackagePath": "staticwebassets\\css\\UniesStyle.css"
+    },
+    {
       "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -319,6 +323,10 @@
     {
       "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\uniRateLogo.png",
       "PackagePath": "staticwebassets\\visual-material\\uniRateLogo.png"
+    },
+    {
+      "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\uniesBackground.jpg",
+      "PackagePath": "staticwebassets\\visual-material\\uniesBackground.jpg"
     },
     {
       "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\unipi.png",
