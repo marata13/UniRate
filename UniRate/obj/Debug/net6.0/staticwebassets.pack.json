@@ -33,10 +33,6 @@
       "PackagePath": "staticwebassets\\css\\LoginStyle.css"
     },
     {
-      "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\NavbarRegisteredStyle.css",
-      "PackagePath": "staticwebassets\\css\\NavbarRegisteredStyle.css"
-    },
-    {
       "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\css\\NavbarStyle.css",
       "PackagePath": "staticwebassets\\css\\NavbarStyle.css"
     },
@@ -295,6 +291,10 @@
     {
       "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\AccountBackground.jpg",
+      "PackagePath": "staticwebassets\\visual-material\\AccountBackground.jpg"
     },
     {
       "Id": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\FAQsBackground.jpg",

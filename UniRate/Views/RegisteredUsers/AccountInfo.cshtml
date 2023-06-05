@@ -14,8 +14,7 @@
 
 <body>
     <div class="hero">
-        <img src="@Url.Content("~/visual-material/papei.png")" class="back-image">
-
+        <img src="@Url.Content("~/visual-material/AccountBackground.jpg")" class="back-image">
 
 
         <nav class="navbar" id="navbar">
@@ -25,8 +24,8 @@
                 <li><a asp-controller="Home" asp-action="Unies">Πανεπιστήμια</a></li>
                 <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
                 <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
-                <li><a asp-controller="Home" asp-action="About">Σχετικά με εμάς</a></li>
-                <li><a asp-controller="Home" asp-action="Contact">Επικοινωνία</a></li>
+                <li><a asp-controller="Home" asp-action="Help">Βοήθεια</a></li>
+                <li><a asp-controller="RegisteredUsers" asp-action="AccountInfo">Ο Λογαριασμός μου</a></li>
             </ul>
             <a asp-controller="Home" asp-action="Login" class="btn">Έξοδος</a>
 
@@ -39,8 +38,8 @@
             <li><a asp-controller="Home" asp-action="Unies">Πανεπιστήμια</a></li>
             <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
             <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
-            <li><a asp-controller="Home" asp-action="About">Σχετικά με εμάς</a></li>
-            <li><a asp-controller="Home" asp-action="Contact">Επικοινωνία</a></li>
+            <li><a asp-controller="Home" asp-action="Help">Βοήθεια</a></li>
+            <li><a asp-controller="RegisteredUsers" asp-action="AccountInfo">Ο Λογαριασμός μου</a></li>
             <li><a asp-controller="Home" asp-action="Login" class="btn">Έξοδος</a></li>
         </div>
 
@@ -77,7 +76,68 @@
 
 
         <div class="content">
+
+            <div class="manual-frame">
+                <div class="title-frame">
+                    <h1>Πληροφορίες <span>Λογαριασμού</span></h1>
+                    <h3>Δές τις πληροφορίες του Uni<span>Rate</span> λογαριασμού σου! Μπορείς να αλλάξεις τον <span>κωδικό</span> σου όσες φορές θες!</h3>
+                </div>
             </div>
+
+            <div class="account-frame">
+                <div class="account-info">
+
+                    <div class="bar">
+                        <div class="user-icon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="user-icon">
+                            <i class="fa fa-sign-out"></i>
+                        </div>
+                    </div>
+
+                    <div class="user-information">
+                        <div class="user-pic">
+                            <i class="fa fa-user-circle"></i>
+                        </div>
+
+                        <div class="info">
+                            <div class="infield">
+                                <p>Όνομα Χρήστη</p>
+                                <input type="text" placeholder="aboublini" disabled />
+                            </div>
+
+                            <div class="infield">
+                                <p>Email</p>
+                                <input type="text" placeholder="aboublini@unipi.gr" disabled />
+                            </div>
+                        </div>
+
+                        <div class="change-info">
+                            <div class="infield">
+                                <p>Άλλαξε τον κωδικό σου</p>
+                            </div>
+
+                            <div class="infield">
+                                <p>Παλιός Κωδικός</p>
+                                <input type="password" placeholder="Παλιός Κωδικός" />
+                            </div>
+
+                            <div class="infield">
+                                <p>Νέος Κωδικός</p>
+                                <input type="password" placeholder="Νέος Κωδικός" />
+                            </div>
+                        </div>
+
+                        <div class="save">
+                            <button>Αποθήκευση</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
            
     </div>
 
