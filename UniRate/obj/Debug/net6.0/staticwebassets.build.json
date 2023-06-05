@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+YZoyt9MNkrMLaCcw8XPYuA5VprElTEG50Npj2u3ZoM=",
+  "Hash": "A/Ky9VXaqx3FX3Mnrme1hSWlw5CrO0Pfl36TuZTN0jU=",
   "Source": "UniRate",
   "BasePath": "_content/UniRate",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Ioake\\UniRate\\UniRate\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\UniRate.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\AccountInfoStyle.css",
+      "SourceId": "UniRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\",
+      "BasePath": "_content/UniRate",
+      "RelativePath": "css/AccountInfoStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\AccountInfoStyle.css"
     },
     {
       "Identity": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\AddReviewStyle.css",
@@ -102,6 +119,23 @@
       "OriginalItemSpec": "wwwroot\\css\\FavoritesStyle.css"
     },
     {
+      "Identity": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\HelpStyle.css",
+      "SourceId": "UniRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\",
+      "BasePath": "_content/UniRate",
+      "RelativePath": "css/HelpStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\HelpStyle.css"
+    },
+    {
       "Identity": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\HomePageStyle.css",
       "SourceId": "UniRate",
       "SourceType": "Discovered",
@@ -134,23 +168,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\LoginStyle.css"
-    },
-    {
-      "Identity": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\NavbarRegisteredStyle.css",
-      "SourceId": "UniRate",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\",
-      "BasePath": "_content/UniRate",
-      "RelativePath": "css/NavbarRegisteredStyle.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\NavbarRegisteredStyle.css"
     },
     {
       "Identity": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\NavbarStyle.css",
@@ -219,6 +236,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\TopRatedStyle.css"
+    },
+    {
+      "Identity": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\UniesStyle.css",
+      "SourceId": "UniRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\",
+      "BasePath": "_content/UniRate",
+      "RelativePath": "css/UniesStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\UniesStyle.css"
     },
     {
       "Identity": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\UniResultsStyle.css",
@@ -1241,6 +1275,23 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
+      "Identity": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\visual-material\\AccountBackground.jpg",
+      "SourceId": "UniRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\",
+      "BasePath": "_content/UniRate",
+      "RelativePath": "visual-material/AccountBackground.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\visual-material\\AccountBackground.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\visual-material\\backgroundHome.mp4",
       "SourceId": "UniRate",
       "SourceType": "Discovered",
@@ -1256,6 +1307,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\visual-material\\backgroundHome.mp4"
+    },
+    {
+      "Identity": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\visual-material\\FAQsBackground.jpg",
+      "SourceId": "UniRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\",
+      "BasePath": "_content/UniRate",
+      "RelativePath": "visual-material/FAQsBackground.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\visual-material\\FAQsBackground.jpg"
     },
     {
       "Identity": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\visual-material\\FavoritesBackground.jpg",
@@ -1341,6 +1409,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\visual-material\\SearchBackground.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\visual-material\\uniesBackground.jpg",
+      "SourceId": "UniRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\",
+      "BasePath": "_content/UniRate",
+      "RelativePath": "visual-material/uniesBackground.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\visual-material\\uniesBackground.jpg"
     },
     {
       "Identity": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\visual-material\\unipi.png",

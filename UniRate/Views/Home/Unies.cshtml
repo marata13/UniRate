@@ -12,7 +12,7 @@
     <img src="@Url.Content("~/visual-material/uniesBackground.jpg")" class="back-image">
 
     @{
-        bool logged_in = true; // Set this variable to true if user is logged in, if else set it to false
+        bool logged_in = ViewBag.LoggedIn; // Set this variable to true if user is logged in, if else set it to false
     }
     <nav class="navbar" id="navbar">
         <h2 class="logo"><img src="@Url.Content("~/visual-material/uniRateLogo.png")" class="icon-logo"> Uni<span>Rate</span></h2>

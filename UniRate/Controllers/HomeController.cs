@@ -87,7 +87,7 @@ namespace UniRate.Controllers
                 CookieAuthenticationDefaults.AuthenticationScheme);
 
             ViewBag.LoggedIn = false;
-            return RedirectToAction("Login");
+            return RedirectToAction("HomePage");
         }
 
 

@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\UniRate.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\AccountInfoStyle.css",
+      "PackagePath": "staticwebassets\\css\\AccountInfoStyle.css"
+    },
+    {
       "Id": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\AddReviewStyle.css",
       "PackagePath": "staticwebassets\\css\\AddReviewStyle.css"
     },
@@ -17,16 +21,16 @@
       "PackagePath": "staticwebassets\\css\\FavoritesStyle.css"
     },
     {
+      "Id": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\HelpStyle.css",
+      "PackagePath": "staticwebassets\\css\\HelpStyle.css"
+    },
+    {
       "Id": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\HomePageStyle.css",
       "PackagePath": "staticwebassets\\css\\HomePageStyle.css"
     },
     {
       "Id": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\LoginStyle.css",
       "PackagePath": "staticwebassets\\css\\LoginStyle.css"
-    },
-    {
-      "Id": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\NavbarRegisteredStyle.css",
-      "PackagePath": "staticwebassets\\css\\NavbarRegisteredStyle.css"
     },
     {
       "Id": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\NavbarStyle.css",
@@ -43,6 +47,10 @@
     {
       "Id": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\UniResultsStyle.css",
       "PackagePath": "staticwebassets\\css\\UniResultsStyle.css"
+    },
+    {
+      "Id": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\UniesStyle.css",
+      "PackagePath": "staticwebassets\\css\\UniesStyle.css"
     },
     {
       "Id": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\css\\site.css",
@@ -285,6 +293,14 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\visual-material\\AccountBackground.jpg",
+      "PackagePath": "staticwebassets\\visual-material\\AccountBackground.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\visual-material\\FAQsBackground.jpg",
+      "PackagePath": "staticwebassets\\visual-material\\FAQsBackground.jpg"
+    },
+    {
       "Id": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\visual-material\\FavoritesBackground.jpg",
       "PackagePath": "staticwebassets\\visual-material\\FavoritesBackground.jpg"
     },
@@ -311,6 +327,10 @@
     {
       "Id": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\visual-material\\uniRateLogo.png",
       "PackagePath": "staticwebassets\\visual-material\\uniRateLogo.png"
+    },
+    {
+      "Id": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\visual-material\\uniesBackground.jpg",
+      "PackagePath": "staticwebassets\\visual-material\\uniesBackground.jpg"
     },
     {
       "Id": "C:\\Users\\Ioake\\UniRate\\UniRate\\wwwroot\\visual-material\\unipi.png",
