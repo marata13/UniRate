@@ -125,12 +125,12 @@
                 <section class="uni-section">
                     <h1>Συνεργαζόμενα <span>Πανεπιστήμια</span></h1>
                     <ul class="university">
-                        @for (int i = 0; i <= 8; i++)
+                        @foreach (var uni in Model)
                         { //bale edw na ta pairnei apo th bash
                             <li>
                             <div class="uni-item">
-                                <span>Πανεπιστήμιο Πειραιώς</span>
-                                <img src="@Url.Content("~/visual-material/unipi.png")" class="uni-logo">
+                                    <span><a asp-route-Id="@uni.Id" asp-controller="Home" asp-action="UniResults">@uni.Name</a></span>
+                                <img src="@uni.LogoUrl" class="uni-logo">
                             </div>
                         </li>
                         }
