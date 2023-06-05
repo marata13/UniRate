@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using UniRate.Data;
 using UniRate.Models;
 
 namespace UniRate.Controllers
 {
+    [Authorize]
     public class RegisteredUsersController : Controller
     {
         private readonly UniRateContext _context;
@@ -18,28 +20,32 @@ namespace UniRate.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
             return View();
         }
 
         public IActionResult AddReview()
         {
+            ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
             return View();
         }
 
         public IActionResult FavoritesRegistered()
         {
+            ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
             return View();
         }
 
         public IActionResult AccountInfo()
         {
+            ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
             return View();
         }
 
 
         public async Task<IActionResult> AddFavoriteUni(Guid Id)
         {
-            ViewBag.LoggedIn = HttpContext.Request.Cookies.ContainsKey("LoginCookie");
+            ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
 
             University university = await _context.University.FirstOrDefaultAsync(m => m.Id == Id);
             FavoriteUniversity FavUni = new FavoriteUniversity();
@@ -47,20 +53,13 @@ namespace UniRate.Controllers
             FavUni.University = university;
             try
             {
-                await _context.FavoriteUniversity.AddAsync(FavUni);
-                _context.SaveChanges();
 
                 var User = await _context.User.FirstOrDefaultAsync(m => m.UserName == HttpContext.User.Identity.Name);
+                User.FavoriteUniversities = User.GetFavoriteUniversities(_context);
 
-                if (User.FavoriteUniversities != null)
+                if (!User.FavoriteUniversities.Contains(FavUni))
                 {
                     User.FavoriteUniversities.Add(FavUni);
-                    _context.SaveChanges();
-                }
-                else
-                {
-                    List<FavoriteUniversity> favUnies = new() { FavUni };
-                    User.FavoriteUniversities = favUnies;
                     _context.SaveChanges();
                 }
             }
@@ -75,23 +74,18 @@ namespace UniRate.Controllers
 
         public async Task<IActionResult> RemoveFavoriteUni(Guid Id)
         {
-            ViewBag.LoggedIn = HttpContext.Request.Cookies.ContainsKey("LoginCookie");
+            ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
 
             University university = await _context.University.FirstOrDefaultAsync(m => m.Id == Id);
             var User = await _context.User.FirstOrDefaultAsync(m => m.UserName == HttpContext.User.Identity.Name);
+            User.FavoriteUniversities = User.GetFavoriteUniversities(_context);
 
-            try
+            FavoriteUniversity FavUni = User.FavoriteUniversities.FirstOrDefault(m => m.University == university);
+
+            if (User.FavoriteUniversities.Contains(FavUni))
             {
-                FavoriteUniversity FavUni = User.FavoriteUniversities.FirstOrDefault(m => m.University == university);
                 User.FavoriteUniversities.Remove(FavUni);
-
-                _context.FavoriteUniversity.Remove(FavUni);
-
                 _context.SaveChanges();
-            }
-            catch (Exception)
-            {
-                ViewBag.errorMessage = "this university is not on the favorites list";
             }
 
             return RedirectToAction("UniResults", "Home", new { university.Id });

@@ -14,6 +14,10 @@
 
         public string? Email { get; set; }
 
+        public Guid DepartmentId { get; set; }
+
+        public Department Department { get; set; }
+
         public List<Subject>? Subjects { get; set; }
     }
 }

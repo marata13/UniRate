@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using UniRate.Data;
@@ -11,9 +12,11 @@ using UniRate.Data;
 namespace UniRate.Migrations
 {
     [DbContext(typeof(UniRateContext))]
-    partial class UniRateContextModelSnapshot : ModelSnapshot
+    [Migration("20230605152605_Cleaning-up-foreign-keys")]
+    partial class Cleaningupforeignkeys
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

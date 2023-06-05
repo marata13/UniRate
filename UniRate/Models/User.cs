@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using UniRate.Data;
 
 namespace UniRate.Models
 {
@@ -25,5 +27,13 @@ namespace UniRate.Models
         public List<UniRating>? UniRatings { get; set; }
 
         public List<DepRating>? DepRatings { get; set; }
+
+
+        public List<FavoriteUniversity> GetFavoriteUniversities(UniRateContext _context)
+        {
+            return _context.FavoriteUniversity
+                    .Where(b => b.UserId == Id).ToList();
+
+        }
     }
 }

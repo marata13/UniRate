@@ -13,5 +13,13 @@
         public string? Hours { get; set; }
 
         public string? SubjectUrl { get; set; }
+
+        public Guid DepartmentId { get; set; }
+
+        public Department Department { get; set; }
+
+        public Guid? ProfessorId { get; set; }
+
+        public Professor? Professor { get; set; }
     }
 }

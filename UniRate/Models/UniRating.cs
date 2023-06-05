@@ -19,5 +19,13 @@
         public string? Review { get; set; }
 
         public DateTime? DateTime { get; set; }
+
+        public Guid UserId { get; set; }
+
+        public User User { get; set; }
+
+        public Guid UniversityId { get; set; }
+
+        public University University { get; set; }
     }
 }
