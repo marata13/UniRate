@@ -4,4 +4,158 @@
 @{
 }
 
-<h1>Account info</h1>
+
+<!-- Stylesheet connection for Search page -->
+@section Styles {
+    <link rel="stylesheet" href="~/css/AccountInfoStyle.css" />
+    <link rel="stylesheet" href="~/css/NavbarStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+}
+
+<body>
+    <div class="hero">
+        <img src="@Url.Content("~/visual-material/AccountBackground.jpg")" class="back-image">
+
+
+        <nav class="navbar" id="navbar">
+            <h2 class="logo"><img src="@Url.Content("~/visual-material/uniRateLogo.png")" class="icon-logo"> Uni<span>Rate</span></h2>
+            <ul class="navbar-links">
+                <li><a asp-controller="Home" asp-action="HomePage">Αρχική</a></li>
+                <li><a asp-controller="Home" asp-action="Unies">Πανεπιστήμια</a></li>
+                <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
+                <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
+                <li><a asp-controller="Home" asp-action="Help">Βοήθεια</a></li>
+                <li><a asp-controller="RegisteredUsers" asp-action="AccountInfo">Ο Λογαριασμός μου</a></li>
+            </ul>
+            <a asp-controller="Home" asp-action="Login" class="btn">Έξοδος</a>
+
+            <div class="toggle-btn">
+                <i class="fa fa-bars"></i>
+            </div>
+        </nav>
+        <div class="dropdown-menu">
+            <li><a asp-controller="Home" asp-action="HomePage">Αρχική</a></li>
+            <li><a asp-controller="Home" asp-action="Unies">Πανεπιστήμια</a></li>
+            <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
+            <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
+            <li><a asp-controller="Home" asp-action="Help">Βοήθεια</a></li>
+            <li><a asp-controller="RegisteredUsers" asp-action="AccountInfo">Ο Λογαριασμός μου</a></li>
+            <li><a asp-controller="Home" asp-action="Login" class="btn">Έξοδος</a></li>
+        </div>
+
+        <script>
+            // Change navbar color on scroll
+            function changeBg() {
+                let navbar = document.getElementById('navbar');
+                let scrollValue = window.scrollY;
+
+                if (scrollValue < 150) {
+                    navbar.classList.remove('bgColor');
+                }
+                else {
+                    navbar.classList.add('bgColor');
+                }
+            }
+
+            window.addEventListener('scroll', changeBg);
+
+            // Dropdown menu handling (responsive design)
+            const toggleBtn = document.querySelector('.toggle-btn');
+            const toggleBtnIcon = document.querySelector('.toggle-btn i');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+
+            toggleBtn.onclick = function () {
+                dropdownMenu.classList.toggle('open');
+                const isOpen = dropdownMenu.classList.contains('open');
+
+                toggleBtnIcon.classList = isOpen
+                    ? 'fa fa-close'
+                    : 'fa fa-bars';
+            }
+        </script>
+
+
+        <div class="content">
+
+            <div class="manual-frame">
+                <div class="title-frame">
+                    <h1>Πληροφορίες <span>Λογαριασμού</span></h1>
+                    <h3>Δές τις πληροφορίες του Uni<span>Rate</span> λογαριασμού σου! Μπορείς να αλλάξεις τον <span>κωδικό</span> σου όσες φορές θες!</h3>
+                </div>
+            </div>
+
+            <div class="account-frame">
+                <div class="account-info">
+
+                    <div class="bar">
+                        <div class="user-icon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="user-icon">
+                            <i class="fa fa-sign-out"></i>
+                        </div>
+                    </div>
+
+                    <div class="user-information">
+                        <div class="user-pic">
+                            <i class="fa fa-user-circle"></i>
+                        </div>
+
+                        <div class="info">
+                            <div class="infield">
+                                <p>Όνομα Χρήστη</p>
+                                <input type="text" placeholder="aboublini" disabled />
+                            </div>
+
+                            <div class="infield">
+                                <p>Email</p>
+                                <input type="text" placeholder="aboublini@unipi.gr" disabled />
+                            </div>
+                        </div>
+
+                        <div class="change-info">
+                            <div class="infield">
+                                <p>Άλλαξε τον κωδικό σου</p>
+                            </div>
+
+                            <div class="infield">
+                                <p>Παλιός Κωδικός</p>
+                                <input type="password" placeholder="Παλιός Κωδικός" />
+                            </div>
+
+                            <div class="infield">
+                                <p>Νέος Κωδικός</p>
+                                <input type="password" placeholder="Νέος Κωδικός" />
+                            </div>
+                        </div>
+
+                        <div class="save">
+                            <button>Αποθήκευση</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+           
+    </div>
+
+
+
+
+    <footer>
+        <p><i class="fa fa-copyright"></i>   Uni<span>Rate</span></p>
+        <p>
+            Το UniRate αποτελεί την εργασία εξαμήνου μας για το μάθημα "Πληροφοριακά
+            Συστήματα στο Διαδίκτυο". Μπορείς να μας βρείς στο GitHub ή να μας στείλεις mail:
+        </p>
+        <div class="social">
+            <a href="https://github.com/aboublini"><i class="fa fa-github"></i></a>
+            <a href="https://github.com/marata13"><i class="fa fa-github"></i></a>
+            <a href="mailto:aboublini@gmail.com"><i class="fa fa-envelope"></i></a>
+            <a href="mailto:ioakeim13@hotmail.gr"><i class="fa fa-envelope"></i></a>
+        </div>
+        <p class="end"><i class="fa fa-copyright"></i> 2023 All Right Reserved</p>
+    </footer>
+</body>

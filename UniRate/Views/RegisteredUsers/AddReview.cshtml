@@ -17,7 +17,6 @@
         <img src="@Url.Content("~/visual-material/papei.png")" class="back-image">
 
 
-
         <nav class="navbar" id="navbar">
             <h2 class="logo"><img src="@Url.Content("~/visual-material/uniRateLogo.png")" class="icon-logo"> Uni<span>Rate</span></h2>
             <ul class="navbar-links">
@@ -25,11 +24,11 @@
                 <li><a asp-controller="Home" asp-action="Unies">Πανεπιστήμια</a></li>
                 <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
                 <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
-                <li><a asp-controller="Home" asp-action="About">Σχετικά με εμάς</a></li>
-                <li><a asp-controller="Home" asp-action="Contact">Επικοινωνία</a></li>
-            </ul>          
+                <li><a asp-controller="Home" asp-action="Help">Βοήθεια</a></li>
+                <li><a asp-controller="RegisteredUsers" asp-action="AccountInfo">Ο Λογαριασμός μου</a></li>
+            </ul>
             <a asp-controller="Home" asp-action="Login" class="btn">Έξοδος</a>
-            
+
             <div class="toggle-btn">
                 <i class="fa fa-bars"></i>
             </div>
@@ -39,10 +38,11 @@
             <li><a asp-controller="Home" asp-action="Unies">Πανεπιστήμια</a></li>
             <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
             <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
-            <li><a asp-controller="Home" asp-action="About">Σχετικά με εμάς</a></li>
-            <li><a asp-controller="Home" asp-action="Contact">Επικοινωνία</a></li>
-            <li><a asp-controller="Home" asp-action="Login" class="btn">Έξοδος</a></li>         
+            <li><a asp-controller="Home" asp-action="Help">Βοήθεια</a></li>
+            <li><a asp-controller="RegisteredUsers" asp-action="AccountInfo">Ο Λογαριασμός μου</a></li>
+            <li><a asp-controller="Home" asp-action="Login" class="btn">Έξοδος</a></li>
         </div>
+
 
         <script>
             // Change navbar color on scroll

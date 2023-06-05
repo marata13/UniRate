@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -153,9 +153,7 @@ namespace UniRate.Controllers
                           View(await _context.University.ToListAsync()) :
                           Problem("Entity set 'UniRateContext.User'  is null.");
         }
-
-
-        public IActionResult About()
+        public IActionResult Help()
         {
             ViewBag.LoggedIn = HttpContext.Request.Cookies.ContainsKey("LoginCookie");
             return View();
