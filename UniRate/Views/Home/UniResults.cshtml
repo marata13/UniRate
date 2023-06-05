@@ -117,7 +117,15 @@
             <h1>@Model.Name</h1>
             @if (logged_in)
             {
-                <i class="fa fa-heart"></i>
+                if (is_favorite_uni) // Make heart blue
+                {
+                    <i class="fa fa-heart" style="color: #11668D;"></i>
+                }
+                else // Heart is grey
+                {
+                    <i class="fa fa-heart" style="color: grey;"></i>
+                }
+                
             } 
         </div>
     </div>

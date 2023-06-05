@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\UniRate"
+    "\\UniRate",
+    "\\UniRate\\Controllers"
   ],
+  "SelectedNode": "\\UniRate\\Controllers\\HomeController.cs",
   "PreviewInSolutionExplorer": false
 }
