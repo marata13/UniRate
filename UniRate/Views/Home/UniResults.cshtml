@@ -1,9 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
+﻿@model UniRate.Models.University
 
 <!-- Stylesheet connection for Search page -->
 @section Styles {
@@ -17,6 +12,7 @@
         <img src="@Url.Content("~/visual-material/papei.png")" class="back-image">
         @{
             bool logged_in = true; // Set this variable to true if user is logged in, if else set it to false
+            bool is_favorite_uni = ViewBag.IsFavoriteUni; // Set this variable to true if user has this university favorited
         }
         <nav class="navbar" id="navbar">
             <h2 class="logo"><img src="@Url.Content("~/visual-material/uniRateLogo.png")" class="icon-logo"> Uni<span>Rate</span></h2>
@@ -107,7 +103,7 @@
 
 
         <div class="content">
-            <h1>Πανεπιστήμιο Πειραιά</h1>
+            <h1>@Model.Name</h1>
             @if (logged_in)
             {
                 <i class="fa fa-heart"></i>
@@ -120,24 +116,24 @@
 
         <div class="uni-info">
             <div class="title">
-                <h2>Πανεπιστήμιο Πειραιά</h2>
-                <img class="uni-logo" src="@Url.Content("~/visual-material/unipi.png")">
+                <h2>@Model.Name</h2>
+                <img class="uni-logo" src="@Model.LogoUrl">
             </div>
             <div class="info-section">
                 <h3>Πρύτανης:</h3>
-                <h3>Μιχάλης Σφακιανάκης</h3>
+                <h3>@Model.Dean</h3>
             </div>
             <div class="info-section">
                 <h3>Τοποθεσία:</h3>
-                <h3>Πειραιάς, Ελλάδα</h3>
+                <h3>@Model.Location</h3>
             </div>
             <div class="info-section">
                 <h3>Διεύθυνση:</h3>
-                <h3>Κ. & Δημητρίου 80</h3>
+                <h3>@Model.Address</h3>
             </div>
             <div class="info-section">
                 <h3>Ιστοσελίδα:</h3>
-                <h3>unipi.gr</h3>
+                <h3>@Model.SiteUrl</h3>
             </div>
 
         </div>
@@ -332,15 +328,15 @@
 
             <div class="contact-section">
                 <h3>Τηλέφωνο:</h3>
-                <h4>210 4142000</h4>
+                <h4>@Model.Phone</h4>
             </div>
             <div class="contact-section">
                 <h3>Διεύθυνση:</h3>
-                <h4>Καραολή και Δημητρίου 80, Πειραιάς 185 34</h4>
+                <h4>@Model.Address, @Model.Location</h4>
             </div>
             <div class="contact-section">
                 <h3>Φόρμα Επικοινωνίας:</h3>
-                <h4>Πατήστε <a href="https://www.unipi.gr/unipi/el/epikoinwnia.html">εδώ</a></h4>
+                <h4>Πατήστε <a href="@Model.ContactUrl">εδώ</a></h4>
             </div>
 
         </div>
@@ -363,4 +359,13 @@
         </div>
         <p class="end"><i class="fa fa-copyright"></i> 2023 All Right Reserved</p>
     </footer>
+
+    <!-- Alert in case something went wrong -->
+    @if (ViewBag.errorMessage != null)
+    {
+        <script type="text/javascript">
+            alert("@ViewBag.errorMessage");
+        </script>
+    }
+
 </body>

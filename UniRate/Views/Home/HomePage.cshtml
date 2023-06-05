@@ -113,8 +113,8 @@
             <h1>Uni<span>Rate</span></h1>
             <h3>Ψάξε πανεπιστήμια <span>εύκολα</span> και <span>γρήγορα</span></h3>
             <div class="search">
-                <form>
-                    <input type="text" name="uni-search" id="uni-search" placeholder="Αναζήτησε ένα πανεπιστήμιο">
+                <form asp-controller="Home" asp-action="UniResults" method="get">
+                    <input type="text" name="UniName" id="uni-search" placeholder="Αναζήτησε ένα πανεπιστήμιο">
                     <button class="search-btn"><img src="@Url.Content("~/visual-material/search.png")" class="search-icon" alt="search-icon"></button>
                 </form>
             </div>
