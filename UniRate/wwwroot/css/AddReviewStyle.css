@@ -113,6 +113,19 @@
         cursor: pointer;
     }
 
+.rate {
+    background-color: #f0f0f0;
+    border: none;
+    width: 35px;
+    height: 20px;
+    border-radius: 7px;
+    text-align: center;
+    align-items: center;
+    font-size: 1rem;
+    border: 1px solid #f0f0f0;
+}
+
+
 .upload {
     margin-top: 1rem;
     display: flex;
