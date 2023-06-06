@@ -75,7 +75,9 @@
             }
         </script>
 
-
+        @{
+            int school = 0;
+        }
 
 
         <div class="content">
@@ -100,7 +102,20 @@
                         <div class="rank">
                             <h3>Σχολές</h3>
                             <div class="stars">
-                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                <input class="school-rate" type="number" id="schools-stars" min="1" max="5">
+                                @{
+                                    for (int i = 1; i <= 5; i++)
+                                    {
+                                        if (i <= 4)
+                                        {
+                                            <i class="fa fa-star" style="color: #11668D;"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fa fa-star" style="color: grey;"></i>
+                                        }
+                                    }
+                                }
                             </div>
                         </div>
 
@@ -138,7 +153,10 @@
         </div>
     </div>
 
-
+    <script>
+        const schools = document.getElementById("school-rate");
+        alert(schools);
+    </script>
 
 
     <footer>
