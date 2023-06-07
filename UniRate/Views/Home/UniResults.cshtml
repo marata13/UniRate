@@ -16,13 +16,13 @@
             bool is_favorite_uni = ViewBag.IsFavoriteUni; // Set this variable to true if user has this university favorited
 
             // For every uni these values will be retrieved from the DB
-            int schools = 3;
-            int actions = 4;
-            int location = 4;
-            int accesibility = 3;
-            int organizaton = 4;
+            int schools = Model.ReviewsAggregate.SchoolRating;
+            int actions = Model.ReviewsAggregate.ActionsRating;
+            int location = Model.ReviewsAggregate.Locationrating;
+            int accesibility = Model.ReviewsAggregate.AccessabilityRating;
+            int organizaton = Model.ReviewsAggregate.OrganisationRating;
 
-            float stars = (schools + actions + location + accesibility + organizaton) / 5;
+            double stars = Model.ReviewsAggregate.OverallRating;
         }
         <nav class="navbar" id="navbar">
             <h2 class="logo"><img src="@Url.Content("~/visual-material/uniRateLogo.png")" class="icon-logo"> Uni<span>Rate</span></h2>
@@ -129,43 +129,19 @@
                 if (is_favorite_uni) // Make heart blue
                 {
                     <a a asp-controller="RegisteredUsers" asp-action="RemoveFavoriteUni" asp-route-Id="@Model.University.Id">
-                        <i class="fa fa-heart" style="color: #11668D;"></i>
+                        <i id="heart-icon" class="fa fa-heart" style="color: #11668D;"></i>
                     </a>
                 }
                 else // Heart is grey
                 {
                     <a a asp-controller="RegisteredUsers" asp-action="AddFavoriteUni" asp-route-Id="@Model.University.Id">
-                        <i class="fa fa-heart" style="color: grey;"></i>
+                        <i id="heart-icon" class="fa fa-heart" style="color: grey;"></i>
                     </a>
                 }
                 
             } 
         </div>
     </div>
-
-    <script>
-        // JS code for changing heart's color onclick event
-
-        const heart = document.getElementById('heart-icon');
-        let isFavorite = @(is_favorite_uni ? "true" : "false");
-
-        heart.onclick = function () {
-            if (isFavorite) 
-            {
-                // If uni is in favorites remove it from favorites
-                heart.style.color = 'grey';
-                isFavorite = false;
-                @{is_favorite_uni = false;}
-            }
-            else 
-            {
-                // If uni is not in favorites add it to favorites
-                heart.style.color = '#11668D';
-                isFavorite = true;
-                @{is_favorite_uni = true;}
-             }
-        }
-    </script>
 
 
     <div class="uni-basics">
@@ -196,7 +172,7 @@
 
         <div class="uni-rankings">
             <div class="title">
-                <h2>@stars <i class="fa fa-star" style="color: #11668D;"></i> - 52 αξιολογήσεις</h2>
+                <h2>@stars <i class="fa fa-star" style="color: #11668D;"></i> - @Model.University.Ratings.Count αξιολογήσεις</h2>
 
                 <div class="total-stars">
                    @{
