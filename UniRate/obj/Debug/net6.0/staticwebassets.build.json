@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6oUY+a5UkRtyMaqx0po76x4hZXyRNeh2uhao5OOKumA=",
+  "Hash": "TEX8Vh0Z6jFITtFDBIgRcUaqAAt7QYvAmOyAQQljQNg=",
   "Source": "UniRate",
   "BasePath": "_content/UniRate",
   "Mode": "Default",
@@ -1460,6 +1460,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\visual-material\\uniRateLogo.png"
+    },
+    {
+      "Identity": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\visual-material\\UserManualUniRate.pdf",
+      "SourceId": "UniRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\wwwroot\\",
+      "BasePath": "_content/UniRate",
+      "RelativePath": "visual-material/UserManualUniRate.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\visual-material\\UserManualUniRate.pdf"
     }
   ]
 }

@@ -88,6 +88,11 @@
     font-size: 15px;
 }
 
+    .manual-button a {
+        text-decoration: none;
+        color: inherit;
+    }
+
     .manual-button:hover {
         cursor: pointer;
         transform: scale(1.2);
