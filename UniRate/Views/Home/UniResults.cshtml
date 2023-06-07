@@ -14,6 +14,15 @@
         @{
             bool logged_in = ViewBag.LoggedIn; // Set this variable to true if user is logged in, if else set it to false
             bool is_favorite_uni = ViewBag.IsFavoriteUni; // Set this variable to true if user has this university favorited
+
+            // For every uni these values will be retrieved from the DB
+            int schools = 3;
+            int actions = 4;
+            int location = 4;
+            int accesibility = 3;
+            int organizaton = 4;
+
+            float stars = (schools + actions + location + accesibility + organizaton) / 5;
         }
         <nav class="navbar" id="navbar">
             <h2 class="logo"><img src="@Url.Content("~/visual-material/uniRateLogo.png")" class="icon-logo"> Uni<span>Rate</span></h2>
@@ -134,6 +143,30 @@
         </div>
     </div>
 
+    <script>
+        // JS code for changing heart's color onclick event
+
+        const heart = document.getElementById('heart-icon');
+        let isFavorite = @(is_favorite_uni ? "true" : "false");
+
+        heart.onclick = function () {
+            if (isFavorite) 
+            {
+                // If uni is in favorites remove it from favorites
+                heart.style.color = 'grey';
+                isFavorite = false;
+                @{is_favorite_uni = false;}
+            }
+            else 
+            {
+                // If uni is not in favorites add it to favorites
+                heart.style.color = '#11668D';
+                isFavorite = true;
+                @{is_favorite_uni = true;}
+             }
+        }
+    </script>
+
 
     <div class="uni-basics">
 
@@ -163,9 +196,22 @@
 
         <div class="uni-rankings">
             <div class="title">
-                <h2>@Model.ReviewsAggregate.OverallRating - @Model.University.Ratings.Count αξιολογήσεις</h2>
+                <h2>@stars <i class="fa fa-star" style="color: #11668D;"></i> - 52 αξιολογήσεις</h2>
+
                 <div class="total-stars">
-                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                   @{
+                        for (int i = 1; i <= 5; i++)
+                        {
+                            if (i <= stars)
+                            {
+                                <i class="fa fa-star" style="color: #11668D;"></i>
+                            }
+                            else
+                            {
+                                <i class="fa fa-star" style="color: grey;"></i>
+                            }
+                        }
+                    }
                 </div>
 
             </div>
@@ -173,35 +219,95 @@
             <div class="rank">
                 <h3>Σχολές</h3>
                 <div class="stars">
-                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    @{
+                        for (int i = 1; i <= 5; i++)
+                        {
+                            if (i <= schools)
+                            {
+                                <i class="fa fa-star" style="color: #11668D;"></i>
+                            }
+                            else
+                            {
+                                <i class="fa fa-star" style="color: grey;"></i>
+                            }
+                        }
+                    }
                 </div>
             </div>
 
             <div class="rank">
                 <h3>Δράσεις</h3>
                 <div class="stars">
-                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    @{
+                        for (int i = 1; i <= 5; i++)
+                        {
+                            if (i <= actions)
+                            {
+                                <i class="fa fa-star" style="color: #11668D;"></i>
+                            }
+                            else
+                            {
+                                <i class="fa fa-star" style="color: grey;"></i>
+                            }
+                        }
+                    }
                 </div>
             </div>
 
             <div class="rank">
                 <h3>Τοποθεσία</h3>
                 <div class="stars">
-                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    @{
+                        for (int i = 1; i <= 5; i++)
+                        {
+                            if (i <= location)
+                            {
+                                <i class="fa fa-star" style="color: #11668D;"></i>
+                            }
+                            else
+                            {
+                                <i class="fa fa-star" style="color: grey;"></i>
+                            }
+                        }
+                    }
                 </div>
             </div>
 
             <div class="rank">
                 <h3>Προσβασιμότητα</h3>
                 <div class="stars">
-                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    @{
+                        for (int i = 1; i <= 5; i++)
+                        {
+                            if (i <= accesibility)
+                            {
+                                <i class="fa fa-star" style="color: #11668D;"></i>
+                            }
+                            else
+                            {
+                                <i class="fa fa-star" style="color: grey;"></i>
+                            }
+                        }
+                    }
                 </div>
             </div>
 
             <div class="rank">
                 <h3>Οργάνωση</h3>
                 <div class="stars">
-                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    @{
+                        for (int i = 1; i <= 5; i++)
+                        {
+                            if (i <= organizaton)
+                            {
+                                <i class="fa fa-star" style="color: #11668D;"></i>
+                            }
+                            else
+                            {
+                                <i class="fa fa-star" style="color: grey;"></i>
+                            }
+                        }
+                    }
                 </div>
             </div>
         </div>

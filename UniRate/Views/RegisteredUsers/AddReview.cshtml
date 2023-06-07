@@ -75,7 +75,9 @@
             }
         </script>
 
-
+        @{
+            int school = 0;
+        }
 
 
         <div class="content">
@@ -100,35 +102,35 @@
                         <div class="rank">
                             <h3>Σχολές</h3>
                             <div class="stars">
-                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                <input class="rate" type="number" id="schools-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
                             </div>
                         </div>
 
                         <div class="rank">
                             <h3>Δράσεις</h3>
                             <div class="stars">
-                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                <input class="rate" type="number" id="schools-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
                             </div>
                         </div>
 
                         <div class="rank">
                             <h3>Τοποθεσία</h3>
                             <div class="stars">
-                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                <input class="rate" type="number" id="schools-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
                             </div>
                         </div>
 
                         <div class="rank">
                             <h3>Προσβασιμότητα</h3>
                             <div class="stars">
-                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                <input class="rate" type="number" id="schools-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
                             </div>
                         </div>
 
                         <div class="rank">
                             <h3>Οργάνωση</h3>
                             <div class="stars">
-                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                <input class="rate" type="number" id="schools-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
                             </div>
                         </div>
                     </div>
@@ -138,7 +140,9 @@
         </div>
     </div>
 
-
+    <script>
+        const schools = document.getElementById("school-rate");
+    </script>
 
 
     <footer>
