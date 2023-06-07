@@ -101,6 +101,8 @@ namespace UniRate.Controllers
         [HttpGet]
         public async Task<IActionResult> UniResults(string? UniName, Guid? Id)
         {
+            ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
+
             var university = await _context.University.FirstOrDefaultAsync(m => m.Name == UniName);
 
             if (university == null)
@@ -108,7 +110,13 @@ namespace UniRate.Controllers
                 university = await _context.University.FirstOrDefaultAsync(m => m.Id == Id);
             }
 
-            ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
+            if (university == null)
+            {
+                ViewBag.errorMessage = "This university doesn't exist";
+                return View("HomePage");
+            }
+
+            university.Ratings = university.GetRatings(_context);
 
             if (ViewBag.LoggedIn)
             {
@@ -129,7 +137,10 @@ namespace UniRate.Controllers
                 ViewBag.IsFavoriteUni = false;
             }
 
-            return View(university);
+            UniResultsModel uniResults = new(university, university.GetDepartmentsBySchool(_context),
+                                                university.GetReviewsAggregate(_context));
+
+            return View(uniResults);
         }
 
 

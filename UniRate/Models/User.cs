@@ -33,7 +33,27 @@ namespace UniRate.Models
         {
             return _context.FavoriteUniversity
                     .Where(b => b.UserId == Id).ToList();
+        }
 
+
+        public List<FavoriteDepartment> GetFavoriteDepartments(UniRateContext _context)
+        {
+            return _context.FavoriteDepartment
+                    .Where(b => b.UserId == Id).ToList();
+        }
+
+
+        public List<UniRating> GetUniRatings(UniRateContext _context)
+        {
+            return _context.UniRating
+                    .Where(b => b.UserId == Id).ToList();
+        }
+
+
+        public List<DepRating> GetDepRatings(UniRateContext _context)
+        {
+            return _context.DepRating
+                    .Where(b => b.UserId == Id).ToList();
         }
     }
 }

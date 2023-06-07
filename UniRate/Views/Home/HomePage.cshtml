@@ -224,4 +224,13 @@
         </div>
         <p class="end"><i class="fa fa-copyright"></i> 2023 All Right Reserved</p>
     </footer>
+    
+    <!-- Alert in case something went wrong -->
+    @if (ViewBag.errorMessage != null)
+    {
+        <script type="text/javascript">
+            alert("@ViewBag.errorMessage");
+        </script>
+    }
+
 </body>
