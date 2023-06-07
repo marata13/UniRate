@@ -280,6 +280,9 @@ h1 {
     border-radius: 25px;
     width: 40%;
     margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 hr {
@@ -288,7 +291,7 @@ hr {
 }
 
 .rev {
-    height: 230px; /* set a fixed height for the container */
+    height: 300px; /* set a fixed height for the container */
     overflow-y: scroll;
 }
 
@@ -469,7 +472,7 @@ footer {
 }
 
 
-@media screen and (max-width: 1660px) {
+@media screen and (max-width: 1670px) {
     .uni-basics, .uni-basics-more, .reviews {
         display: flex;
         flex-direction: column;

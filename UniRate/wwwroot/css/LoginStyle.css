@@ -93,6 +93,26 @@ input {
     font-family: 'Commissioner', sans-serif;
 }
 
+.log-btn {
+    width: 140px !important;
+    margin-top: 1rem;
+    border: 1px solid #11668D;
+    background: #11668D;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: .4s;
+    border-radius: 30px;
+}
+
+    .log-btn:hover {
+        background: #fff;
+        color: #11668D;
+        transition: .4s;
+        cursor: pointer;
+    }
+
 label {
     position: absolute;
     left: 50%;

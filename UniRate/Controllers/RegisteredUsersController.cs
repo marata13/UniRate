@@ -30,6 +30,12 @@ namespace UniRate.Controllers
             return View();
         }
 
+        public IActionResult AddDepReview()
+        {
+            //ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
+            return View();
+        }
+
         public IActionResult FavoritesRegistered()
         {
             ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;

@@ -296,19 +296,21 @@
             <div class="title">
                 <h2>Σχολές και τμήματα</h2>
             </div>
-            @foreach (var school in Model.DepartmentsBySchool)
-            {
-                <div class="deps-section">
-                    <h3>@school.Key</h3>
-                    <ul class="deps-names">
-                        @foreach(var dep in school)
-                        {
-                            <li>@dep.Name</li>
-                        }
-                    </ul>
-                </div>
-                <hr>
-            }
+            <div class="scroll-deps">
+                @foreach (var school in Model.DepartmentsBySchool)
+                {
+                    <div class="deps-section">
+                        <h3>@school.Key</h3>
+                        <ul class="deps-names">
+                            @foreach (var dep in school)
+                            {
+                                <li>@dep.Name</li>
+                            }
+                        </ul>
+                    </div>
+                    <hr>
+                }              
+            </div>
         </div>
 
         <div class="uni-map">
