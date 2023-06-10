@@ -154,3 +154,7 @@ nav ul li {
             font-size: 20px;
             cursor: pointer;
         }
+
+        .social a {
+            transition: .3s;
+        }

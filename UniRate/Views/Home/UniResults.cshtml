@@ -165,7 +165,7 @@
             </div>
             <div class="info-section">
                 <h3>Ιστοσελίδα:</h3>
-                <h3>@Model.University.SiteUrl</h3>
+                <h3>Πατήστε <a href=@Model.University.SiteUrl>εδώ</a></h3>
             </div>
 
         </div>
@@ -296,19 +296,21 @@
             <div class="title">
                 <h2>Σχολές και τμήματα</h2>
             </div>
-            @foreach (var school in Model.DepartmentsBySchool)
-            {
-                <div class="deps-section">
-                    <h3>@school.Key</h3>
-                    <ul class="deps-names">
-                        @foreach(var dep in school)
-                        {
-                            <li>@dep.Name</li>
-                        }
-                    </ul>
-                </div>
-                <hr>
-            }
+            <div class="scroll-deps">
+                @foreach (var school in Model.DepartmentsBySchool)
+                {
+                    <div class="deps-section">
+                        <h3>@school.Key</h3>
+                        <ul class="deps-names">
+                            @foreach (var dep in school)
+                            {
+                                <li>@dep.Name</li>
+                            }
+                        </ul>
+                    </div>
+                    <hr>
+                }              
+            </div>
         </div>
 
         <div class="uni-map">
@@ -401,8 +403,10 @@
     <footer>
         <p><i class="fa fa-copyright"></i>   Uni<span>Rate</span></p>
         <p>
-            Το UniRate αποτελεί την εργασία εξαμήνου μας για το μάθημα "Πληροφοριακά
-            Συστήματα στο Διαδίκτυο". Μπορείς να μας βρείς στο GitHub ή να μας στείλεις mail:
+            Το UniRate είναι μια διαδικτυακή εφαρμογή που αναπτύχθηκε απο τους φοιτητές του Πανεπιστημίου
+            Πειραιώς και πρόκειται για ένα χώρο αναζήτησης και διαμοιρασμού πληροφοριών για τα ελληνικά πανεπιστήμια και τμήματα.
+            Είναι δηλαδή μια εφαρμογή απο φοιτητές προς υποψήφιους φοιτητές! Επιπλέον, η γνώμη σου είναι σημαντική για εμάς, οπότε
+            μπορείς πάντα να μας βρείς στο GitHub ή να μας στείλεις mail:
         </p>
         <div class="social">
             <a href="https://github.com/aboublini"><i class="fa fa-github"></i></a>
