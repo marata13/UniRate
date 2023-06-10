@@ -160,6 +160,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJlZFVzZXJzXEFkZFJldmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Ioake/UniRate/UniRate/Views/RegisteredUsers/AddUniReview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJlZFVzZXJzXEFkZFVuaVJldmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Ioake/UniRate/UniRate/Views/RegisteredUsers/FavoritesRegistered.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJlZFVzZXJzXEZhdm9yaXRlc1JlZ2lzdGVyZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

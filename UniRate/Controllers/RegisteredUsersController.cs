@@ -90,5 +90,41 @@ namespace UniRate.Controllers
 
             return RedirectToAction("UniResults", "Home", new { university.Id });
         }
+
+        //GET
+        public IActionResult AddUniReview(Guid Id)
+        {
+            ViewBag.University = Id;
+            return View();
+        }
+
+
+        //POST
+        [HttpPost]
+        public async Task<IActionResult> AddUniReview([Bind("SchoolRating,ActionsRating,Locationrating,AccessabilityRating,OrganisationRating,Review")] UniRating rating, Guid universityId)
+        {
+            if (ModelState.IsValid)
+            {
+                rating.DateTime = DateTime.UtcNow;
+
+                rating.OverallRating = (rating.SchoolRating + rating.ActionsRating + rating.OrganisationRating
+                                        + rating.AccessabilityRating + rating.Locationrating) / 5.0;
+
+                var User = await _context.User.FirstOrDefaultAsync(m => m.UserName == HttpContext.User.Identity.Name);
+                User.UniRatings = User.GetUniRatings(_context);
+                User.UniRatings.Add(rating);
+
+                var University = await _context.University.FirstOrDefaultAsync(m => m.Id == universityId);
+                University.Ratings = University.GetRatings(_context);
+                University.Ratings.Add(rating);
+
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                ViewBag.errorMessage = "You entered wrong data";
+            }
+            return RedirectToAction("UniResults", "Home", new { Id = universityId });
+        }
     }
 }

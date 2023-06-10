@@ -112,7 +112,7 @@ namespace UniRate.Controllers
 
             if (university == null)
             {
-                ViewBag.errorMessage = "This university doesn't exist";
+                ViewBag.errorMessage = "This university does not exist";
                 return View("HomePage");
             }
 

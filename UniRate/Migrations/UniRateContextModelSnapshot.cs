@@ -246,8 +246,8 @@ namespace UniRate.Migrations
                     b.Property<int?>("OrganisationRating")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("OverallRating")
-                        .HasColumnType("integer");
+                    b.Property<double?>("OverallRating")
+                        .HasColumnType("double precision");
 
                     b.Property<string>("Review")
                         .HasColumnType("text");

@@ -71,7 +71,7 @@ namespace UniRate.Models
                 reviewsAggregate.Locationrating = (int)Math.Round((double)_ratings.Select(rating => rating.Locationrating).ToList().Average());
                 reviewsAggregate.SchoolRating = (int)Math.Round((double)_ratings.Select(rating => rating.SchoolRating).ToList().Average());
                 reviewsAggregate.OrganisationRating = (int)Math.Round((double)_ratings.Select(rating => rating.OrganisationRating).ToList().Average());
-                reviewsAggregate.OverallRating = (double)_ratings.Select(rating => rating.OverallRating).ToList().Average();
+                reviewsAggregate.OverallRating = Math.Round((double)_ratings.Select(rating => rating.OverallRating).ToList().Average(), 2);
             }
             return reviewsAggregate;
         }
