@@ -32,7 +32,7 @@
                 <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
                 @if (logged_in)
                 {
-                    <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
+                    <li><a asp-controller="RegisteredUsers" asp-action="Favorites">Αγαπημένα</a></li>
                 }
                 else
                 {
@@ -70,7 +70,7 @@
             <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
             @if (logged_in)
             {
-                <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
+                <li><a asp-controller="RegisteredUsers" asp-action="Favorites">Αγαπημένα</a></li>
             }
             else
             {
@@ -302,10 +302,12 @@
                     <div class="deps-section">
                         <h3>@school.Key</h3>
                         <ul class="deps-names">
-                            @foreach (var dep in school)
-                            {
+                        @foreach (var dep in school)
+                        {
+                            <a asp-action="DepResults" asp-route-Id="@dep.Id">
                                 <li>@dep.Name</li>
-                            }
+                            </a>
+                        }
                         </ul>
                     </div>
                     <hr>
@@ -369,9 +371,15 @@
 
             @if (logged_in)
             {
-                <div class="add-rev">
-                    <button class="add-rev-btn"><i class="fa fa-plus"></i></button>
-                </div>
+                <form asp-action="AddUniReview" asp-controller="RegisteredUsers" asp-route-Id="@Model.University.Id" method="get">
+                <div class="add-rev"><button type="submit" class="add-rev-btn"><i class="fa fa-plus"></i></button></div>
+                </form>
+            }
+            else
+            {
+                <form asp-action="Login" method="get">
+                <div class="add-rev"><button class="add-rev-btn"><i class="fa fa-plus"></i></button></div>
+                </form>
             }
 
         </div>

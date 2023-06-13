@@ -29,15 +29,25 @@ namespace UniRate.Models
         public List<DepRating>? DepRatings { get; set; }
 
 
-        public List<FavoriteUniversity> GetFavoriteUniversities(UniRateContext _context)
+        public List<FavoriteUniversity> GetFavoriteUniversities(UniRateContext _context, bool includeUnies = false)
         {
+            if (includeUnies)
+            {
+                return _context.FavoriteUniversity.Include(f => f.University)
+                    .Where(b => b.UserId == Id).ToList();
+            }
             return _context.FavoriteUniversity
                     .Where(b => b.UserId == Id).ToList();
         }
 
 
-        public List<FavoriteDepartment> GetFavoriteDepartments(UniRateContext _context)
+        public List<FavoriteDepartment> GetFavoriteDepartments(UniRateContext _context, bool includeDeps = false)
         {
+            if (includeDeps)
+            {
+                return _context.FavoriteDepartment.Include(f => f.Department).Include(f => f.Department.university)
+                    .Where(b => b.UserId == Id).ToList();
+            }
             return _context.FavoriteDepartment
                     .Where(b => b.UserId == Id).ToList();
         }

@@ -1,0 +1,167 @@
+﻿@model FavoritesModel
+
+
+<!-- Stylesheet connection for Search page -->
+@section Styles {
+    <link rel="stylesheet" href="~/css/FavoritesStyle.css" />
+    <link rel="stylesheet" href="~/css/NavbarStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+}
+
+    <body>
+        <div class="hero">
+            <img src="@Url.Content("~/visual-material/FavoritesBackground.jpg")" class="back-image">
+
+
+        <nav class="navbar" id="navbar">
+            <h2 class="logo"><img src="@Url.Content("~/visual-material/uniRateLogo.png")" class="icon-logo"> Uni<span>Rate</span></h2>
+            <ul class="navbar-links">
+                <li><a asp-controller="Home" asp-action="HomePage">Αρχική</a></li>
+                <li><a asp-controller="Home" asp-action="Unies">Πανεπιστήμια</a></li>
+                <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
+                <li><a asp-controller="RegisteredUsers" asp-action="Favorites">Αγαπημένα</a></li>
+                <li><a asp-controller="Home" asp-action="Help">Βοήθεια</a></li>
+                <li><a asp-controller="RegisteredUsers" asp-action="AccountInfo">Ο Λογαριασμός μου</a></li>
+            </ul>
+            <a asp-controller="Home" asp-action="Login" class="btn">Έξοδος</a>
+
+            <div class="toggle-btn">
+                <i class="fa fa-bars"></i>
+            </div>
+        </nav>
+        <div class="dropdown-menu">
+            <li><a asp-controller="Home" asp-action="HomePage">Αρχική</a></li>
+            <li><a asp-controller="Home" asp-action="Unies">Πανεπιστήμια</a></li>
+            <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
+            <li><a asp-controller="RegisteredUsers" asp-action="Favorites">Αγαπημένα</a></li>
+            <li><a asp-controller="Home" asp-action="Help">Βοήθεια</a></li>
+            <li><a asp-controller="RegisteredUsers" asp-action="AccountInfo">Ο Λογαριασμός μου</a></li>
+            <li><a asp-controller="Home" asp-action="Login" class="btn">Έξοδος</a></li>
+        </div>
+
+
+        <script>
+                // Change navbar color on scroll
+                function changeBg() {
+                    let navbar = document.getElementById('navbar');
+                    let scrollValue = window.scrollY;
+
+                    if (scrollValue < 150) {
+                        navbar.classList.remove('bgColor');
+                    }
+                    else {
+                        navbar.classList.add('bgColor');
+                    }
+                }
+
+                window.addEventListener('scroll', changeBg);
+
+                // Dropdown menu handling (responsive design)
+                const toggleBtn = document.querySelector('.toggle-btn');
+                const toggleBtnIcon = document.querySelector('.toggle-btn i');
+                const dropdownMenu = document.querySelector('.dropdown-menu');
+
+                toggleBtn.onclick = function () {
+                    dropdownMenu.classList.toggle('open');
+                    const isOpen = dropdownMenu.classList.contains('open');
+
+                    toggleBtnIcon.classList = isOpen
+                        ? 'fa fa-close'
+                        : 'fa fa-bars';
+                }
+            </script>          
+        </div>
+
+    <div class="fav-title">
+        <h1>Αγαπημένα <span>πανεπιστήμια</span> και <span>τμήματα</span></h1>
+    </div>
+
+    <div class="cont">
+        <div class="fav-unies">
+            <div class="title">
+                <h2>Αγαπημένα Πανεπιστήμια</h2>
+            </div>
+
+            <div class="uni-list">
+                @if (Model.Universities.Count > 0)
+                {
+                    @foreach (var favUni in Model.Universities)
+                    {
+                        <div class="uni">
+                            <div class="uni-name">
+                                <h3 class="nm">@favUni.University.Name</h3>
+
+                            </div>
+
+                            <div class="actions">
+                                <a asp-action="RemoveFavoriteUni" asp-route-Id="@favUni.UniversityId"><i class="fa fa-trash"></i></a>
+                                <a href="@favUni.University.SiteUrl"><i class="fa fa-globe"></i></a>
+                                <a asp-action="UniResults" asp-controller="Home" asp-route-Id="@favUni.UniversityId"><i class="fa fa-expand"></i></a>
+                            </div>
+
+                        </div>
+                        <hr>
+                    }
+                }
+                else
+                {
+                    <p>Δεν υπάρχουν αγαπημένα Πανεπιστήμια</p>
+                }
+            </div>
+
+        </div>
+
+
+
+        <div class="fav-deps">
+            <div class="title">
+                <h2>Αγαπημένα Τμήματα</h2>
+            </div>
+
+            <div class="deps-list">
+                @if(Model.Departments.Count > 0)
+                {
+                    @foreach (var favDep in Model.Departments)
+                    {
+                        <div class="dep">
+                            <div class="dep-name">
+                                <h3 class="nm">@favDep.Department.Name</h3>
+                                <p>@favDep.Department.university.Name</p>
+                            </div>
+
+                            <div class="actions">
+                                <a asp-action="RemoveFavoriteDep" asp-route-Id="@favDep.DepartmentId"><i class="fa fa-trash"></i></a>
+                                <a href="@favDep.Department.SiteUrl"><i class="fa fa-globe"></i></a>
+                                <a asp-action="DepResults" asp-controller="Home" asp-route-Id="@favDep.DepartmentId"><i class="fa fa-expand"></i></a>
+                            </div>
+                        </div>
+                        <hr>
+                    }
+                }
+                else
+                {
+                    <p>Δεν υπάρχουν αγαπημένα Πανεπιστήμια</p>
+                }
+            </div>
+
+        </div>
+    </div>
+
+
+        <footer>
+            <p><i class="fa fa-copyright"></i>   Uni<span>Rate</span></p>
+            <p>
+                Το UniRate είναι μια διαδικτυακή εφαρμογή που αναπτύχθηκε απο τους φοιτητές του Πανεπιστημίου
+                Πειραιώς και πρόκειται για ένα χώρο αναζήτησης και διαμοιρασμού πληροφοριών για τα ελληνικά πανεπιστήμια και τμήματα.
+                Είναι δηλαδή μια εφαρμογή απο φοιτητές προς υποψήφιους φοιτητές! Επιπλέον, η γνώμη σου είναι σημαντική για εμάς, οπότε
+                μπορείς πάντα να μας βρείς στο GitHub ή να μας στείλεις mail:
+            </p>
+            <div class="social">
+                <a href="https://github.com/aboublini"><i class="fa fa-github"></i></a>
+                <a href="https://github.com/marata13"><i class="fa fa-github"></i></a>
+                <a href="mailto:aboublini@gmail.com"><i class="fa fa-envelope"></i></a>
+                <a href="mailto:ioakeim13@hotmail.gr"><i class="fa fa-envelope"></i></a>
+            </div>
+            <p class="end"><i class="fa fa-copyright"></i> 2023 All Right Reserved</p>
+        </footer>
+    </body>

@@ -144,17 +144,57 @@ namespace UniRate.Controllers
         }
 
 
-        public IActionResult DepResults()
+        [HttpGet]
+        public async Task<IActionResult> DepResults(Guid Id)
         {
             ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
-            return View();
+
+            var department = await _context.Department.Include(d => d.Professors).Include(d => d.university).FirstOrDefaultAsync(m => m.Id == Id);
+
+            if (department == null)
+            {
+                ViewBag.errorMessage = "This department does not exist";
+                return View("HomePage");
+            }
+
+            department.Ratings = department.GetRatings(_context);
+
+            if (ViewBag.LoggedIn)
+            {
+                var User = await _context.User.FirstOrDefaultAsync(m => m.UserName == HttpContext.User.Identity.Name);
+                User.FavoriteDepartments = User.GetFavoriteDepartments(_context);
+
+                try
+                {
+                    ViewBag.IsFavoriteDep = User.FavoriteDepartments.Exists(m => m.Department == department);
+                }
+                catch (NullReferenceException)
+                {
+                    ViewBag.IsFavoriteDep = false;
+                }
+            }
+            else
+            {
+                ViewBag.IsFavoriteDep = false;
+            }
+
+            DepResultsModel depResults = new(department, department.GetReviewsAggregate(_context), department.GetSubjectsBySemester(_context));
+
+            return View(depResults);
         }
 
 
         public IActionResult TopRated()
         {
             ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
-            return View();
+
+            TopRatedModel topRated = new()
+            {
+                Departments = Department.GetTopRatedDepartments(_context),
+                Universities = University.GetTopRatedUniversities(_context)
+            };
+
+            return View(topRated);
         }
 
 

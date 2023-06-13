@@ -1,66 +1,162 @@
 ﻿@model UniRate.Models.UniRating
 
-@{
-    ViewData["Title"] = "AddUniReview";
+
+<!-- Stylesheet connection for Search page -->
+@section Styles {
+    <link rel="stylesheet" href="~/css/AddReviewStyle.css" />
+    <link rel="stylesheet" href="~/css/NavbarStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 }
 
-<h1>AddUniReview</h1>
+<body>
+    <div class="hero">
+        <img src="@Url.Content("~/visual-material/papei.png")" class="back-image">
 
-<h2>@ViewBag.University</h2>
 
-<h4>UniRating</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="AddUniReview" asp-controller="RegisteredUsers" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="SchoolRating" class="control-label"></label>
-                <input asp-for="SchoolRating" class="form-control" />
-                <span asp-validation-for="SchoolRating" class="text-danger"></span>
+        <nav class="navbar" id="navbar">
+            <h2 class="logo"><img src="@Url.Content("~/visual-material/uniRateLogo.png")" class="icon-logo"> Uni<span>Rate</span></h2>
+            <ul class="navbar-links">
+                <li><a asp-controller="Home" asp-action="HomePage">Αρχική</a></li>
+                <li><a asp-controller="Home" asp-action="Unies">Πανεπιστήμια</a></li>
+                <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
+                <li><a asp-controller="RegisteredUsers" asp-action="Favorites">Αγαπημένα</a></li>
+                <li><a asp-controller="Home" asp-action="Help">Βοήθεια</a></li>
+                <li><a asp-controller="RegisteredUsers" asp-action="AccountInfo">Ο Λογαριασμός μου</a></li>
+            </ul>
+            <a asp-controller="Home" asp-action="Login" class="btn">Έξοδος</a>
+
+            <div class="toggle-btn">
+                <i class="fa fa-bars"></i>
             </div>
-            <div class="form-group">
-                <label asp-for="ActionsRating" class="control-label"></label>
-                <input asp-for="ActionsRating" class="form-control" />
-                <span asp-validation-for="ActionsRating" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Locationrating" class="control-label"></label>
-                <input asp-for="Locationrating" class="form-control" />
-                <span asp-validation-for="Locationrating" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AccessabilityRating" class="control-label"></label>
-                <input asp-for="AccessabilityRating" class="form-control" />
-                <span asp-validation-for="AccessabilityRating" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OrganisationRating" class="control-label"></label>
-                <input asp-for="OrganisationRating" class="form-control" />
-                <span asp-validation-for="OrganisationRating" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Review" class="control-label"></label>
-                <input asp-for="Review" class="form-control" />
-                <span asp-validation-for="Review" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DateTime" class="control-label"></label>
-                <input asp-for="DateTime" class="form-control" />
-                <span asp-validation-for="DateTime" class="text-danger"></span>
-            </div>
-            <input type="hidden" name="universityId" value="@ViewBag.University" />
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </nav>
+        <div class="dropdown-menu">
+            <li><a asp-controller="Home" asp-action="HomePage">Αρχική</a></li>
+            <li><a asp-controller="Home" asp-action="Unies">Πανεπιστήμια</a></li>
+            <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
+            <li><a asp-controller="RegisteredUsers" asp-action="Favorites">Αγαπημένα</a></li>
+            <li><a asp-controller="Home" asp-action="Help">Βοήθεια</a></li>
+            <li><a asp-controller="RegisteredUsers" asp-action="AccountInfo">Ο Λογαριασμός μου</a></li>
+            <li><a asp-controller="Home" asp-action="Login" class="btn">Έξοδος</a></li>
+        </div>
+
+
+        <script>
+            // Change navbar color on scroll
+            function changeBg() {
+                let navbar = document.getElementById('navbar');
+                let scrollValue = window.scrollY;
+
+                if (scrollValue < 150) {
+                    navbar.classList.remove('bgColor');
+                }
+                else {
+                    navbar.classList.add('bgColor');
+                }
+            }
+
+            window.addEventListener('scroll', changeBg);
+
+            // Dropdown menu handling (responsive design)
+            const toggleBtn = document.querySelector('.toggle-btn');
+            const toggleBtnIcon = document.querySelector('.toggle-btn i');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+
+            toggleBtn.onclick = function () {
+                dropdownMenu.classList.toggle('open');
+                const isOpen = dropdownMenu.classList.contains('open');
+
+                toggleBtnIcon.classList = isOpen
+                    ? 'fa fa-close'
+                    : 'fa fa-bars';
+            }
+        </script>
+
+        @{
+            int school = 0;
+        }
+
+
+        <div class="content">
+            <form asp-action="AddUniReview" asp-controller="RegisteredUsers" method="post" class="add-review-form">
+                <h1>Uni<span>Rate</span></h1>
+                <h2>@ViewBag.University</h2>
+                <div class="write-review">
+                    <div class="who">
+                        <a><i class="fa fa-user"></i></a>
+                        <div>
+                            <h3>@ViewBag.UserName</h3>
+                        </div>
+                    </div>
+                    <textarea asp-for="Review" class="rev-txt"
+                              rows="8"
+                              cols="10"
+                              placeholder="Γράψε μια κριτική..."></textarea>
+                </div>
+                <div class="add-ranking">
+                    <div class="rank-stars">
+                        <div class="rank">
+                            <h3>Σχολές</h3>
+                            <div class="stars">
+                                <input asp-for="SchoolRating" class="rate" type="number" id="schools-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
+                            </div>
+                        </div>
+
+                        <div class="rank">
+                            <h3>Δράσεις</h3>
+                            <div class="stars">
+                                <input asp-for="ActionsRating" class="rate" type="number" id="actions-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
+                            </div>
+                        </div>
+
+                        <div class="rank">
+                            <h3>Τοποθεσία</h3>
+                            <div class="stars">
+                                <input asp-for="Locationrating" class="rate" type="number" id="location-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
+                            </div>
+                        </div>
+
+                        <div class="rank">
+                            <h3>Προσβασιμότητα</h3>
+                            <div class="stars">
+                                <input asp-for="AccessabilityRating" class="rate" type="number" id="access-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
+                            </div>
+                        </div>
+
+                        <div class="rank">
+                            <h3>Οργάνωση</h3>
+                            <div class="stars">
+                                <input asp-for="OrganisationRating" class="rate" type="number" id="organization-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="universityId" value="@ViewBag.universityId" />
+
+                </div>
+                <button type="submit" class="upload">Δημοσίευση</button>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <script>
+        const schools = document.getElementById("school-rate");
+    </script>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+
+    <footer>
+        <p><i class="fa fa-copyright"></i>   Uni<span>Rate</span></p>
+        <p>
+            Το UniRate είναι μια διαδικτυακή εφαρμογή που αναπτύχθηκε απο τους φοιτητές του Πανεπιστημίου
+            Πειραιώς και πρόκειται για ένα χώρο αναζήτησης και διαμοιρασμού πληροφοριών για τα ελληνικά πανεπιστήμια και τμήματα.
+            Είναι δηλαδή μια εφαρμογή απο φοιτητές προς υποψήφιους φοιτητές! Επιπλέον, η γνώμη σου είναι σημαντική για εμάς, οπότε
+            μπορείς πάντα να μας βρείς στο GitHub ή να μας στείλεις mail:
+        </p>
+        <div class="social">
+            <a href="https://github.com/aboublini"><i class="fa fa-github"></i></a>
+            <a href="https://github.com/marata13"><i class="fa fa-github"></i></a>
+            <a href="mailto:aboublini@gmail.com"><i class="fa fa-envelope"></i></a>
+            <a href="mailto:ioakeim13@hotmail.gr"><i class="fa fa-envelope"></i></a>
+        </div>
+        <p class="end"><i class="fa fa-copyright"></i> 2023 All Right Reserved</p>
+    </footer>
+</body>

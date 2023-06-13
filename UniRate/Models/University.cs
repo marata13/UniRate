@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.ComponentModel.DataAnnotations;
 using UniRate.Data;
 
@@ -53,7 +55,7 @@ namespace UniRate.Models
 
         public List<UniRating> GetRatings(UniRateContext _context)
         {
-            return _context.UniRating
+            return _context.UniRating.Include(a => a.User)
                     .Where(b => b.UniversityId == Id).ToList();
         }
 
@@ -74,6 +76,32 @@ namespace UniRate.Models
                 reviewsAggregate.OverallRating = Math.Round((double)_ratings.Select(rating => rating.OverallRating).ToList().Average(), 2);
             }
             return reviewsAggregate;
+        }
+
+
+        public static IEnumerable<TopRatedUni> GetTopRatedUniversities(UniRateContext _context)
+        {
+            List<University> universities = _context.University.ToList();
+
+            List<TopRatedUni> uniesToSort = new();
+
+            foreach (var uni in universities)
+            {
+                List<UniRating> _ratings = uni.GetRatings(_context);
+
+                if (_ratings.Count > 0)
+                {
+                    TopRatedUni topRated = new();
+                    topRated.University = uni;
+
+                    topRated.Rating = Math.Round((double)_ratings.Select(rating => rating.OverallRating).ToList().Average(), 2);
+                    topRated.ReviewCount = _ratings.Count;
+
+                    uniesToSort.Add(topRated);
+                }
+            }
+
+            return uniesToSort.OrderBy(o => o.Rating).Take(5);
         }
     }
 }

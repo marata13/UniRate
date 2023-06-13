@@ -14,7 +14,7 @@
 
         public int? OrganisationRating { get; set; }
 
-        public int? OverallRating { get; set; }
+        public double? OverallRating { get; set; }
 
         public string? Review { get; set; }
 
@@ -22,10 +22,10 @@
 
         public Guid UserId { get; set; }
 
-        public User user { get; set; }
+        public User? user { get; set; }
 
         public Guid DepartmentId { get; set; }
 
-        public Department department { get; set; }
+        public Department? department { get; set; }
     }
 }

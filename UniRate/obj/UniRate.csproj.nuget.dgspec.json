@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\UniRate.csproj": {}
+    "C:\\Users\\Ioake\\UniRate\\UniRate\\UniRate.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\UniRate.csproj": {
+    "C:\\Users\\Ioake\\UniRate\\UniRate\\UniRate.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\UniRate.csproj",
+        "projectUniqueName": "C:\\Users\\Ioake\\UniRate\\UniRate\\UniRate.csproj",
         "projectName": "UniRate",
-        "projectPath": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\UniRate.csproj",
-        "packagesPath": "C:\\Users\\Anastasia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Anastasia\\source\\repos\\marata13\\UniRate\\UniRate\\obj\\",
+        "projectPath": "C:\\Users\\Ioake\\UniRate\\UniRate\\UniRate.csproj",
+        "packagesPath": "C:\\Users\\Ioake\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ioake\\UniRate\\UniRate\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Anastasia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ioake\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

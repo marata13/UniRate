@@ -22,7 +22,7 @@
             <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
             @if (logged_in)
             {
-                <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
+                <li><a asp-controller="RegisteredUsers" asp-action="Favorites">Αγαπημένα</a></li>
             }
             else
             {
@@ -60,7 +60,7 @@
         <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
         @if (logged_in)
         {
-            <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
+            <li><a asp-controller="RegisteredUsers" asp-action="Favorites">Αγαπημένα</a></li>
         }
         else
         {

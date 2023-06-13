@@ -1,8 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model UniRate.Models.DepResultsModel
 
 
 <!-- Stylesheet connection for Search page -->
@@ -17,16 +13,16 @@
             <img src="@Url.Content("~/visual-material/papei.png")" class="back-image">
         @{
             bool logged_in = ViewBag.LoggedIn; // Set this variable to true if user is logged in, if else set it to false
-            bool is_favorite_dep = false; // Set this variable to true if user has this department favorited
+            bool is_favorite_dep = ViewBag.IsFavoriteDep; // Set this variable to true if user has this department favorited
 
             // For every department these values will be retrieved from the DB
-            int difficulty = 4;
-            int teachers = 5;
-            int classes = 4;
-            int updated_study = 4;
-            int dep_organizaton = 5;
+            int difficulty = Model.ReviewsAggregate.DifficultyRating;
+            int teachers = Model.ReviewsAggregate.ProfessorsRating;
+            int classes = Model.ReviewsAggregate.SubjectsRating;
+            int updated_study = Model.ReviewsAggregate.FreshnessRating;
+            int dep_organizaton = Model.ReviewsAggregate.OrganisationRating;
 
-            float stars = (difficulty + teachers + classes + updated_study + dep_organizaton) / 5;
+            double stars = Model.ReviewsAggregate.OverallRating;
         }
         <nav class="navbar" id="navbar">
             <h2 class="logo"><img src="@Url.Content("~/visual-material/uniRateLogo.png")" class="icon-logo"> Uni<span>Rate</span></h2>
@@ -36,7 +32,7 @@
                 <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
                 @if (logged_in)
                 {
-                    <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
+                    <li><a asp-controller="RegisteredUsers" asp-action="Favorites">Αγαπημένα</a></li>
                 }
                 else
                 {
@@ -74,7 +70,7 @@
             <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
             @if (logged_in)
             {
-                <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
+                <li><a asp-controller="RegisteredUsers" asp-action="Favorites">Αγαπημένα</a></li>
             }
             else
             {
@@ -127,80 +123,54 @@
 
 
             <div class="content">
-                <h1>Τμήμα Πληροφορικής</h1>
-                <h2>Πανεπιστήμιο Πειραιά</h2>
-                @if (logged_in)
-                {
+                <h1>@Model.Department.Name</h1>
+                <h2>@Model.Department.university.Name</h2>
                 @if (logged_in)
                 {
                     if (is_favorite_dep) // Make heart blue
                     {
+                    <a a asp-controller="RegisteredUsers" asp-action="RemoveFavoriteDep" asp-route-Id="@Model.Department.Id">
                         <i id="heart-icon" class="fa fa-heart" style="color: #11668D;"></i>
+                    </a>
                     }
                     else // Heart is grey
                     {
-                        <i id="heart-icon"  class="fa fa-heart" style="color: grey;"></i>
+                    <a a asp-controller="RegisteredUsers" asp-action="AddFavoriteDep" asp-route-Id="@Model.Department.Id">
+                        <i id="heart-icon" class="fa fa-heart" style="color: grey;"></i>
+                    </a>
                     }
 
                 }
-            }
             </div>
         </div>
 
-            <script>
-                // JS code for changing heart's color onclick event
-
-                const heart = document.getElementById('heart-icon');
-                let isFavorite = @(is_favorite_dep ? "true" : "false");
-
-                heart.onclick = function() {
-                    if (isFavorite) 
-                    {
-                        // If dep is in favorites remove it from favorites
-                        heart.style.color = 'grey'; 
-                        isFavorite = false; 
-                        @{is_favorite_dep = false;}
-                    }
-                    else
-                    { 
-                        // If dep is not in favorites add it to favorites
-                        heart.style.color = '#11668D'; 
-                        isFavorite = true; 
-                        @{is_favorite_dep = true;}
-                    }
-                }
-            </script>
-
+            
         <div class="uni-basics">
 
             <div class="uni-info">
                 <div class="title">
-                    <h2>Τμήμα Πληροφορικής</h2>
-                    <h3 class="subtitle">Πανεπιστήμιο Πειραιά</h3>
+                    <h2>@Model.Department.Name</h2>
+                    <h3 class="subtitle">@Model.Department.university.Name</h3>
                 </div>
                 <div class="info-section">
                     <h3 class="first">Βάση Εισαγωγής:</h3>
-                    <h3 class="second">16.000</h3>
+                    <h3 class="second">@Model.Department.EntranceGrade</h3>
                 </div>
                 <div class="info-section">
                     <h3 class="first">Διάρκεια Φοίτησης:</h3>
-                    <h3 class="second">4 χρόνια</h3>
+                    <h3 class="second">@Model.Department.StudyDuration</h3>
                 </div>
                 <div class="info-section">
                     <h3 class="first">Κατευθύνσεις:</h3>
-                    <h3 class="second">
-                        Πληροφοριακά Συστήματα και Υπηρεσίες,
-                        Τεχνολογία Λογισμικού και Εφυή Συστήματα,
-                        Διαδικτυακά και Υπολογιστικά Συστήματα
-                    </h3>
+                    <h3 class="second">@Model.Department.Directions</h3>
                 </div>
                 <div class="info-section">
                     <h3 class="first">Αριθμός Μαθημάτων:</h3>
-                    <h3 class="second">45</h3>
+                    <h3 class="second">@Model.Department.SubjectCount</h3>
                 </div>
                 <div class="info-section">
                     <h3 class="first">Ιστοσελίδα:</h3>
-                    <h3 class="second">cs.unipi.gr</h3>
+                    <h3 class="second">@Model.Department.SiteUrl</h3>
                 </div>
 
             </div>
@@ -208,7 +178,7 @@
             <div class="uni-rankings">
                 
                     <div class="title">
-                <h2>@stars <i class="fa fa-star" style="color: #11668D;"></i> - 52 αξιολογήσεις</h2>
+                <h2>@stars <i class="fa fa-star" style="color: #11668D;"></i> - @Model.Department.Ratings.Count αξιολογήσεις</h2>
                         <div class="total-stars">
                     @{
                         for (int i = 1; i <= 5; i++)
@@ -340,40 +310,25 @@
             </div>
 
             <div class="classes">
-
+            @foreach(var semester in Model.SubjectsBySemester)
+            {
                 <div class="title">
-                    <h3>Ά Εξάμηνο</h3>
+                    <h3>@semester.Key</h3>
                 </div>
-
-                <div class="deps-section course">
-                    <h3>Λογική Σχεδίαση Ψηφιακών Συστημάτων</h3>
-                    <ul class="deps-names">
-                        <li>Καθηγητής: Μιχάλης Ψαρκάκης</li>
-                        <li>Τύπος Μαθήματος: Υποχρεωτικό</li>
-                        <li>Ώρες Διδασκαλίας: 4 Θεωρία + 2 Εργαστήριο</li>
-                        <li>Οδηγός Σπουδών: Πατήστε <a href="#">εδώ</a></li>
-                    </ul>
-                </div>
-                <div class="deps-section course">
-                    <h3>Ανάλυση Ι</h3>
-                    <ul class="deps-names">
-                        <li>Καθηγητής: Κωνσταντίνος Μανές</li>
-                        <li>Τύπος Μαθήματος: Υποχρεωτικό</li>
-                        <li>Ώρες Διδασκαλίας: 4 Θεωρία + 2 Φροντιστήριο</li>
-                        <li>Οδηγός Σπουδών : Πατήστε <a href="#">εδώ</a></li>
-                    </ul>
-                </div>
-                <div class="deps-section course">
-                    <h3>Αρχές Προγραμματισμού</h3>
-                    <ul class="deps-names">
-                        <li>Καθηγητής: Δημήτρης Αποστόλου</li>
-                        <li>Τύπος Μαθήματος: Υποχρεωτικό</li>
-                        <li>Ώρες Διδασκαλίας: 4 Θεωρία</li>
-                        <li>Οδηγός Σπουδών: Πατήστε <a href="#">εδώ</a></li>
-                    </ul>
-                </div>
+                @foreach(var subject in semester)
+                {
+                    <div class="deps-section course">
+                        <h3>@subject.Title</h3>
+                        <ul class="deps-names">
+                            <li>Καθηγητής: @subject.Professor.Name</li>
+                            <li>Τύπος Μαθήματος: @subject.Type</li>
+                            <li>Ώρες Διδασκαλίας: @subject.Hours</li>
+                            <li>Οδηγός Σπουδών: Πατήστε <a href="@subject.SubjectUrl">εδώ</a></li>
+                        </ul>
+                    </div>
+                }
                 <hr>
-
+            }
             </div>
         </div>
 
@@ -381,121 +336,38 @@
             <div class="title">
                 <h2>Καθηγητές</h2>
             </div>
-
             <div class="teachers">
-                <div class="teacher-section course">
-                    <div class="teacher-name">
-                        <h3 class="nm">Μαρία Βίρβου</h3>
-                        <p>Πρόεδρος Τμήματος</p>
+            @foreach(var teacher in Model.Department.Professors)
+            {
+                    <div class="teacher-section course">
+                        <div class="teacher-name">
+                            <h3 class="nm">@teacher.Name</h3>
+                            <p>@teacher.Level</p>
+                        </div>
+
+                        <ul class="teacher-info">
+                            <li>
+                                <div class="info">
+                                    <a><i class="fa fa-building"></i></a>
+                                    <div><p>@teacher.Office</p></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="info">
+                                    <a><i class="fa fa-phone"></i></a>
+                                    <div><p>@teacher.Phone</p></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="info">
+                                    <a><i class="fa fa-envelope"></i></a>
+                                    <div><p><a href="mailto:@teacher.Email">@teacher.Email</a></p></div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-
-                    <ul class="teacher-info">
-                        <li>
-                            <div class="info">
-                                <a><i class="fa fa-building"></i></a>
-                                <div><p>507, Κεντρικό Κτήριο</p></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="info">
-                                <a><i class="fa fa-phone"></i></a>
-                                <div><p>+302104142269</p></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="info">
-                                <a><i class="fa fa-envelope"></i></a>
-                                <div><p><a href="mailto:mvirvou@unipi.gr">mvirvou@unipi.gr</a></p></div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <hr>
-                <div class="teacher-section course">
-                    <div class="teacher-name">
-                        <h3 class="nm">Βέργαδος Δημήτριος</h3>
-                        <p>Αναπληρωτής Πρόεδρος Τμήματος</p>
-                    </div>
-
-                    <ul class="teacher-info">
-                        <li>
-                            <div class="info">
-                                <a><i class="fa fa-building"></i></a>
-                                <div><p>104, Γ. Λαμπράκη 126</p></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="info">
-                                <a><i class="fa fa-phone"></i></a>
-                                <div><p>+302104142479</p></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="info">
-                                <a><i class="fa fa-envelope"></i></a>
-                                <div><p><a href="mailto:vergados@unipi.gr">vergados@unipi.gr</a></p></div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <hr>
-                <div class="teacher-section course">
-                    <div class="teacher-name">
-                        <h3 class="nm">Αποστόλου Δημήτριος</h3>
-                        <p>Καθηγητής</p>
-                    </div>
-
-                    <ul class="teacher-info">
-                        <li>
-                            <div class="info">
-                                <a><i class="fa fa-building"></i></a>
-                                <div><p>303, Γ. Λαμπράκη 126</p></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="info">
-                                <a><i class="fa fa-phone"></i></a>
-                                <div><p>+302104142476</p></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="info">
-                                <a><i class="fa fa-envelope"></i></a>
-                                <div><p><a href="mailto:dapost@unipi.gr">dapost@unipi.gr</a></p></div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <hr>
-                <div class="teacher-section course">
-                    <div class="teacher-name">
-                        <h3 class="nm">Δουληγέρης Χρήστος</h3>
-                        <p>Καθηγητής</p>
-                    </div>
-
-                    <ul class="teacher-info">
-                        <li>
-                            <div class="info">
-                                <a><i class="fa fa-building"></i></a>
-                                <div><p>302, κεντρικό κτίριο</p></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="info">
-                                <a><i class="fa fa-phone"></i></a>
-                                <div><p>+302104142137</p></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="info">
-                                <a><i class="fa fa-envelope"></i></a>
-                                <div><p><a href="mailto:cdoulig@unipi.gr">cdoulig@unipi.gr</a></p></div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-
+                    <hr>
+            }
             </div>
         </div>
     </div>
@@ -508,16 +380,17 @@
             </div>
 
             <div class="rev">
-
+                @foreach(var review in Model.Department.Ratings)
+                {
                 <div class="scroll">
                     <div class="who">
                         <a><i class="fa fa-user"></i></a>
                         <div>
-                            <h3>aboublini</h3>
-                            <p>2 months ago</p>
+                            <h3>@review.user.UserName</h3>
+                            <p>@review.DateTime</p>
                             <p>
                                 @{
-                                    int userStars = 3; // Edw tha einai o arithmos asteriwn tou kathe user - int tha einai kai o M0 twn ratings pou exei kanei
+                                    int userStars = Convert.ToInt32(review.OverallRating); // Edw tha einai o arithmos asteriwn tou kathe user - int tha einai kai o M0 twn ratings pou exei kanei
                                     for (int i = 1; i <= 5; i++)
                                     {
                                         if (i <= userStars)
@@ -534,24 +407,26 @@
                             </div>
                         </div>
                         <div class="txt">
-                            <p>
-                                Το Πανεπιστήμιο Πειραιώς αριθμεί 80 συνεχή έτη λειτουργίας.
-                                Ο χώρος είναι κάπως παλιός, ωστόσο είναι καλά συντηρημενος.
-                                Υπάρχουνε τόσο αίθουσες όσο και αμφιθέατρα όπου μπορούν και
-                                διεξάγονται μαθήματα και διάφοροι τύποι εκδηλώσεων εντός του
-                                Πανεπιστημίου!
-                            </p>
+                            <p>@review.Review</p>
                         </div>
                     </div>
                     <hr>  
+                }
                 </div>
 
-                @if (logged_in)
-                {
-                    <div class="add-rev">
-                        <button class="add-rev-btn"><i class="fa fa-plus"></i></button>
-                    </div>
-                }
+            @if (logged_in)
+            {
+                <form asp-action="AddDepReview" asp-controller="RegisteredUsers" asp-route-Id="@Model.Department.Id" method="get">
+                    <div class="add-rev"><button type="submit" class="add-rev-btn"><i class="fa fa-plus"></i></button></div>
+                </form>
+            }
+            else
+            {
+                <form asp-action="Login" method="get">
+                    <div class="add-rev"><button class="add-rev-btn"><i class="fa fa-plus"></i></button></div>
+                </form>
+            }
+
                 
 
             </div>
@@ -563,17 +438,17 @@
 
                 <div class="contact-section">
                     <h4>Τηλέφωνο:</h4>
-                    <p>210 4142067, 210 4142437</p>
+                    <p>@Model.Department.Phone</p>
                 </div>
                 <div class="contact-section">
                     <h4>Διεύθυνση:</h4>
-                    <p>1ος όροφος, Ζέας 80-82, Πειραιάς 18534</p>
+                    <p>@Model.Department.Address</p>
                 </div>
                 <div class="contact-section">
                     <h4>Email:</h4>
-                    <p><a href="mailto:plh-secr@unipi.gr">plh-secr@unipi.gr</a></p>
+                    <p><a href="mailto:@Model.Department.Email">@Model.Department.Email</a></p>
                 </div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3146.525340258017!2d23.650293176368773!3d37.94151790253674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bbe5bb8515a1%3A0x3e0dce8e58812705!2zzqDOsc69zrXPgM65z4PPhM6uzrzOuc6_IM6gzrXOuc-BzrHOuc-Oz4I!5e0!3m2!1sel!2sgr!4v1682510205416!5m2!1sel!2sgr"
+                <iframe src="@Model.Department.LocationUrl"
                     width="100%"
                     height="50%"
                     style="border:0; border-radius: 25px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">

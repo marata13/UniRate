@@ -1,8 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model UniRate.Models.DepRating
 
 
 <!-- Stylesheet connection for Search page -->
@@ -23,7 +19,7 @@
                 <li><a asp-controller="Home" asp-action="HomePage">Αρχική</a></li>
                 <li><a asp-controller="Home" asp-action="Unies">Πανεπιστήμια</a></li>
                 <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
-                <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
+                <li><a asp-controller="RegisteredUsers" asp-action="Favorites">Αγαπημένα</a></li>
                 <li><a asp-controller="Home" asp-action="Help">Βοήθεια</a></li>
                 <li><a asp-controller="RegisteredUsers" asp-action="AccountInfo">Ο Λογαριασμός μου</a></li>
             </ul>
@@ -37,7 +33,7 @@
             <li><a asp-controller="Home" asp-action="HomePage">Αρχική</a></li>
             <li><a asp-controller="Home" asp-action="Unies">Πανεπιστήμια</a></li>
             <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
-            <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
+            <li><a asp-controller="RegisteredUsers" asp-action="Favorites">Αγαπημένα</a></li>
             <li><a asp-controller="Home" asp-action="Help">Βοήθεια</a></li>
             <li><a asp-controller="RegisteredUsers" asp-action="AccountInfo">Ο Λογαριασμός μου</a></li>
             <li><a asp-controller="Home" asp-action="Login" class="btn">Έξοδος</a></li>
@@ -79,18 +75,18 @@
 
 
         <div class="content">
-            <form class="add-review-form">
+            <form asp-action="AddDepReview" asp-controller="RegisteredUsers" method="post" class="add-review-form">
                 <h1>Uni<span>Rate</span></h1>
-                <h2>Πανεπιστήμιο Πειραιά</h2>
-                <p>Τμήμα Διεθνών & Ευρωπαικών Σπουδών</p>
+                <h2>@ViewBag.University</h2>
+                <p>@ViewBag.Department</p>
                 <div class="write-review">
                     <div class="who">
                         <a><i class="fa fa-user"></i></a>
                         <div>
-                            <h3>aboublini</h3>
+                            <h3>@ViewBag.UserName</h3>
                         </div>
                     </div>
-                    <textarea class="rev-txt"
+                    <textarea asp-for="Review" class="rev-txt"
                               rows="8"
                               cols="10"
                               placeholder="Γράψε μια κριτική..."></textarea>
@@ -100,40 +96,43 @@
                         <div class="rank">
                             <h3>Δυσκολία</h3>
                             <div class="stars">
-                                <input class="rate" type="number" id="difficulty-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
+                                <input asp-for="DifficultyRating" class="rate" type="number" id="difficulty-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
                             </div>
                         </div>
 
                         <div class="rank">
                             <h3>Καθηγητές</h3>
                             <div class="stars">
-                                <input class="rate" type="number" id="teachers-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
+                                <input asp-for="ProfessorsRating" class="rate" type="number" id="teachers-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
                             </div>
                         </div>
 
                         <div class="rank">
                             <h3>Μαθήματα</h3>
                             <div class="stars">
-                                <input class="rate" type="number" id="classes-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
+                                <input asp-for="SubjectsRating" class="rate" type="number" id="classes-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
                             </div>
                         </div>
 
                         <div class="rank">
                             <h3>Επικαιρότητα Σπουδών</h3>
                             <div class="stars">
-                                <input class="rate" type="number" id="updated-st-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
+                                <input asp-for="FreshnessRating" class="rate" type="number" id="updated-st-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
                             </div>
                         </div>
 
                         <div class="rank">
                             <h3>Οργάνωση</h3>
                             <div class="stars">
-                                <input class="rate" type="number" id="organization-dep-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
+                                <input asp-for="OrganisationRating" class="rate" type="number" id="organization-dep-stars" min="1" max="5" value="5"><i class="fa fa-star" style="color: #11668D;"></i>
                             </div>
                         </div>
+
+                        <input type="hidden" name="departmentId" value="@ViewBag.DepartmentId" />
+
                     </div>
                 </div>
-                <button class="upload">Δημοσίευση</button>
+                <button type="submit" class="upload">Δημοσίευση</button>
             </form>
         </div>
     </div>

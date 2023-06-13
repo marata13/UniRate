@@ -1,4 +1,4 @@
-﻿@model IEnumerable<UniRate.Models.User>
+﻿@model TopRatedModel
 
 <!-- Stylesheet connection for Search page -->
 @section Styles {
@@ -20,7 +20,7 @@
                 <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
                 @if (logged_in)
                 {
-                    <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
+                    <li><a asp-controller="RegisteredUsers" asp-action="Favorites">Αγαπημένα</a></li>
                 }
                 else
                 {
@@ -58,7 +58,7 @@
             <li><a asp-controller="Home" asp-action="TopRated">Top Rated</a></li>
             @if (logged_in)
             {
-                <li><a asp-controller="RegisteredUsers" asp-action="FavoritesRegistered">Αγαπημένα</a></li>
+                <li><a asp-controller="RegisteredUsers" asp-action="Favorites">Αγαπημένα</a></li>
             }
             else
             {
@@ -116,47 +116,22 @@
                 <h1>Top <span>Rated</span> Πανεπιστήμια</h1>
                 <div class="first">
                     <div class="number"><h2><span>#1</span></h2></div>
-                    <h3>Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</h3>
+                    <h3>@Model.Universities.FirstOrDefault().University.Name</h3>
                 </div>
             </div>
         </div>
 
         <div class="content">
-            <div class="frame">
-                <div class="frame-number"><h2><span>#1</span></h2></div>
-                <div>
-                    <h3>Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</h3>
-                    <p>4,8 <i class="fa fa-star"></i> - 23 Κριτικές - 12 Αξιολογήσεις</p>
+            @for(int i = 0;i < Model.Universities.Count(); i++)
+            {
+                <div class="frame">
+                    <div class="frame-number"><h2><span>#@(i+1)</span></h2></div>
+                    <div>
+                        <a asp-action="UniResults" asp-route-Id="@Model.Universities.ElementAt(i).University.Id"><h3>@Model.Universities.ElementAt(i).University.Name</h3></a>
+                        <p>@Model.Universities.ElementAt(i).Rating <i class="fa fa-star"></i> - @Model.Universities.ElementAt(i).ReviewCount Κριτικές</p>
+                    </div>
                 </div>
-            </div>
-            <div class="frame">
-                <div class="frame-number"><h2><span>#2</span></h2></div>
-                <div>
-                    <h3>Πανεπιστήμιο Πειραιώς</h3>
-                    <p>4,8 <i class="fa fa-star"></i> - 23 Κριτικές - 12 Αξιολογήσεις</p>
-                </div>
-            </div>
-            <div class="frame">
-                <div class="frame-number"><h2><span>#3</span></h2></div>
-                <div>
-                    <h3>Οικονομικό Πανεπιστήμιο Αθηνών</h3>
-                    <p>4,8 <i class="fa fa-star"></i> - 23 Κριτικές - 12 Αξιολογήσεις</p>
-                </div>
-            </div>
-            <div class="frame">
-                <div class="frame-number"><h2><span>#4</span></h2></div>
-                <div>
-                    <h3>Αριστοτέλειο Πανεπιστήμιο Θεσαλλονίκης</h3>
-                    <p>4,8 <i class="fa fa-star"></i> - 23 Κριτικές - 12 Αξιολογήσεις</p>
-                </div>
-            </div>
-            <div class="frame">
-                <div class="frame-number"><h2><span>#5</span></h2></div>
-                <div>
-                    <h3>Εθνικό Μετσόβειο Πολυτεχνείο</h3>
-                    <p>4,8 <i class="fa fa-star"></i> - 23 Κριτικές - 12 Αξιολογήσεις</p>
-                </div>
-            </div>
+            }
         </div>
         </div>
 
@@ -165,41 +140,16 @@
 
         <div class="deps-top-rated">
         <div class="content-deps">
-            <div class="frame-deps">
-                <div class="frame-number"><h2><span>#1</span></h2></div>
-                <div>
-                    <h3>Τμήμα Πληροφορικής - Πανεπιστήμιο Πειραιά</h3>
-                    <p>4,8 <i class="fa fa-star"></i> - 23 Κριτικές - 12 Αξιολογήσεις</p>
+            @for(int i = 0;i < Model.Universities.Count(); i++)
+            {
+                <div class="frame-deps">
+                    <div class="frame-number"><h2><span>#@(i+1)</span></h2></div>
+                    <div>
+                        <a asp-action="DepResults" asp-route-Id="@Model.Departments.ElementAt(i).Department.Id"><h3>@Model.Departments.ElementAt(i).Department.Name - @Model.Departments.ElementAt(i).Department.university.Name</h3></a>
+                        <p>@Model.Departments.ElementAt(i).Rating <i class="fa fa-star"></i> - @Model.Departments.ElementAt(i).ReviewCount Κριτικές</p>
+                    </div>
                 </div>
-            </div>
-            <div class="frame-deps">
-                <div class="frame-number"><h2><span>#2</span></h2></div>
-                <div>
-                    <h3>Τμήμα Ψηφιακών Συστημάτων - Πανεπιστήμιο Πειραιά</h3>
-                    <p>4,8 <i class="fa fa-star"></i> - 23 Κριτικές - 12 Αξιολογήσεις</p>
-                </div>
-            </div>
-            <div class="frame-deps">
-                <div class="frame-number"><h2><span>#3</span></h2></div>
-                <div>
-                    <h3>Τμήμα Πληροφορικής - Οικονομικό Πανεπιστήμιο Αθηνών</h3>
-                    <p>4,8 <i class="fa fa-star"></i> - 23 Κριτικές - 12 Αξιολογήσεις</p>
-                </div>
-            </div>
-            <div class="frame-deps">
-                <div class="frame-number"><h2><span>#4</span></h2></div>
-                <div>
-                    <h3>Τμήμα Πληροφορικής - Αριστοτέλειο Πανεπιστήμιο Θεσαλλονίκης</h3>
-                    <p>4,8 <i class="fa fa-star"></i> - 23 Κριτικές - 12 Αξιολογήσεις</p>
-                </div>
-            </div>
-            <div class="frame-deps">
-                <div class="frame-number"><h2><span>#5</span></h2></div>
-                <div>
-                    <h3>Τμήμα Ναυπηγών - Εθνικό Μετσόβειο Πολυτεχνείο</h3>
-                    <p>4,8 <i class="fa fa-star"></i> - 23 Κριτικές - 12 Αξιολογήσεις</p>
-                </div>
-            </div>
+            }
         </div>
 
         <div class="titles-deps">
@@ -208,7 +158,7 @@
                 <div class="first-deps">
                     <div class="number-deps"><h2><span>#1</span></h2></div>
                     <h3>
-                        Τμήμα Πληροφορικής - Πανεπιστήμιο Πειραιά
+                        @Model.Departments.FirstOrDefault().Department.Name - @Model.Departments.FirstOrDefault().Department.university.Name
                     </h3>
                 </div>
             </div>
