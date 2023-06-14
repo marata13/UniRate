@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using UniRate.Data;
 using UniRate.Models;
 
@@ -22,9 +22,9 @@ namespace UniRate.Controllers
         // GET: Users
         public async Task<IActionResult> Index()
         {
-              return _context.User != null ? 
-                          View(await _context.User.ToListAsync()) :
-                          Problem("Entity set 'UniRateContext.User'  is null.");
+            return _context.User != null ?
+                        View(await _context.User.ToListAsync()) :
+                        Problem("Entity set 'UniRateContext.User'  is null.");
         }
 
         // GET: Users/Details/5
@@ -103,6 +103,9 @@ namespace UniRate.Controllers
             {
                 try
                 {
+                    byte[] generatedSalt;
+                    user.Password = Hashing.HashPasword(user.Password, out generatedSalt);
+                    user.Salt = generatedSalt;
                     _context.Update(user);
                     await _context.SaveChangesAsync();
                 }
@@ -154,14 +157,14 @@ namespace UniRate.Controllers
             {
                 _context.User.Remove(user);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool UserExists(Guid id)
         {
-          return (_context.User?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.User?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

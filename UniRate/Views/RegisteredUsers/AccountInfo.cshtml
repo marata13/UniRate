@@ -1,8 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model User
 
 
 <!-- Stylesheet connection for Search page -->
@@ -101,37 +97,39 @@
                             <i class="fa fa-user-circle"></i>
                         </div>
 
-                        <div class="info">
-                            <div class="infield">
-                                <p>Όνομα Χρήστη</p>
-                                <input type="text" placeholder="aboublini" disabled />
+                        <form asp-action="AccountInfo" method="post">
+                            <div class="info">
+                                <div class="infield">
+                                    <p>Όνομα Χρήστη</p>
+                                    <input asp-for="UserName" type="text" placeholder="@Model.UserName" disabled />
+                                </div>
+
+                                <div class="infield">
+                                    <p>Email</p>
+                                    <input asp-for="Email" type="text" placeholder="@Model.Email" disabled />
+                                </div>
                             </div>
 
-                            <div class="infield">
-                                <p>Email</p>
-                                <input type="text" placeholder="aboublini@unipi.gr" disabled />
-                            </div>
-                        </div>
+                            <div class="change-info">
+                                <div class="infield">
+                                    <p>Άλλαξε τον κωδικό σου</p>
+                                </div>
 
-                        <div class="change-info">
-                            <div class="infield">
-                                <p>Άλλαξε τον κωδικό σου</p>
+                                <div class="infield">
+                                    <p>Παλιός Κωδικός</p>
+                                    <input asp-for="Password" type="password" placeholder="Παλιός Κωδικός" />
+                                </div>
+
+                                <div class="infield">
+                                    <p>Νέος Κωδικός</p>
+                                    <input name="newPassword" type="password" placeholder="Νέος Κωδικός" />
+                                </div>
                             </div>
 
-                            <div class="infield">
-                                <p>Παλιός Κωδικός</p>
-                                <input type="password" placeholder="Παλιός Κωδικός" />
+                            <div class="save">
+                                <button type="submit">Αποθήκευση</button>
                             </div>
-
-                            <div class="infield">
-                                <p>Νέος Κωδικός</p>
-                                <input type="password" placeholder="Νέος Κωδικός" />
-                            </div>
-                        </div>
-
-                        <div class="save">
-                            <button>Αποθήκευση</button>
-                        </div>
+                        </form>
 
                     </div>
 
@@ -160,4 +158,14 @@
         </div>
         <p class="end"><i class="fa fa-copyright"></i> 2023 All Right Reserved</p>
     </footer>
+
+    <!-- Alert in case something went wrong -->
+    @if (ViewBag.errorMessage != null)
+    {
+        <script type="text/javascript">
+            alert("@ViewBag.errorMessage");
+        </script>
+    }
+
+
 </body>

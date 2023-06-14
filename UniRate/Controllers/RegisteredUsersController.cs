@@ -40,10 +40,37 @@ namespace UniRate.Controllers
             return View(favourites);
         }
 
-        public IActionResult AccountInfo()
+        public async Task<IActionResult> AccountInfo()
         {
             ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
-            return View();
+
+            var User = await _context.User.FirstOrDefaultAsync(m => m.UserName == HttpContext.User.Identity.Name);
+
+            return View(User);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> AccountInfo([Bind("UserName,Email,Password")] User user, string newPassword)
+        {
+            ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
+            var loggedUser = await _context.User.FirstOrDefaultAsync(m => m.UserName == HttpContext.User.Identity.Name);
+
+            if (Data.Hashing.VerifyPassword(user.Password, loggedUser.Password, loggedUser.Salt) && ModelState.IsValid)
+            {
+                byte[] generatedSalt;
+                loggedUser.Password = Hashing.HashPasword(newPassword, out generatedSalt);
+                loggedUser.Salt = generatedSalt;
+                _context.Update(loggedUser);
+                await _context.SaveChangesAsync();
+                ViewBag.errorMessage = "Password successfuly changed";
+            }
+            else
+            {
+                ViewBag.errorMessage = "Old password is wrong";
+            }
+
+            return View(loggedUser);
         }
 
 
