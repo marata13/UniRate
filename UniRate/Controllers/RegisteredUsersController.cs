@@ -176,6 +176,7 @@ namespace UniRate.Controllers
         public IActionResult AddUniReview(Guid Id)
         {
             var University = _context.University.FirstOrDefault(m => m.Id == Id);
+            ViewBag.BackgroundPhoto = University.BackroundPhotoUrl;
             ViewBag.University = University.Name;
             ViewBag.universityId = Id;
             ViewBag.UserName = HttpContext.User.Identity.Name;
@@ -215,6 +216,7 @@ namespace UniRate.Controllers
         public IActionResult AddDepReview(Guid Id)
         {
             var Department = _context.Department.Include(m => m.university).FirstOrDefault(m => m.Id == Id);
+            ViewBag.BackgroundPhoto = Department.university.BackroundPhotoUrl;
             ViewBag.University = Department.university.Name;
             ViewBag.Department = Department.Name;
             ViewBag.DepartmentId = Id;
