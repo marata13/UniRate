@@ -105,7 +105,7 @@ namespace UniRate.Models
                 }
             }
 
-            return depsToSort.OrderBy(o => o.Rating).Take(5);
+            return depsToSort.OrderByDescending(o => o.Rating).Take(5);
         }
     }
 }

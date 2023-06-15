@@ -132,7 +132,7 @@ namespace UniRate.Controllers
         }
 
 
-        public async Task<IActionResult> RemoveFavoriteUni(Guid Id)
+        public async Task<IActionResult> RemoveFavoriteUni(Guid Id, bool fromFavorites = false)
         {
             ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
 
@@ -148,11 +148,16 @@ namespace UniRate.Controllers
                 _context.SaveChanges();
             }
 
+            if (fromFavorites)
+            {
+                return RedirectToAction("Favorites");
+            }
+
             return RedirectToAction("UniResults", "Home", new { university.Id });
         }
 
 
-        public async Task<IActionResult> RemoveFavoriteDep(Guid Id)
+        public async Task<IActionResult> RemoveFavoriteDep(Guid Id, bool fromFavorites = false)
         {
             ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
 
@@ -166,6 +171,11 @@ namespace UniRate.Controllers
             {
                 User.FavoriteDepartments.Remove(FavDep);
                 _context.SaveChanges();
+            }
+
+            if (fromFavorites)
+            {
+                return RedirectToAction("Favorites");
             }
 
             return RedirectToAction("DepResults", "Home", new { department.Id });

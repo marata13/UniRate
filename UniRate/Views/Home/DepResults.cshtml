@@ -10,7 +10,7 @@
 
     <body>
         <div class="hero">
-            <img src="@Url.Content("~/visual-material/papei.png")" class="back-image">
+            <img src="@Model.Department.university.BackroundPhotoUrl" class="back-image">
         @{
             bool logged_in = ViewBag.LoggedIn; // Set this variable to true if user is logged in, if else set it to false
             bool is_favorite_dep = ViewBag.IsFavoriteDep; // Set this variable to true if user has this department favorited

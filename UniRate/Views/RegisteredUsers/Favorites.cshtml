@@ -94,7 +94,7 @@
                             </div>
 
                             <div class="actions">
-                                <a asp-action="RemoveFavoriteUni" asp-route-Id="@favUni.UniversityId"><i class="fa fa-trash"></i></a>
+                                <a asp-action="RemoveFavoriteUni" asp-route-Id="@favUni.UniversityId" asp-route-fromFavorites="true"><i class="fa fa-trash"></i></a>
                                 <a href="@favUni.University.SiteUrl"><i class="fa fa-globe"></i></a>
                                 <a asp-action="UniResults" asp-controller="Home" asp-route-Id="@favUni.UniversityId"><i class="fa fa-expand"></i></a>
                             </div>
@@ -130,7 +130,7 @@
                             </div>
 
                             <div class="actions">
-                                <a asp-action="RemoveFavoriteDep" asp-route-Id="@favDep.DepartmentId"><i class="fa fa-trash"></i></a>
+                                <a asp-action="RemoveFavoriteDep" asp-route-Id="@favDep.DepartmentId" asp-route-fromFavorites="true"><i class="fa fa-trash"></i></a>
                                 <a href="@favDep.Department.SiteUrl"><i class="fa fa-globe"></i></a>
                                 <a asp-action="DepResults" asp-controller="Home" asp-route-Id="@favDep.DepartmentId"><i class="fa fa-expand"></i></a>
                             </div>
