@@ -9,7 +9,7 @@
 
 <body>
     <div class="hero">
-        <img src="@Url.Content("~/visual-material/papei.png")" class="back-image">
+        <img src="@Model.University.BackroundPhotoUrl" class="back-image">
         
         @{
             bool logged_in = ViewBag.LoggedIn; // Set this variable to true if user is logged in, if else set it to false
@@ -84,7 +84,7 @@
             }
             else
             {
-                <li><a asp-controller="Home" asp-action="Login" class="btn">O Λογαριασμός μου</a></li>
+                <li><a asp-controller="Home" asp-action="Login">O Λογαριασμός μου</a></li>
                 <li><a asp-controller="Home" asp-action="Login" class="btn">Είσοδος</a></li>
             }
         </div>
@@ -345,7 +345,22 @@
                                 <div>
                                     <h3>@rating.User.UserName</h3>
                                     <p>@rating.DateTime</p>
-                                    <p><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+                                    <p>
+                                        @{
+                                            int userStars = Convert.ToInt32(rating.OverallRating); 
+                                            for (int i = 1; i <= 5; i++)
+                                            {
+                                                if (i <= userStars)
+                                                {
+                                                    <i class="fa fa-star" style="color: #11668D;"></i>
+                                                }
+                                                else
+                                                {
+                                                    <i class="fa fa-star" style="color: grey;"></i>
+                                                }
+                                            }
+                                        }
+                                    </p>
                                 </div>
                             </div>
                             <div class="txt">

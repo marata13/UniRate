@@ -102,6 +102,11 @@ h1 {
     text-align: right;
 }
 
+    .info-section h3 a, .deps-names a, .info a, .contact-section a {
+        text-decoration: none;
+        color: #0E75A5;
+    }
+
 .uni-rankings {
     width: 50%;
     margin-left: 1rem;
@@ -224,7 +229,7 @@ h1 {
 
 .teacher-name {
     text-align: center;
-    width: 50%;
+    width: 45%;
 }
 
 .teacher-info {
@@ -305,7 +310,7 @@ hr {
 
 .who {
     /*background-color: pink;*/
-    width: 30%;
+    width: 160px;
     display: flex;
     align-items: center;
     margin: auto;
@@ -489,5 +494,9 @@ footer {
 
     .uni-map {
         height: 500px;
+    }
+
+    .teachers {
+        height: 370px;
     }
 }
