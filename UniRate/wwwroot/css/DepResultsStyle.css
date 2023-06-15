@@ -229,7 +229,7 @@ h1 {
 
 .teacher-name {
     text-align: center;
-    width: 50%;
+    width: 45%;
 }
 
 .teacher-info {
@@ -310,7 +310,7 @@ hr {
 
 .who {
     /*background-color: pink;*/
-    width: 30%;
+    width: 160px;
     display: flex;
     align-items: center;
     margin: auto;
@@ -497,6 +497,6 @@ footer {
     }
 
     .teachers {
-        height: 390px;
+        height: 370px;
     }
 }

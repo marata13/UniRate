@@ -221,7 +221,7 @@ hr {
 
 .who {
     /*background-color: pink;*/
-    width: 30%;
+    width: 160px;
     display: flex;
     align-items: center;
     margin: auto;
@@ -282,6 +282,7 @@ hr {
     margin-left: 3rem;
     margin-right: 3rem;
     margin-bottom: 3rem;
+    margin-top: 3rem;
 }
 
     .contact-section h3 {
