@@ -88,6 +88,11 @@ h1 {
     margin-bottom: 1.7rem;
 }
 
+.info-section h3 a {
+    text-decoration: none;
+    color: #0E75A5;
+}
+
 .uni-rankings {
     width: 50%;
     height: 395px;
@@ -147,11 +152,22 @@ h1 {
         width: 45%;
         margin-right: 2rem;
         color: #11668D;
+        text-align: center;
     }
 
 .deps-names {
     width: 50%;
 }
+
+.deps-names {
+    list-style: none;
+}
+
+    .deps-names a {
+        text-decoration: none;
+        color: inherit;
+        text-align: center;
+    }
 
 .uni-map {
     padding: 2rem;
@@ -278,6 +294,11 @@ hr {
         width: 50%;
         text-align: center;
     }
+
+        .contact-section h4 a {
+            text-decoration: none;
+            color: #0E75A5;
+        }
 
 
 
