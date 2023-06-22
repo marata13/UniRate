@@ -37,7 +37,7 @@ namespace UniRate.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.errorMessage = "You entered invalid details";
+                ViewBag.errorMessage = "The credentials you provided are invalid.";
                 ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
                 return View("Login", user);
             }
@@ -48,7 +48,7 @@ namespace UniRate.Controllers
             if (loginUser == null)
             {
                 //wrong username
-                ViewBag.errorMessage = "The username-password combination you entered is wrong";
+                ViewBag.errorMessage = "The credentials you provided are invalid.";
                 ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
                 return View("Login", user);
             }
@@ -75,7 +75,7 @@ namespace UniRate.Controllers
 
             }
             //wrong password
-            ViewBag.errorMessage = "The username-password combination you entered is wrong";
+            ViewBag.errorMessage = "The credentials you provided are invalid.";
             ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
             return View("Login", user);
         }
@@ -112,7 +112,7 @@ namespace UniRate.Controllers
 
             if (university == null)
             {
-                ViewBag.errorMessage = "This university does not exist";
+                ViewBag.errorMessage = "University not found!";
                 return View("HomePage");
             }
 
@@ -153,7 +153,7 @@ namespace UniRate.Controllers
 
             if (department == null)
             {
-                ViewBag.errorMessage = "This department does not exist";
+                ViewBag.errorMessage = "Department not found!";
                 return View("HomePage");
             }
 
@@ -239,7 +239,7 @@ namespace UniRate.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.errorMessage = "You entered invalid details";
+                ViewBag.errorMessage = "The credentials you provided are invalid.";
                 ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
                 return View("Login", user);
             }
@@ -252,11 +252,11 @@ namespace UniRate.Controllers
                 //username or email already exists
                 if (user.UserName == loginUser.UserName)
                 {
-                    ViewBag.errorMessage = "An account whith this username already exists";
+                    ViewBag.errorMessage = "Username is already in use.";
                 }
                 else
                 {
-                    ViewBag.errorMessage = "An account whith this email already exists";
+                    ViewBag.errorMessage = "Email is already in use.";
                 }
                 ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
                 return View("Login", user);
@@ -269,7 +269,7 @@ namespace UniRate.Controllers
             _context.Add(user);
             await _context.SaveChangesAsync();
 
-            ViewBag.errorMessage = "SignUp succesful please log in with your credentials";
+            ViewBag.errorMessage = "Sign up succesful! Please log in with your credentials.";
             ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
             return View("Login", user);
         }
