@@ -29,9 +29,9 @@ namespace UniRate.Models
 
         public string? LocationUrl { get; set; }
 
-        public Guid UniversityId { get; set; }
+        public Guid? UniversityId { get; set; }
 
-        public University university { get; set; }
+        public University? university { get; set; }
 
         public List<Professor>? Professors { get; set; }
 
