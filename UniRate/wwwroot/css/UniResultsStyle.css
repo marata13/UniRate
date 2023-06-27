@@ -138,6 +138,12 @@ h1 {
     overflow-y: scroll;
 }
 
+.dep-list:hover {
+    color: #11668D;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
 .deps-section {
     display: flex;
     align-items: center;
