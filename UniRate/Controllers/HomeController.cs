@@ -274,10 +274,5 @@ namespace UniRate.Controllers
             return View("Login", user);
         }
 
-
-        //public IActionResult Search()
-        //{
-        //    return View();
-        //}
     }
 }
