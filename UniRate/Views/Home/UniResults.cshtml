@@ -305,7 +305,7 @@
                         @foreach (var dep in school)
                         {
                             <a asp-action="DepResults" asp-route-Id="@dep.Id">
-                                <li>@dep.Name</li>
+                                <li class="dep-list">@dep.Name</li>
                             </a>
                         }
                         </ul>
