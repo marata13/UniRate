@@ -1,21 +1,34 @@
-﻿namespace UniRate.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace UniRate.Models
 {
     public class UniRating
     {
         public Guid Id { get; set; }
 
-        public int? SchoolRating { get; set; }
+        [Required]
+        [Range(1, 5)]
+        public int SchoolRating { get; set; }
 
-        public int? ActionsRating { get; set; }
+        [Required]
+        [Range(1, 5)]
+        public int ActionsRating { get; set; }
 
-        public int? Locationrating { get; set; }
+        [Required]
+        [Range(1, 5)]
+        public int Locationrating { get; set; }
 
-        public int? AccessabilityRating { get; set; }
+        [Required]
+        [Range(1, 5)]
+        public int AccessabilityRating { get; set; }
 
-        public int? OrganisationRating { get; set; }
+        [Required]
+        [Range(1, 5)]
+        public int OrganisationRating { get; set; }
 
         public double? OverallRating { get; set; }
 
+        [RegularExpression(@"\w*")]
         public string? Review { get; set; }
 
         public DateTime? DateTime { get; set; }

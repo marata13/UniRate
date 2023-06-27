@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Text.RegularExpressions;
 using UniRate.Data;
 using UniRate.Models;
 
@@ -51,23 +52,31 @@ namespace UniRate.Controllers
 
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> AccountInfo([Bind("UserName,Email,Password")] User user, string newPassword)
         {
             ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
             var loggedUser = await _context.User.FirstOrDefaultAsync(m => m.UserName == HttpContext.User.Identity.Name);
 
-            if (Data.Hashing.VerifyPassword(user.Password, loggedUser.Password, loggedUser.Salt) && ModelState.IsValid)
+            if (ModelState.IsValid && Regex.Match(newPassword, @"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$").Success)
             {
-                byte[] generatedSalt;
-                loggedUser.Password = Hashing.HashPasword(newPassword, out generatedSalt);
-                loggedUser.Salt = generatedSalt;
-                _context.Update(loggedUser);
-                await _context.SaveChangesAsync();
-                ViewBag.errorMessage = "Password successfuly changed";
+                if (Data.Hashing.VerifyPassword(user.Password, loggedUser.Password, loggedUser.Salt))
+                {
+                    byte[] generatedSalt;
+                    loggedUser.Password = Hashing.HashPasword(newPassword, out generatedSalt);
+                    loggedUser.Salt = generatedSalt;
+                    _context.Update(loggedUser);
+                    await _context.SaveChangesAsync();
+                    ViewBag.errorMessage = "Password successfuly changed.";
+                }
+                else
+                {
+                    ViewBag.errorMessage = "Old password is wrong.";
+                }
             }
             else
             {
-                ViewBag.errorMessage = "Old password is wrong";
+                ViewBag.errorMessage = "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character.";
             }
 
             return View(loggedUser);
@@ -196,6 +205,7 @@ namespace UniRate.Controllers
 
         //POST
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddUniReview([Bind("SchoolRating,ActionsRating,Locationrating,AccessabilityRating,OrganisationRating,Review")] UniRating rating, Guid universityId)
         {
             if (ModelState.IsValid)

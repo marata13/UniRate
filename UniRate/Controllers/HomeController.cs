@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using System.Diagnostics;
 using System.Security.Claims;
+using System.Text.RegularExpressions;
 using UniRate.Data;
 using UniRate.Models;
 
@@ -102,6 +103,12 @@ namespace UniRate.Controllers
         public async Task<IActionResult> UniResults(string? UniName, Guid? Id)
         {
             ViewBag.LoggedIn = HttpContext.User.Identity.Name != null;
+
+            if (UniName != null && !Regex.Match(UniName, @"\w*").Success)
+            {
+                ViewBag.errorMessage = "You entered invalid characters.";
+                return View("HomePage");
+            }
 
             var university = await _context.University.FirstOrDefaultAsync(m => m.Name == UniName);
 
